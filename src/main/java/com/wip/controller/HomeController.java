@@ -137,11 +137,6 @@ public class HomeController extends BaseController {
         return "blog/tags_detail";
     }
 
-    @GetMapping(value = "/about")
-    public String about() {
-        return "blog/about";
-    }
-
     @ApiOperation("文章内容页")
     @GetMapping(value = "/detail/{cid}")
     public String detail(
@@ -154,7 +149,7 @@ public class HomeController extends BaseController {
         request.setAttribute("article", article);
 
         // 更新文章的点击量
-        this.updateArticleHits(article.getCid(),article.getHits());
+//        this.updateArticleHits(article.getCid(),article.getHits());
         // 获取评论
         List<CommentDomain> comments = commentService.getCommentsByCId(cid);
         request.setAttribute("comments", comments);
@@ -265,6 +260,14 @@ public class HomeController extends BaseController {
             throw BusinessException.withErrorCode(ErrorConstant.Comment.ADD_NEW_COMMENT_FAIL);
         }
 
+    }
+
+    @ApiOperation("关于我内容页")
+    @GetMapping(value = "/about")
+    public String about(HttpServletRequest request) {
+//        PageInfo<ContentDomain> articles = contentService.getArticlesByCond(new ContentCond(), page, limit);
+//        request.setAttribute("articles", articles);
+        return "home/about";
     }
 
     private void cookie(String name, String value, int maxAge, HttpServletResponse response) {

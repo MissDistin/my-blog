@@ -1,1134 +1,544 @@
 <!DOCTYPE html>
+<!--suppress ALL-->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8">
-<title>【思维】欲戴王冠，必承其重 - 黑色四叶草博客</title>
-<meta name="keywords" content="思维，王冠" />
-<meta name="description" content="值得思考的一句话。感触太多" />
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
+    <title>Tinko博客</title>
+    <meta name="keywords"
+          content="小陈博客，小陈，cywblog，个人博客，chenyanwu，陈彦吾，博客，个人博客模板，php源码下载，个人网站，模板分享，博客程序，网站模板，php个人博客，seo个人博客"/>
+    <meta name="description" content="小陈个人博客是一个基于thinkPHP框架开发的php个人网站，博客涵盖PHP技术，前端，数据库，SEO优化，专注于PHP技术开发，PHP源码作品。"/>
+    <meta name="author" content="小陈"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable="no"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="shortcut icon" th:href="@{/home/images/icon/favicon.ico}"/>
+    <!--公共的css-->
+    <!--<link rel="stylesheet" href="css/index.css" />-->
+    <link rel="stylesheet" th:href="@{/home/css/my.css}">
+    <link rel="stylesheet" th:href="@{/home/css/default.css}">
+    <link rel="stylesheet" th:href="@{/home/css/public.css}">
+    <link rel="stylesheet" th:href="@{/home/css/animation.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/home/css/skin_1.css}" title="qingxin"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/home/css/skin_2.css}" title="jianyue"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/home/css/skin_3.css}" title="qingshuang"/>
+    <link rel="stylesheet" th:href="@{/home/css/font-icon.css}">
+    <link rel="stylesheet" th:href="@{/home/css/face.css}">
+    <script type="text/javascript" th:src="@{/home/js/jquery.2.1.4.min.js}"></script>
 
-<!--代码高亮插件-->
-<!--<script type="text/javascript" src="../Editor/syntax/scripts/shCore.js"></script>-->
-<!--<script type="text/javascript" src="../Editor/syntax/scripts/shBrushJScript.js"></script>-->
-<!--<link type="text/css" rel="stylesheet" href="../Editor/syntax/styles/shCoreDefault.css"/>-->
-<!--<script type="text/javascript" src="../Editor/syntax/scripts/shBrushCss.js"></script>-->
-<!--<script type="text/javascript" src="../Editor/syntax/scripts/shBrushXml.js"></script>-->
-<!--<script type="text/javascript">SyntaxHighlighter.all();</script>-->
-<meta name="renderer" content="webkit">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<link rel="shortcut icon" th:href="@{/home/images/icon/favicon.ico}" />
 
-<!--CSS-->
-<link rel="stylesheet" th:href="@{/home/css/default.css}">
-<link rel="stylesheet" th:href="@{/home/css/public.css}">
-<link rel="stylesheet" th:href="@{/home/css/animation.css}">
-<link rel="stylesheet" type="text/css" th:href="@{/home/css/skin_1.css}" title="qingxin"/>
-<link rel="stylesheet" type="text/css" th:href="@{/home/css/skin_2.css}" title="jianyue"/>
-<link rel="stylesheet" type="text/css" th:href="@{/home/css/skin_3.css}" title="qingshuang"/>
-<link rel="stylesheet" th:href="@{/home/css/font-icon.css}">
-<link rel="stylesheet" th:href="@{/home/css/face.css}">
-<!--<link rel="stylesheet" href="../css/swiper.css"/>-->
-<!--<link href="../css/lightbox.css" type="text/css" rel="stylesheet"/>-->
+    <script type="text/javascript" th:src="@{/home/js/my.js}"></script>
+    <script type="text/javascript" th:src="@{/home/js/superbg.min.js}"></script>
+    <script type="text/javascript" th:src="@{/home/js/superbg-custom.js}"></script>
+    <script type="text/javascript" th:src="@{/home/js/album.js}"></script>
+    <script type="text/javascript" th:src="@{/home/js/tooltip.js}"></script>
+    <script type="text/javascript" th:src="@{/home/js/face.js}"></script>
+    <script type="text/javascript" th:src="@{/home/js/layer.js}"></script>
+    <script type="text/javascript" th:src="@{/home/js/checkform.js}" charset="utf-8"></script>
+    <script type="text/javascript" th:src="@{/home/js/skin.js}"></script>
+    <script type="text/javascript" th:src="@{/home/js/swiper.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/home/css/swiper.css}">
 
-<!--JS-->
-<script type="text/javascript" th:src="@{/home/js/jquery.2.1.4.min.js}"></script>
-<script type="text/javascript" th:src="@{/home/js/layer.js}" ></script>
-<script type="text/javascript" th:src="@{/home/js/swiper.min.js}"></script>
-<!--<script src="../js/lightbox.js"></script>-->
-<script type="text/javascript" th:src="@{/home/js/superbg.min.js}"></script>
-<script type="text/javascript" th:src="@{/home/js/superbg-custom.js}"></script>
-<script type="text/javascript" th:src="@{/home/js/album.js}"></script>
-<script type="text/javascript" th:src="@{/home/js/tooltip.js}"></script>
-<script type="text/javascript" th:src="@{/home/js/face.js}"></script>
-<script type="text/javascript" th:src="@{/home/js/checkform.js}" charset="utf-8"></script>
-<script type="text/javascript"  th:src="@{/home/js/skin.js}"></script>
+    <!--代码高亮插件-->
+    <script type="text/javascript"
+            src="http://chenyanwu.cc/APP/Public/ueditor1_4_3/third-party/SyntaxHighlighter/shCore.js"></script>
+    <link rel="stylesheet" type="text/css"
+          href="http://chenyanwu.cc/APP/Public/ueditor1_4_3/third-party/SyntaxHighlighter/shCoreDefault.css">
+    <script>SyntaxHighlighter.all();</script>
 
+    <link rel="stylesheet" type="text/css" href="css/ui-dialog.css"/>
+    <script type="text/javascript" charset="utf-8" src="js/dialog-plus-min.js"></script>
+    <script src="js/common.js" type="text/javascript"></script>
+
+    <link href="css/blueimp-gallery.min.css" rel="stylesheet" type="text/css"/>
+    <script src="js/jquery.blueimp-gallery.min.js" type="text/javascript"></script>
+    <style>
+        .article-body table td {
+            border: solid 1px #cccccc;
+        }
+
+        .article-body table {
+            border-collapse: collapse
+        }
+    </style>
 </head>
-
-<body class="nobg">
-
-<div class="loading_div">
- <p><img src="/images/icon/loading.gif"/></p>
-</div>
-<!---最外层-->
-<div class="wrapper page_hide">
-<!--导航开始-->
-<header class="myheader">
-  <div class="top">
-    <!--头像左边部分-->
-      <div class="top-left">
-        <div class="logo"><a href="/"><img src="../upload/logo/201885174911893.png"/></a></div>
-          <!--滚动消息-->
-			<div class="web-xiaoxi">
-				<i class="el-speaker"></i>
-				<ul class="mulitline">
-				   <li>欢迎来到黑色四叶草博客</li> <li>I can do all things.</li> <li>欢迎来到黑色四叶草博客</li> <li>懂得修心才会有内涵。</li> <li>败坏之先，人心骄傲</li>
-				</ul>
-			</div>
-		<!--滚动消息结束 -->
-        <!--手机菜单按钮-->
-          <div class="mobile-nav"><i class="el-lines"></i><i class="el-remove"></i></div>
-		</div>
-	<!--电脑导航开始-->
-<nav class="mynav">
-<ul class="orange-text">
-<li class=""><a href="/">首页</a></li>
-
-
-	<li  ><a href="/About/" >简介</a>
-
-	</li>
-
-
-	<li class='drop'  ><a href="/list/" >设计<i class='el-chevron-down'></i></a>
-
-          <div class="drop-nav orange-text ">
-            <i class="caret"><i></i></i>
-            <ul>
-
-              <li><a href="/List/?1+1.html" >设计佳作</a></li>
-
-              <li><a href="/List/?2+1.html" >飘零落叶</a></li>
-
-              <li><a href="/List/?3+1.html" >行业知识</a></li>
-
-            </ul>
-          </div>
-
-	</li>
-
-
-	<li class='drop'  ><a href="/list/" >杂谈<i class='el-chevron-down'></i></a>
-
-          <div class="drop-nav orange-text ">
-            <i class="caret"><i></i></i>
-            <ul>
-
-              <li><a href="/List/?19+1.html" >境遇点滴</a></li>
-
-              <li><a href="/List/?17+1.html" >兴趣分享</a></li>
-
-              <li><a href="/List/?18+1.html" >声控美文</a></li>
-
-              <li><a href="/List/?16+1.html" >时事热点</a></li>
-
-              <li><a href="/List/?20+1.html" >破解系列</a></li>
-
-            </ul>
-          </div>
-
-	</li>
-
-
-	<li  ><a href="/Shuo/" >说说</a>
-
-	</li>
-
-
-	<li  ><a href="/Album/" >相册</a>
-
-	</li>
-
-
-	<li  ><a href="/FeedBack/" >留言</a>
-
-	</li>
-
-
-	<li  ><a href="/Links/" >链接</a>
-
-	</li>
-
-  </ul>
-	<!--移动的滑动-->
-        <div class="move-bg"></div>
-    <!--移动的滑动 end-->
-</nav>
-
-<!--这里是手机导航-->
-<div class="mob-menu">
-<!--手机顶部搜索-->
-    <div class="search ">
-        <form action="/Search/" method="get">
-            <div class="search-index">
-                <input name="s" type="text"  placeholder="请输入关键字" onfocus="this.placeholder=''" onblur="this.placeholder='请输入关键字'"/>
-                <i class="el-search"><input value=" "type="submit"/></i>
-            </div>
-        </form>
-    </div>
-    <!--手机下拉菜单-->
-  <ul class="mob-ulnav">
-      <li><a href="/">首页</a></li>
-
-      <li >
-          <a href="/About/">简介</a>
-
-      </li>
-
-      <li class='mob-drop' >
-          <a href="javascrip:;">设计<i></i></a>
-
-          <ul class="mob-dropmenu">
-
-          <li><a href="/List/?1+1.html" >设计佳作</a></li>
-
-          <li><a href="/List/?2+1.html" >飘零落叶</a></li>
-
-          <li><a href="/List/?3+1.html" >行业知识</a></li>
-
-          </ul>
-
-      </li>
-
-      <li class='mob-drop' >
-          <a href="javascrip:;">杂谈<i></i></a>
-
-          <ul class="mob-dropmenu">
-
-          <li><a href="/List/?19+1.html" >境遇点滴</a></li>
-
-          <li><a href="/List/?17+1.html" >兴趣分享</a></li>
-
-          <li><a href="/List/?18+1.html" >声控美文</a></li>
-
-          <li><a href="/List/?16+1.html" >时事热点</a></li>
-
-          <li><a href="/List/?20+1.html" >破解系列</a></li>
-
-          </ul>
-
-      </li>
-
-      <li >
-          <a href="/Shuo/">说说</a>
-
-      </li>
-
-      <li >
-          <a href="/Album/">相册</a>
-
-      </li>
-
-      <li >
-          <a href="/FeedBack/">留言</a>
-
-      </li>
-
-      <li >
-          <a href="/Links/">链接</a>
-
-      </li>
-
-  </ul>
-</div>
-</div>
-
-</header>
-<!--导航结束-->
-
-
+<body class="nobg" oncontextmenu="return false">
+<div th:replace="home/fragments/header::header"></div>
 
 <!--主题框架开始-->
 <div class="container">
-<!--左侧开始-->
-	<section>
+    <!--左侧开始-->
+    <section>
+        <article>
+            <h3 class="arc-title index-title" th:text="${article.title}"></h3>
+            <div class="post-line bg-color">
+                <ul>
+                    <li><a title="小陈 发表于 2017-11-18 19:09:51"><i class="fa fa-calendar"></i>
+                        <time th:text="${commons.fmtdate(article.created, 'yyyy-MM-dd')}" title="创建于" datetime="2018-07-07T15:40:56+08:00"></time>
+                    </a></li>
+                    <li><a href="javascript:;" title="本文作者：小陈"><i class="fa fa-user-o"></i>小陈</a></li>
+                    <li><a href="#pingluns" title="转到评论"><i class="fa fa-commenting-o"></i><em id="comment" th:text="${article.commentsNum}">评论</em></a></li>
+                    <li><a title="浏览数"><i class="fa fa-eye"></i>(<em id="view" th:text="${article.hits}"></em>)</a></li>
+                </ul>
+                <!--                 <script type="text/javascript">ajaxComment("#comment","",149); ajaxView("#view","",149);</script> -->
+            </div>
 
-	<article >
+            <div class="article-content bg-color" id="arc-tj">
 
-
-
-		<h3 class="arc-title index-title">【思维】欲戴王冠，必承其重</h3>
-		<div class="post-line bg-color">
-			<ul>
-				<li><a title="Clovers設計師发表于2018年8月12日"><i class="el-time"></i><time>2018年8月12日</time></a></li>
-				<li><a href="../Search/?s=Clovers設計師" title="本文作者：Clovers設計師"><i class="el-user"></i>Clovers設計師</a></li>
-				<li><a href="#Comment" title="转到评论"><i class="el-comment"></i>5条</a></li>
-				<li><a title="已有 260 次浏览"><i class="el-eye-open"></i>(260)</a></li>
-			</ul>
-		</div>
-
-
-			<div class="article-content bg-color">
-			<!--文章正文-->
-				<div class="article-body  img_loading"><p style="margin-top:15px;margin-bottom:20px;padding:0px;line-height:32px;font-size:17px;font-family:微软雅黑, 宋体;text-indent:2em;white-space:normal;">
-	<span style="text-indent:2em;">“加欲戴王冠，必承其重”，我想，这是对成熟的一种定义吧，那么，我们怎样才能戴上自己的王冠，走向成熟呢？</span>
-</p>
-<p style="margin-top:15px;margin-bottom:20px;padding:0px;line-height:32px;font-size:17px;font-family:微软雅黑, 宋体;text-indent:2em;white-space:normal;">
-	刚知道这词，感触颇深，<span style="font-family:微软雅黑, 宋体;font-size:17px;text-indent:34px;white-space:normal;">很多人并未有这个意识，来自生活的压力，亲人的羁绊，个人的梦想不断敲击着我们，可是有多少人已戴上皇冠？</span>
-</p>
-<p style="margin-top:15px;margin-bottom:20px;padding:0px;line-height:32px;font-size:17px;font-family:微软雅黑, 宋体;text-indent:2em;white-space:normal;">
-	<span style="text-indent:2em;">引发深思，当我知道这个词语时，沉思了很久，我现在是否停滞不前，唯唯诺诺</span><span style="text-indent:2em;">，</span><span style="text-indent:2em;">不知你是否和我一样？</span>
-</p><!--<div class="edit-time"> </div>--></div>
-				<!--END 文章正文->
-				<!--分享-->
-				<div class="article-fx"><a class="fx-btn img-circle" href="javascript:;" class="img-circle">分享</a>
-					<div class="bd-fx arc-bdfx">
-						<i class="el-remove fx-close"></i>
-						<ul class="bdsharebuttonbox">
-							<li><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></li>
-							<li><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a></li>
-							<li><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a></li>
-							<li><a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a></li>
-						</ul>
-						<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-					</div>
-				</div>
-				<!--END 分享-->
-			<hr>
-
-				<!--标签-->
-				<div class="article_tag">
-                    <ul >
-				<!--		<li><a title="Clovers設計師 当前位于：云南省">云南省</a></li>-->
-						<li><a href="../List/?19+1.html" title="归类：境遇点滴">境遇点滴</a></li>
-
-								  <li><a href= "../Search/?s=思维 " title="标签：思维 ">思维</a></li>		  <li><a href= "../Search/?s=王冠 " title="标签：王冠 ">王冠</a></li>
-
-                    </ul>
+                <!--文章正文-->
+                <div class="article-body img_loading lightBoxGallery">
+                    <th:block th:utext="${commons.article(article.content)}"></th:block>
+                    <br/>本文为原创链接,转载请注明出处！</p>
                 </div>
-			</div>
-	</article>
-	<!--上一篇，下一篇-->
-	<div class="shangyip bg-color">
-		<span><i class="el-arrow-up"></i>上一篇：<a class='blue-text' href='/Article/?307.html' title='上一篇：【热点】中国多地及云南为什么总地震？竟然是这样'>【热点】中国多地及云南为什么总地震？竟然是这样</a></span>
-		<span><i class="el-arrow-down"></i>下一篇：<a class='blue-text' href='/Article/?305.html' title='下一篇：【电影资源】2017高分奇幻歌舞《美女与野兽》双语'>【电影资源】2017高分奇幻歌舞《美女与野兽》双语</a></span>
-	</div>
-<!--随机推荐-->
-<div class="maybe-love">
-	<h4 class="index-title"><i class="el-heart"></i>您还可能喜欢</h4>
-	<ul>
+                <!--END 文章正文-->
+                <!--分享-->
+                <div class="article-fx" id="pingluns">
 
-		<li>
-			<a href="../Article/?146.html">
+                    <link rel="stylesheet" type="text/css" href="css/ui-dialog.css"/>
+                    <script type="text/javascript" charset="utf-8" src="js/dialog-plus-min.js"></script>
+                    <a id="myFavorite" class="sucai-fx"><i class="fa fa-star-o"></i>收藏本文</a>
+                    <a class="fx-btn sucai-fx" href="javascript:;" title=""><i class="fa fa-share-square-o"></i>分享本文</a>
+                    <div class="bd-fx arc-bdfx">
+                        <i class="el-remove fx-close"></i>
+                        <ul class="bdsharebuttonbox">
+                            <li><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></li>
+                            <li><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a></li>
+                            <li><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a></li>
+                            <li><a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--END 分享-->
+                <hr>
+            </div>
+        </article>
+        <!--上一篇，下一篇-->
+        <div class="shangyip bg-color">
+            <span><i class="fa fa-arrow-up"></i>上一篇：<a href="/Home/Cont/xiang/c_id/1.html">想自学编程，入门先学什么程序好？</a></span>
+            <span><i class="fa fa-arrow-down"></i>下一篇：<a href="/Home/Cont/xiang/c_id/3.html">分享整理的免费API接口</a></span>
+        </div>
 
+        <h4 class="index-title">
+            <i class="fa fa-comments"></i>
+            当前共有<span id="comment2">0</span> 条评论</h4>
+        <div class="comment-area">
+            <ul id="comment_list">
+                <p style="line-height:35px;text-align:center;border:1px solid #0181DA;color:#0181DA">暂无评论，快来抢沙发吧！</p>
 
-			<img src="/upload/Article/cover/2017052760966581.jpg"  alt="【遇见】12周年，我们拼了" title="【遇见】12周年，我们拼了" />
+            </ul>
+        </div>
 
-
-			<span >【遇见】12周年，我</span>
-			</a>
-		</li>
-
-		<li>
-			<a href="../Article/?150.html">
-
-
-			<img src="/upload/Article/cover/2017052762155497.jpg"  alt="【遇见】爸爸去哪儿之普者黑游玩" title="【遇见】爸爸去哪儿之普者黑游玩" />
-
-
-			<span >【遇见】爸爸去哪儿之</span>
-			</a>
-		</li>
-
-		<li>
-			<a href="../Article/?145.html">
-
-
-			<img src="/upload/Article/cover/2017052758325417.jpg"  alt="【遇见】梁志天-国际室内装饰侯任主席" title="【遇见】梁志天-国际室内装饰侯任主席" />
-
-
-			<span >【遇见】梁志天-国际</span>
-			</a>
-		</li>
-
-		<li>
-			<a href="../Article/?271.html">
+        <!--评论表单-->
+        <h3 class="form-btn blue-text"><a href="javascript:;"><i class="fa fa-edit fa-lg"></i>我要留言 / 展开表单</a></h3>
+        <div id="Coon" class="form-zd form-in">
 
 
-			<img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3576711958,1671080806&fm=58&s=02C6D8129570ED82D6D192FA03000035&bpow=121&bpoh=75"  alt="一号家居网离职员工的自述，一号家居网濒临倒闭黑幕" title="一号家居网离职员工的自述，一号家居网濒临倒闭黑幕" />
+            <!--表单开始-->
+            <div id="for-in">
+                <form id="comment_form" action="/Home/Cont/inspl/c_id/2" method="post"
+                      onsubmit="return checkform_pinglun()">
+                    <input type="hidden" class="user_name" name="name" value=""/>
+                    <input type="hidden" name="user_ico" value=""/>
+                    <textarea id="txtContent" name="cont" class="input" datatype="*" sucmsg=" " placeholder="请先登录后评论..."
+                              style="padding:10px 4px;font-size:16px;"></textarea>
+                    <!--表情按钮-->
+                    <div class="face-box">
+                        <div id="face-btn"><a href="javascript:void(0);"><img
+                                th:src="@{/home/images/biaoqing/ali/3.gif}"
+                                width='25'></a></div>
+                        <div class="feed-email">
+                            <input name="emall" type="text" id="u_mail" value="" size="16" placeholder="接收回复的email"/>
+                        </div>
+                        <!--提交表单-->
+                        <div class="feed-sub">
+                            <input type="submit" name="pinglun" class="btn btn-inverse" value="评论"/>
+                        </div>
+                        <!--表情-->
+                        <div class="face-main" id="face-area" style="display:none;">
+                            <ul class="face-tab clearfix">
+                                <li><a href="javascript:void(0);" class="selected-a">默认</a></li>
+                                <li><a href="javascript:void(0);">阿狸</a></li>
+                                <li><a href="javascript:void(0);">贴吧表情</a></li>
+                            </ul>
+                            <ul class="face-ul clearfix face_selected"></ul>
+                            <ul class="face-ul clearfix" style="display:none;"></ul>
+                            <ul class="face-ul clearfix" style="display:none;"></ul>
+                            <ul class="face-ul clearfix" style="display:none;"></ul>
+                            <a href="javascript:void(0);" class="face-close"><i class="fa fa-times"></i></a>
+                        </div>
+                    </div>
 
+                </form>
+            </div>
+            <!--表单结束-->
+        </div>
+        <br/><br/><br/><br/><br/><br/><br/>
+        <!--用户评论-->
+    </section>
+    <!--左侧结束-->
+    <!--左侧结束-->
 
-			<span >一号家居网离职员工的</span>
-			</a>
-		</li>
-
-	</ul>
+    <script type="text/javascript" src="js/common.js"></script>
+    <div th:replace="home/fragments/aside::aside"></div>
 </div>
-	<!--评论列表-->
+<!---底部开始-->
+<footer>
+
+    <!--底部导航-->
+    <div class="foot-nav">
+        <div class="copy-right"><span>CopyRight © 2015-2017 小陈博客     Design by http://05mi.cn</span></div>
+        <div class="bottom-nav">
+			<span>
+                <a href="https://tongji.baidu.com/web/welcome/ico?s=e0dafd10f8cd921df1724ef0cae09a59" target="_blank">百度统计</a>
+                <a href="http://www.miitbeian.gov.cn/"> 浙ICP备16039435号</a>
+            </span>
+        </div>
+    </div>
+    <div id="toTop">Back to Top</div>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            $(".img_loading").removeClass("img_loading");
+            $(".silde-title").show();
+
+            $(".comment_txt").each(function () {
+                $(this).html($(this).html().replace(/\[Q([0-9]*)\]/g, "<img src='{$smarty.const.HOME_IMG}face/mr/$1.gif'>"));
+                $(this).html($(this).html().replace(/\[yc_([0-9]*)\]/g, "<img src='{$smarty.const.HOME_IMG}face/yc/$1.gif'>"));
+                $(this).html($(this).html().replace(/\[ali_([0-9]*)\]/g, "<img src='{$smarty.const.HOME_IMG}face/ali/$1.gif'>"));
+            })
+        }
+        $(function () {
+            var swiper = new Swiper('.swiper-container', {
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+                pagination: '.swiper-pagination',
+                paginationType: 'fraction',
+                centeredSlides: true,
+                autoplay: 5500, //自动播放时间
+                autoHeight: true //自动高度
+            });
+            //瀑布流
+            $('.su').jaliswall({item: '.su-li'});
+        });
+        ajaxEash(".icon-speech", "", 0);
+        ajaxEash(".icon-eye", "", 1);
+    </script>
 
 
-	<div class="comment-area" id="Comment">
+    <div class="select-skin">
+        <div class="skin-btn">
+            <a href="javascript:void(0);" class="skin-btn-open">换<br>肤</a>
+        </div>
 
-
-	<h4 class="index-title"><i class="el el-comment-alt"></i> 当前共有<span>5</span> 条评论
-	</h4>
-
-				<ul>
-
-					<li class="bg-color">
-						<div class="comment-ava">
-
-							<a href="../url/?t.cn/RkdQAB0" id="Comment-59" target="_blank" rel="nofollow" title="去 《扬帆云仓》 的网站看看?">
-
-							<img class="img-circle" src="../images/Portrait/22.jpg" alt="扬帆云仓"/></a>
-							<!--<span><i class="el-user"></i>扬帆云仓</span>-->
-						</div>
-						<div class="comment-info ">
-							<div class="comment-line ">
-								<ul>
-									<li><a ><i class="el-user"></i>扬帆云仓</a></li>
-									<li><a title="发表于2018-08-28"><i class="el-time"></i>2018-08-28</a></li>
-									<li><a title="扬帆云仓 当前位于：湖北省"><i class="el-map-marker"></i>湖北省</a></li>
-								</ul>
-							</div>
-							<div class="comment-content">支持一下</div>
-							<!--回复-->
-
-						</div>
-
-					</li>
-
-					<li class="bg-color">
-						<div class="comment-ava">
-
-							<a href="../url/?51185118.com" id="Comment-54" target="_blank" rel="nofollow" title="去 《518博客》 的网站看看?">
-
-							<img class="img-circle" src="../images/Portrait/82.jpg" alt="518博客"/></a>
-							<!--<span><i class="el-user"></i>518博客</span>-->
-						</div>
-						<div class="comment-info ">
-							<div class="comment-line ">
-								<ul>
-									<li><a ><i class="el-user"></i>518博客</a></li>
-									<li><a title="发表于2018-08-26"><i class="el-time"></i>2018-08-26</a></li>
-									<li><a title="518博客 当前位于：广西柳州市"><i class="el-map-marker"></i>广西柳州市</a></li>
-								</ul>
-							</div>
-							<div class="comment-content">谢谢分享，不忘初心！</div>
-							<!--回复-->
-
-						</div>
-
-					</li>
-
-					<li class="bg-color">
-						<div class="comment-ava">
-
-							<a href="../url/?www.siy.la" id="Comment-44" target="_blank" rel="nofollow" title="去 《广安网站建设》 的网站看看?">
-
-							<img class="img-circle" src="../images/Portrait/73.jpg" alt="广安网站建设"/></a>
-							<!--<span><i class="el-user"></i>广安网站建设</span>-->
-						</div>
-						<div class="comment-info ">
-							<div class="comment-line ">
-								<ul>
-									<li><a ><i class="el-user"></i>广安网站建设</a></li>
-									<li><a title="发表于2018-08-16"><i class="el-time"></i>2018-08-16</a></li>
-									<li><a title="广安网站建设 当前位于：四川省成都市"><i class="el-map-marker"></i>四川省成都市</a></li>
-								</ul>
-							</div>
-							<div class="comment-content">支持博主</div>
-							<!--回复-->
-
-							<ul class="re-comment">
-								<li style="border-left:none;">
-									<div class="admin-ava"><img src="../upload/logo/201885174939443.jpg" alt="Clovers設計師" title="Clovers設計師" class="img-circle"/></div>
-									<div class="re-info">
-										<span>
-											<img src="../images/icon/ok.png"/><a href="http://www.sjsbk.com" target="_blank">Clovers設計師</a>
-											<time>2018-08-16</time> 回复 <a href="#Comment-44">@广安网站建设</a>
-										</span>
-										<div class=" re-content">多谢兄台支持！[Q20]</div>
-									</div>
-							  </li>
-						  </ul>
-
-						</div>
-
-					</li>
-
-					<li class="bg-color">
-						<div class="comment-ava">
-
-							<a href="../url/?www.52spin.com/" id="Comment-39" target="_blank" rel="nofollow" title="去 《黄金投资专业平台》 的网站看看?">
-
-							<img class="img-circle" src="../images/Portrait/39.jpg" alt="黄金投资专业平台"/></a>
-							<!--<span><i class="el-user"></i>黄金投资专业平台</span>-->
-						</div>
-						<div class="comment-info ">
-							<div class="comment-line ">
-								<ul>
-									<li><a ><i class="el-user"></i>黄金投资专业平台</a></li>
-									<li><a title="发表于2018-08-13"><i class="el-time"></i>2018-08-13</a></li>
-									<li><a title="黄金投资专业平台 当前位于：河南省"><i class="el-map-marker"></i>河南省</a></li>
-								</ul>
-							</div>
-							<div class="comment-content">吾日三省吾身[Q0]</div>
-							<!--回复-->
-
-							<ul class="re-comment">
-								<li style="border-left:none;">
-									<div class="admin-ava"><img src="../upload/logo/201885174939443.jpg" alt="Clovers設計師" title="Clovers設計師" class="img-circle"/></div>
-									<div class="re-info">
-										<span>
-											<img src="../images/icon/ok.png"/><a href="http://www.sjsbk.com" target="_blank">Clovers設計師</a>
-											<time>2018-08-13</time> 回复 <a href="#Comment-39">@黄金投资专业平台</a>
-										</span>
-										<div class=" re-content">真能这样，那就超神牛逼了</div>
-									</div>
-							  </li>
-						  </ul>
-
-						</div>
-
-					</li>
-
-					<li class="bg-color">
-						<div class="comment-ava">
-
-							<a id="Comment-37" title="网友代号278，没有登记网站.">
-
-							<img class="img-circle" src="../images/Portrait/53.jpg" alt="网友代号278"/></a>
-							<!--<span><i class="el-user"></i>网友代号278</span>-->
-						</div>
-						<div class="comment-info ">
-							<div class="comment-line ">
-								<ul>
-									<li><a ><i class="el-user"></i>网友代号278</a></li>
-									<li><a title="发表于2018-08-12"><i class="el-time"></i>2018-08-12</a></li>
-									<li><a title="网友代号278 当前位于：中国"><i class="el-map-marker"></i>中国</a></li>
-								</ul>
-							</div>
-							<div class="comment-content">天降大任于斯人也,必先苦其心志,劳其筋骨,饿其体肤,空乏其身</div>
-							<!--回复-->
-
-						</div>
-
-					</li>
-
-
-				</ul>
-
-		</div>
-
-
-
-
-	<!--END评论列表-->
-	<!--评论表单-->
-<h3 class="form-btn blue-text" ><a href="javascript:;" ><i class="el-edit"></i>我要留言 / 展开表单</a></h3>
-	<div id="Coon" class="form-zd form-in">
-
-	<!--表单开始-->
-	<form action="../Post/Article.asp" id="comment-form"  method="post">
-	   		<ul class="hdmenu">
-
-			<li><i class="el-ban-circle"></i> 审核未开启</li>
-
-			<li><input name="jizhu" type="checkbox" value="1" checked class="comment-fuxuna" /> 记住信息</li>
-			<li><input name="huifu" type="checkbox" value="1" checked class="comment-fuxuna" /> 邮件回复</li>
-		</ul>
-		<!----昵称------->
-			<div class="input-prepend">
-				<i class="el-user"></i>
-
-				<input name="u_name" type="text"  id="u_name" value="代号739" size="16"  placeholder="您的称呼（必须）" />
-
-				<input name="post_id" type="hidden" id="post_id" value="306" />
-			</div>
-		<!------邮箱----->
-			<div class="input-prepend">
-			   <i class="el-envelope"></i>
-			<input name="u_mail" type="text"  id="prependedInput" value="" size="16" placeholder="您的邮箱（选填）" />
-			</div>
-		<!----网址------->
-			<div class="input-prepend">
-			   <i class="el-globe"></i>
-			<input name="u_url" type="text"  id="prependedInput1" size="16" value="" placeholder="您的网站（选填）" />
-			</div>
-		<!--表情按钮-->
-			<div class="face-box">
-				<div id="face-btn"><a href="javascript:void(0);" ><img src="../images/face/mr/0.gif" width='25'/></a></div>
-				<textarea name="u_content"  id="txaArticle" placeholder="说点什么吧..."  ></textarea>
-			<!--表情--------->
-			<div class="face-main" id="face-area" style="display:none;">
-				<ul class="face-tab clearfix">
-                  <li><a href="javascript:void(0);" class="selected-a">默认</a></li>
-                  <li><a href="javascript:void(0);">阿狸</a></li>
-                  <li><a href="javascript:void(0);">贴吧表情</a></li>
-                  <!--<li><a href="javascript:void(0);">暴走漫画</a></li>-->
-				</ul>
-				<ul class="face-ul clearfix face_selected"></ul>
-				<ul class="face-ul clearfix" style="display:none;"></ul>
-				<ul class="face-ul clearfix" style="display:none;"></ul>
-				<ul class="face-ul clearfix" style="display:none;"></ul>
-				<a href="javascript:void(0);" class="face-close"><i class="el-remove"></i></a>
-			</div>
-			</div>
-
-		<!--验证码-->
-			<div class="input-prepend yzm">
-				<i class="el-question-sign"></i>
-				<input name="txt_check" type="text"  id="prependedInput3" size="16"  placeholder="验证码" />
-				<span>
-					<img src="../../inc/checkcode.asp " title="点击刷新验证码?"  onClick="this.src='../../inc/checkcode.asp?t='+(new Date().getTime());" />
-				</span>
-			</div>
-		<!--提交表单--------->
-			<div class="feed-sub"><input type="submit" class="btn btn-inverse" value="提交留言" onclick="return checkform()" />  </div>
-		</form>
-	 <!--表单结束-->
-	</div>
-</section>
-<!--左侧结束-->
-
-<!--右边栏开始-->
-<!--=========右侧开始==========-->
-<aside class="myaside">
-
-
-<div class="focus-me bg-color animation-div">
-	<h4 class="index-title"><i class="el-heart"></i>关注我<small>Focus Me</small></h4>
-
-	<div class="xiangguan">
-      <div><a class="benbo" href="http://weibo.com/345125441" target="_blank"><i class="el-eye-open"></i></a><span>新浪博客</span></div>
-      <div><a class="taobao" href="../Article/?308.html"  target="_blank"><i class="el el-gift"></i></a><span>每日红包</span></div>
-      <div><a class="side-fx"><i class="el-share-alt"></i></a><span>分享本博</span></div>
-      <div><a class="mail-btn" href="javascript:;"><i class="el-envelope"></i></a><span>订阅我吧</span></div>
-	</div>
-
-	<div class="mail-dy">
-      <form  action="http://list.qq.com/cgi-bin/qf_compose_send" method="post" target="_blank">
-          <input type="hidden" name="t" value="qf_booked_feedback"/>
-          <input type="hidden" name="id" value=""/>
-          <span>订阅</span>
-          <input name="to" type="text"  placeholder="输入邮箱点击订阅吧" onfocus="this.placeholder=''" onblur="this.placeholder='输入邮箱点击订阅吧'"/>
-          <i class="el-envelope"><input value=" "type="submit"/></i>
-      </form>
-          <i class="el-remove fx-close"></i>
+        <div class="skin-content">
+            <h1>选择风格<span class="skin-close">关闭</span></h1>
+            <div class="skin-content-list">
+                <div class="skin-list"><a href="#" onclick="setActiveStyleSheet('qingxin'); return false;" class="btn1">清新</a>
+                </div>
+                <div class="skin-list"><a href="#" onclick="setActiveStyleSheet('jianyue'); return false;" class="btn2">简约</a>
+                </div>
+                <div class="skin-list"><a href="#" onclick="setActiveStyleSheet('qingshuang'); return false;"
+                                          class="btn3">清爽</a></div>
+            </div>
+        </div>
     </div>
 
-    <div class="bd-fx side-bdfx ">
-      <i class="el-remove fx-close"></i>
-      <ul class="bdsharebuttonbox">
-        <li><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></li>
-        <li><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a></li>
-        <li><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a></li>
-        <li><a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a></li>
-      </ul>
-      <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-	</div>
-</div>
-
-
-
-
-
-<div class="web-author bg-color animation-div">
-		<div class="author-tx">
-			<a class="img-circle" href="/About/" title="点击查看详细信息">
-				<img class="img-circle" src="../upload/logo/201885174939443.jpg"/>
-			</a>
-		</div>
-		<div class="author-name"><span class="blue-text">Clovers設計師</span><p>精于设计，工于营造</p></div>
-		<div class="data-info">
-			<ul>
-				<li><strong>845</strong><span>运行天数</span></li>
-				<li><strong>162,965</strong><span>访问总数</span></li>
-				<li><strong>164</strong><span>文章数量</span></li>
-				<li><strong>3</strong><span>说说条数</span></li>
-			</ul>
-		</div>
-	</div>
-
-
-<!--搜索-->
-<div class="search animation-div">
-	<form action="/Search/" method="get">
-		<div class="search-index">
-			<input name="s" type="text"  placeholder="请输入关键字" onfocus="this.placeholder=''" onblur="this.placeholder='请输入关键字'"/>
-			<i class="el-search"><input value=" "type="submit"/></i>
-		</div>
-	</form>
-</div>
-
-<!--侧边栏广告-->
-        <div class="article-list index-list">
-        <h4 class="h4-tit t-blue translucent pd15 mb30 afterbg"><i class="el-certificate"></i>小程序上线啦~扫一扫</h4>
-
-	<div class="web_ad_wrap mb30"><div style="text-align:center">
-<img src="/upload/image/20180829/20180829191499919991.png" width="200" height="200" />
-</div> </div>
-
-<!--最新更新-->
-
-<div class="clos-new bg-color animation-div">
-	<h4 class="index-title"><i class="el-bulb"></i>博文动态<small>Close New</small></h4>
-	<ul>
-	<li><i class="el-cloud"></i><iframe id="tianqi"  scrolling="no" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=34&icon=1&num=3"></iframe></li>
-
-
-
-	<li><span><i class="el-arrow-up"></i>最近：<font class="blue-text">Clovers設計師</font> 3天前 09:01</span><a title="Clovers設計師 最后更新了【热点】刘强东涉嫌性侵被拘，警方称：案件仍在调查" >更新了<b class="lable">文章</b></a></li>
-
-
-
-
-<li><i class="el-calendar"></i>历史上的今天曾发布（<a class="orange-text">0</a>）</li>
-
-
-</ul>
-</div>
-
-
-<!--说说-->
-<div class="bg-color animation-div">
-	<h4 class="index-title"><i class="el-headphones"></i>最近的心情说说<small>Shuo Shuo</small></h4>
-
-	<div class="shuo-side">
-		<ul>
-
-			<li >
-				<span class="shuobg1"><strong>8-22 </strong></span>
-				<div><a href="../Shuos/?72.html" title="左侧新加支付宝领红包功能，每天都可以用它支付~">左侧新加支付宝领红包功能，每天都可以用它...</a><b title="点击94">(94)</b></div>
-			</li>
-
-			<li >
-				<span class="shuobg2"><strong>8-17 </strong></span>
-				<div><a href="../Shuos/?71.html" title="人世间，除了情，还能有什么。愿天下有情人终成眷属。">人世间，除了情，还能有什么。愿天下有情人...</a><b title="点击119">(119)</b></div>
-			</li>
-
-			<li >
-				<span class="shuobg3"><strong>8-7 </strong></span>
-				<div><a href="../Shuos/?68.html" title="博客改版成功，欢迎网友评论建议。">博客改版成功，欢迎网友评论建议。...</a><b title="点击321">(321)</b></div>
-			</li>
-
-		</ul>
-
-	</div>
-</div>
-
-<!--推荐图文-->
-<div class="article-push  bg-color animation-div mob-hidden">
-	<h4 class="index-title"><i class="el-asl"></i>栏目推荐<small>Push Article</small></h4>
-	<ul>
-
-		<li>
-			<div class="arcimg img_loading">
-				<a href="../Article/?292.html">
-
-                    <img src="/upload/Article/cover/2018071332236809.jpg" alt="【现代】超小型客房，33平方米打造立体的中性空间" title="【现代】超小型客房，33平方米打造立体的中性空间"/>
-
-                </a>
-			</div>
-			<div class="arc-right">
-				<h4 class="blue-text"><a href="/Article/?292.html">【现代】超小型客房，33平方米打造立体的中性空间</a></h4>
-				<p>暂无描述内容....</p>
-				<ul>
-					<li><a title="发表于2018-07-13"><i class="el-time"></i>2018-07-13</a></li>
-					<li><a title="1023次浏览"><i class="el-fire"></i>1023</a></li>
-				</ul>
-			</div>
-		</li>
-
-		<li>
-			<div class="arcimg img_loading">
-				<a href="../Article/?159.html">
-
-                    <img src="http://image.cool-de.com/data/attachment/forum/201612/30/160358y5i2svv148rv5ki1.jpg" alt="【美式】清羽设计——SERENE SEA" title="【美式】清羽设计——SERENE SEA"/>
-
-                </a>
-			</div>
-			<div class="arc-right">
-				<h4 class="blue-text"><a href="/Article/?159.html">【美式】清羽设计——SERENE SEA</a></h4>
-				<p>清羽设计</p>
-				<ul>
-					<li><a title="发表于2017-07-07"><i class="el-time"></i>2017-07-07</a></li>
-					<li><a title="1952次浏览"><i class="el-fire"></i>1952</a></li>
-				</ul>
-			</div>
-		</li>
-
-	</ul>
-</div>
-
-<!--文章排行tab-->
-<div class="mytab bg-color animation-div">
-	<div class="tab-btn"><a class="hd-btn tab-active"href="javascript:;"><i class="el-comment-alt"></i>互动信息</a><a class="ph-btn"href="javascript:;"><i class="el-signal"></i>文章排行</a></div>
-	<ul class="hudong-ul">
-<!--=======查询相册=============-->
-
-		<li>
-
-			<div class="sd-tx">
-
-				<a href="url/?www.siy.la" target="_blank" rel="nofollow" title="去 广安网站建设 的网站看看 ?">
-
-					<img src="../images/Portrait/9.jpg" alt="广安网站建设" class="img-circle"/>
-				</a>
-			</div>
-			<div class="sd-name">
-		<span><i class="el-user"></i>广安网站建设<time >2018-09-03 16:00:18</time></span>
-				<a class="blue-text" href="/Article/?310.html" title="太可怕" >太可怕...</a>
-			</div>
-		</li>
-
-		<li>
-
-			<div class="sd-tx">
-
-				<a href="url/?www.siy.la" target="_blank" rel="nofollow" title="去 广安网站建设 的网站看看 ?">
-
-					<img src="../images/Portrait/76.jpg" alt="广安网站建设" class="img-circle"/>
-				</a>
-			</div>
-			<div class="sd-name">
-		<span><i class="el-user"></i>广安网站建设<time >2018-08-28 14:48:37</time></span>
-				<a class="blue-text" href="/Article/?309.html" title="还不错，漂亮" >还不错，漂亮...</a>
-			</div>
-		</li>
-
-		<li>
-
-			<div class="sd-tx">
-
-				<a href="url/?t.cn/RkdQAB0" target="_blank" rel="nofollow" title="去 扬帆云仓 的网站看看 ?">
-
-					<img src="../images/Portrait/79.jpg" alt="扬帆云仓" class="img-circle"/>
-				</a>
-			</div>
-			<div class="sd-name">
-		<span><i class="el-user"></i>扬帆云仓<time >2018-08-28 14:21:15</time></span>
-				<a class="blue-text" href="/Article/?296.html" title="真的不错" >真的不错...</a>
-			</div>
-		</li>
-
-		<li>
-
-			<div class="sd-tx">
-
-				<a href="url/?t.cn/RkdQAB0" target="_blank" rel="nofollow" title="去 扬帆云仓 的网站看看 ?">
-
-					<img src="../images/Portrait/22.jpg" alt="扬帆云仓" class="img-circle"/>
-				</a>
-			</div>
-			<div class="sd-name">
-		<span><i class="el-user"></i>扬帆云仓<time >2018-08-28 14:09:34</time></span>
-				<a class="blue-text" href="/Article/?306.html" title="支持一下" >支持一下...</a>
-			</div>
-		</li>
-
-	</ul>
-	<!--文章排行-->
-	<ul class="paihang-ul">
-
-		<li><span></span><a href="/Article/?173.html" title="【现代】壹度设计丨木界">【现代】壹度设计丨木界<b>(2,732)</b></a></li>
-
-		<li><span></span><a href="/Article/?162.html" title="【技巧】最舒服的颜色搭配">【技巧】最舒服的颜色搭配<b>(2,689)</b></a></li>
-
-		<li><span></span><a href="/Article/?189.html" title="【现代简约】138㎡现代简约，年轻舒适又大方！">【现代简约】138㎡现代简约，<b>(2,635)</b></a></li>
-
-		<li><span></span><a href="/Article/?174.html" title="【美式】 吾悦广场136m2简美">【美式】 吾悦广场136m2简<b>(2,612)</b></a></li>
-
-		<li><span></span><a href="/Article/?164.html" title="【技巧】3dsmax制作接待厅阳光表现实例教程">【技巧】3dsmax制作接待厅<b>(2,514)</b></a></li>
-
-		<li><span></span><a href="/Article/?166.html" title="【欧式】众和康园欧式效果图360效果图">【欧式】众和康园欧式效果图36<b>(2,472)</b></a></li>
-
-	</ul>
-</div>
-	</div>
-
-<!--标签-->
-<div class="cloud bg-color animation-div">
-    <h4 class="index-title"><i class="el-tags"></i>云标签<small>Tags Clouds</small></h4>
-	<ul id="3dcloud">
-
- <li><a href= "/Search/?s=现代 " title="标签：现代 ">现代</a> </li> <li><a href= "/Search/?s=美式 " title="标签：美式 ">美式</a> </li> <li><a href= "/Search/?s=简美 " title="标签：简美 ">简美</a> </li> <li><a href= "/Search/?s=中豪优活城 " title="标签：中豪优活城 ">中豪优活城</a> </li> <li><a href= "/Search/?s=现代简约 " title="标签：现代简约 ">现代简约</a> </li> <li><a href= "/Search/?s=蓝光天娇城 " title="标签：蓝光天娇城 ">蓝光天娇城</a> </li> <li><a href= "/Search/?s=北欧 " title="标签：北欧 ">北欧</a> </li> <li><a href= "/Search/?s=全景效果图 " title="标签：全景效果图 ">全景效果图</a> </li> <li><a href= "/Search/?s=木地板 " title="标签：木地板 ">木地板</a> </li> <li><a href= "/Search/?s=卫生间 " title="标签：卫生间 ">卫生间</a> </li> <li><a href= "/Search/?s=跃层 " title="标签：跃层 ">跃层</a> </li> <li><a href= "/Search/?s=中式风格 " title="标签：中式风格 ">中式风格</a> </li> <li><a href= "/Search/?s=新中式 " title="标签：新中式 ">新中式</a> </li> <li><a href= "/Search/?s=全景效果图 " title="标签：全景效果图 ">全景效果图</a> </li> <li><a href= "/Search/?s=七彩云南第一城 " title="标签：七彩云南第一城 ">七彩云南第一城</a> </li> <li><a href= "/Search/?s=背景墙 " title="标签：背景墙 ">背景墙</a> </li> <li><a href= "/Search/?s=滇池星城 " title="标签：滇池星城 ">滇池星城</a> </li> <li><a href= "/Search/?s=一号家居网 " title="标签：一号家居网 ">一号家居网</a> </li> <li><a href= "/Search/?s=美式田园 " title="标签：美式田园 ">美式田园</a> </li> <li><a href= "/Search/?s=兴冶国际 " title="标签：兴冶国际 ">兴冶国际</a> </li> <li><a href= "/Search/?s=西餐厅 " title="标签：西餐厅 ">西餐厅</a> </li> <li><a href= "/Search/?s=天街166 " title="标签：天街166 ">天街166</a> </li> <li><a href= "/Search/?s=厨房 " title="标签：厨房 ">厨房</a> </li>
-
-
-	</ul>
-</div>
-
-<!--友情链接-->
-<div class="side-link animation-div">
-	<h4 class="index-title"><i class="el-paper-clip"></i>合作伙伴<small>Friend Links</small><a  href="/Links/#Join"><i class="el el-plus"></i>申请</a></h4>
-	<ul>
-
-
-		<li><a href="http://www.shuogei.com" target="_blank" title=""  >说给你听</a></li>
-
-		<li><a href="http://www.feiyang.info" target="_blank" title=""  >飞扬驿站</a></li>
-
-		<li><a href="http://daohang.lusongsong.com" target="_blank" title=""  >周松松博客</a></li>
-
-		<li><a href="http://mrxiao.cc" target="_blank" title=""  >官仁博客</a></li>
-
-		<li><a href="http://www.yangqq.com" target="_blank" title=""  >杨青个人博客</a></li>
-
-		<li><a href="http://www.tzbank.net" target="_blank" title=""  >推优网站目录</a></li>
-
-		<li><a href="http://www.ywlist.com" target="_blank" title=""  >分类目录提交</a></li>
-
-		<li><a href="http://www.shibingtong.com" target="_blank" title=""  >食饼筒</a></li>
-
-		<li><a href="http://www.micropage.cn" target="_blank" title=""  >微页网站目录</a></li>
-
-		<li><a href="http://www.juhemulu.com " target="_blank" title=""  >聚合网站目录</a></li>
-
-		<li><a href="http://sma.so" target="_blank" title=""  >神马搜索</a></li>
-
-		<li><a href="http://www.lssdjt.com/" target="_blank" title=""  >中国历史</a></li>
-
-	</ul>
-</div>
-</aside>
-<!--=========END右侧==========-->
-<div class="clear"></div>
-
-</div>
-<!--主题框架结束-->
-<!---底部开始-->
-
-<footer>
-	<div class="footer-area">
-		<!--博客相关-->
-		<div class="about-blog">
-			<h4>联系博主</h4>
-			<div class="lianxi-pd">
-				<ul>
-					<li><img src="../images/xin.gif" alt="黑色四叶草博客系统" title="黑色四叶草博客系统"/></li>
-					<li><span>有建议请通过以下方式与我联系：</span></li>
-					<li><span>邮箱：sjsbk@sjsbk.com</span></li>
-					<li><span>QQ：843026205</span></li>
-					<li><span>电话：187-8708-0613</span></li>
-					<li><span><a href="../url/?wpa.qq.com/msgrd?v=3&uin=843026205&site=qq&menu=yes" target="_blank"
-								 rel="nofollow"><img src="../images/qq.png" title="交谈"></a>&nbsp;
-				&nbsp;  <a href="../rss/" target="_blank" rel="nofollow"><img src="../images/rss.png" title="RSS阅读"></a></span>
-					</li>
-				</ul>
-			</div>
-		</div>
-
-		<!--最新留言-->
-		<div class="close-fd mob-hidden">
-			<h4>留言频道</h4>
-			<ul>
-
-				<li>
-
-					<div class="sd-tx">
-
-						<a title="网友代号706，没有登记网站.">
-
-							<img src="../images/Portrait/38.jpg" alt="网友代号706" class="img-circle"/>
-						</a>
-					</div>
-					<div class="sd-name">
-						<span>网友代号706</span>
-						<a class="blue-text" href="../FeedBack/#Comment-20" title="博主，你这个博客做的很好看，是你自己打代码的吗？">博主，你这个博客做的很好看，是你自己打代码的吗？...</a>
-					</div>
-				</li>
-
-				<li>
-
-					<div class="sd-tx">
-
-						<a href="../url/?uycool.com" target="_blank" rel="nofollow" title="去 iGuanren 的网站看看 ?">
-
-							<img src="../images/Portrait/29.jpg" alt="iGuanren" class="img-circle"/>
-						</a>
-					</div>
-					<div class="sd-name">
-						<span>iGuanren</span>
-						<a class="blue-text" href="../FeedBack/#Comment-19" title="博主，官仁博客已将域名更换，还望得空了更新下，多谢！">博主，官仁博客已将域名更换，还望得空了更新下，多谢...</a>
-					</div>
-				</li>
-
-				<li>
-
-					<div class="sd-tx">
-
-						<a href="../url/?www.haohuotui.com" target="_blank" rel="nofollow" title="去 宣威火腿 的网站看看 ?">
-
-							<img src="../images/Portrait/12.jpg" alt="宣威火腿" class="img-circle"/>
-						</a>
-					</div>
-					<div class="sd-name">
-						<span>宣威火腿</span>
-						<a class="blue-text" href="../FeedBack/#Comment-17" title="网站很有特点！有空会多来看看的！">网站很有特点！有空会多来看看的！...</a>
-					</div>
-				</li>
-
-			</ul>
-		</div>
-
-		<!--图文频道-->
-		<div class="tuwen-pd mob-hidden">
-			<h4>图文频道</h4>
-			<ul>
-
-				<li>
-					<a href="../Article/?217.html" title="【柜子】小户型设计，衣柜和入户鞋柜美爆了">
-
-						<img src="http://p0.qhimgs4.com/t010f12995e811a054a.webp" class="img-circle"/>
-
-					</a>
-				</li>
-
-
-				<li>
-					<a href="../Article/?168.html" title="【实景】蓝光天娇城实景样板房照片">
-
-						<img src="/upload/Article/cover/2017052937147753.jpg" class="img-circle"/>
-
-					</a>
-				</li>
-
-
-				<li>
-					<a href="../Article/?296.html" title="【厨房】教你如何选择橱柜材质，什么类型既美观也好清洁">
-
-						<img src="http://p0.qhimgs4.com/t01e5ead3118c5751b5.webp" class="img-circle"/>
-
-					</a>
-				</li>
-
-
-				<li>
-					<a href="../Article/?247.html" title="新闻联播出现《绝地求生》画面 或将被严厉打击">
-
-						<img src="http://p0.qhimgs4.com/t0127dad1267fcbadc4.webp" class="img-circle"/>
-
-					</a>
-				</li>
-
-
-				<li>
-					<a href="../Article/?198.html" title="【卫生间】最喜欢的还是这家，卫生间的设计真是太实用了">
-
-						<img src="http://p2.qhimgs4.com/t01f51a28be2f4912d6.webp" class="img-circle"/>
-
-					</a>
-				</li>
-
-
-				<li>
-					<a href="../Article/?149.html" title="【电影解析】魔兽令美国观众失望 中国观众喜爱">
-
-						<img src="/upload/Article/cover/2017052762013685.jpg" class="img-circle"/>
-
-					</a>
-				</li>
-
-
-				<li>
-					<a href="../Article/?277.html" title="香漫时光C户型现代全景效果图">
-
-						<img src="/upload/Article/cover/2018051767195777.jpg" class="img-circle"/>
-
-					</a>
-				</li>
-
-
-				<li>
-					<a href="../Article/?228.html" title="【社会】桃园三结义“贾乃亮、王宝强、陈羽凡”">
-
-						<img src="http://p0.qhimgs4.com/t01d1bfc025fe0b9ee1.webp" class="img-circle"/>
-
-					</a>
-				</li>
-
-
-				<li>
-					<a href="../Article/?179.html" title="【美式】T.ID 张雪华-[色界]九里香醍320平摩登美式">
-
-						<img src="/upload/Article/cover/2017081258718009.jpg" class="img-circle"/>
-
-					</a>
-				</li>
-
-
-				<li>
-					<a href="../Article/?307.html" title="【热点】中国多地及云南为什么总地震？竟然是这样">
-
-						<img src="http://www.zktw.com/img/article/478/1_wjqh1__.png" class="img-circle"/>
-
-					</a>
-				</li>
-
-
-				<li>
-					<a href="../Article/?258.html" title="蓝光天骄城J李姐木地板美式">
-
-						<img src="/upload/Article/201803271522141574.jpg" class="img-circle"/>
-
-					</a>
-				</li>
-
-
-				<li>
-					<a href="../Article/?209.html" title="【现代】完美设计，演绎现代家居">
-
-						<img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=4195387048,2850520993&fm=173&s=B1019957CC668F0BC68164F503008032&w=600&h=400&img.JPEG"
-							 class="img-circle"/>
-
-					</a>
-				</li>
-
-
-			</ul>
-		</div>
-		<!--数据统计-->
-		<div class="data-count ">
-			<h4>数据统计</h4>
-			<ul>
-
-
-				<li><span><i class="el-picture"></i>图片数量：</span><a title="共有 3 张图片">3</a> 张</li>
-				<li><span><i class="el-headphones"></i>说说数量：</span><a title="共有 3 条说说">3</a> 条</li>
-				<li><span><i class="el-pencil"></i>文章数量：</span><a title="共有 164 篇文章">164</a> 篇</li>
-				<li><span><i class="el-comment"></i>留言数量：</span><a title="共有 8 条留言">8</a> 条</li>
-				<li><span><i class="el-comment-alt"></i>评论数量：</span><a title="共有 35 条评论">35</a> 条</li>
-				<li><span><i class="el-paper-clip"></i>待添素材：</span><a title="共有  个"></a> 个</li>
-				<li><span><i class="el-cog"></i>运行天数：</span><a title="黑色四叶草博客 已正常运行 845 天">845</a> 天</li>
-
-				<li><span><i class="el-adjust-alt"></i>访问统计：</span><a title="累计访问162,965">162,965</a> 次</a></li>
-
-				<!--<li><span><i class="el-arrow-up"></i>3天前 09:01</span><a title="Clovers設計師 最后更新了文章" >更新了<b class="lable">文章</b></a></li>-->
-
-			</ul>
-		</div>
-
-	</div>
-	<!--底部导航-->
-	<div class="foot-nav">
-		<div class="copy-right"><span>CopyRight &#169; 2016-2018  www.sjsbk.com</span></div>
-		<div class="bottom-nav">
-			<span>黑色四叶草博客文章来源于互联网，如内容的合法性及健康性所引起的争议问题请联系博主删除。</span>
-<br>
-
-<a href="../Map/Sitemap.html" target="_blank">百度地图</a>|<a href="../Map/Sitemap.xml" target="_blank">谷歌地图</a>|
-		</div>
-	</div>
-	<div id="toTop">Back to Top</div>
-
-	<div class="select-skin">
-		<div class="skin-btn">
-			<a href="javascript:void(0);" class="skin-btn-open">换<br>肤</a>
-		</div>
-
-		<div class="skin-content">
-			<h1>选择风格<span class="skin-close">关闭</span></h1>
-			<div class="skin-content-list">
-				<div class="skin-list"><a href="#" onclick="setActiveStyleSheet('qingxin'); return false;"
-										  class="btn1">清新</a></div>
-				<div class="skin-list"><a href="#" onclick="setActiveStyleSheet('jianyue'); return false;"
-										  class="btn2">简约</a></div>
-				<div class="skin-list"><a href="#" onclick="setActiveStyleSheet('qingshuang'); return false;"
-										  class="btn3">清爽</a></div>
-			</div>
-		</div>
-
-	</div>
+    <!-- 第三方登录 -->
+    <div class="login" id="login" style="display:none">
+        <div id="login_main">
+            <div id="xx" class="xx"><i class="fa fa-times"></i></div>
+            <div id="login_a">
+                <div class="login_logo">
+                </div>
+                <div class="login_hr">
+                    <div class="login_logo_hr1"></div>
+                    <div class="login_logo_txt">使用第三方账号登录</div>
+                    <div class="login_logo_hr1"></div>
+                </div>
+                <div class="login_ico" style="clear:both">
+                    <a href="/Home/User/qq">
+                        <div class="login_ico1"></div>
+                    </a>
+                    <a href="">
+                        <div class="login_ico2"></div>
+                    </a>
+                    <a href="">
+                        <div class="login_ico3"></div>
+                    </a>
+                </div>
+                <div class="login_nei">
+                    <a id="login_ji" href="javascript:;">手机号/站内账号登录</a>
+                </div>
+                <div class="login_nei1">
+                    <span>还没有账号?</span><a id="reg_a" href="javascript:;">注册新账号</a>
+                </div>
+
+                <br/>
+                <br/>
+                <br/>
+            </div>
+
+            <!-- 站内账号登录 -->
+            <div id="login_b" style="display:none">
+                <div id="fan1" class="fan" onclick="fan_login()">返回</div>
+                <div class="login_logo">
+                </div>
+                <div class="login_hr">
+                    <div class="login_logo_hr1"></div>
+                    <div class="login_logo_txt">使用站内账号登录</div>
+                    <div class="login_logo_hr1"></div>
+                </div>
+                <div class="login_icoa clearfix">
+                    <form id="login_chick" action="./login/login.php" method="post">
+                        <input type="text" name="login_user"><span id="input_user"></span>
+                        <input type="password" name="login_pow"><span id="input_pow"></span>
+                        <button id="login_form">登录</button>
+                    </form>
+                </div>
+                <div class="login_nei1 clearfix">
+                    <span><a href="" style="color:#666">忘记密码?</a></span>
+                </div>
+                <br/>
+                <br/>
+                <br/>
+            </div>
+
+
+            <!-- 账号注册 -->
+            <div id="login_c" style="display:none">
+                <div id="fan2" class="fan" onclick="fan_login()">返回</div>
+                <div class="login_logo">
+                </div>
+                <div class="login_hr">
+                    <div class="login_logo_hr1"></div>
+                    <div class="login_logo_txt">注册成为本站会员</div>
+                    <div class="login_logo_hr1"></div>
+                </div>
+                <div class="login_icoc clearfix">
+                    <form id="reg_chick" action="./login/login.php" method="post">
+                        账&nbsp;&nbsp;&nbsp;号:<input type="text" name="reg_user"><span
+                            id="reg_user">用于登录网站的账号</span><br/>
+                        昵&nbsp;&nbsp;&nbsp;称:<input type="text" name="reg_nickname"><span
+                            id="regnikenames">输入一个昵称</span><br/>
+                        密&nbsp;&nbsp;&nbsp;码:<input type="password" name="reg_pow1"><span id="reg_pow1">密码</span><br/>
+                        重复密码:<input type="password" name="reg_pow2"><span id="reg_pow2">确认密码</span><br/>
+                        <button id="reg_form">注册</button>
+                    </form>
+                </div>
+                <div class="login_nei1 clearfix">
+                    <span style="font-size:12px;margin-left:-80px">点击注册按钮即代表你同意<a href="">版权申明</a></span>
+                </div>
+                <br/>
+                <br/>
+                <br/>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        // 登录框切换
+        var login = document.getElementById("login");
+        var login = document.getElementById("login");
+        var login_a = document.getElementById("login_a");
+        var login_b = document.getElementById("login_b");
+        var login_c = document.getElementById("login_c");
+        document.getElementById("xx").onclick = function () {
+            login.style.display = "none";
+            fan_login()
+        }
+        document.getElementById("login_qq").onclick = function () {
+            login.style.display = "block";
+        }
+        document.getElementById("login_ji").onclick = function () {
+
+            logins();
+        }
+        document.getElementById("reg_a").onclick = function () {
+
+            login_a.style.display = "none";
+            login_b.style.display = "none";
+            login_c.style.display = "block";
+        }
+
+        function logins() {
+            login_a.style.display = "none";
+            login_b.style.display = "block";
+            login_c.style.display = "none";
+        }
+
+        function fan_login() {
+            login_a.style.display = "block";
+            login_b.style.display = "none";
+            login_c.style.display = "none";
+        }
+
+
+        /*
+            登录验证
+         */
+        var login_form = document.getElementById("login_form");
+        var login_chick = document.getElementById("login_chick");
+        var user = login_chick.children[0];
+        var pow = login_chick.children[2];
+        user.value = "请输入账号";
+        // pow.value="请输入密码";
+
+        user.onfocus = function () {
+            if (user.value == "请输入账号") {
+                user.value = "";
+            }
+        }
+        user.onblur = function () {
+            if (user.value == "") {
+                user.value = "请输入账号";
+                document.getElementById("input_user").innerHTML = "";
+            } else if (user.value == "请输入账号") {
+
+            } else {
+                document.getElementById("input_user").innerHTML = "<img src='./images/ico_ckick.gif'>";
+            }
+        }
+        pow.onblur = function () {
+            if (pow.value == "") {
+                // document.getElementById("input_pow").innerHTML="请输入账号";
+                document.getElementById("input_pow").innerHTML = "";
+            } else {
+
+                document.getElementById("input_pow").innerHTML = "<img src='./images/ico_ckick.gif'>";
+            }
+        }
+        login_form.onclick = function () {
+            if (!(user.value == "") & (!pow.value == "")) {
+                return true;
+            }
+            alert("请输入账号密码");
+            return false;
+        }
+
+
+        // 注册验证
+        var reg_chick = document.getElementById("reg_chick");
+        var reg_user = reg_chick.getElementsByTagName("input")[0];
+        var reg_nickname = reg_chick.getElementsByTagName("input")[1];
+        var reg_pow1 = reg_chick.getElementsByTagName("input")[2];
+        var reg_pow2 = reg_chick.getElementsByTagName("input")[3];
+        var user_span = document.getElementById("reg_user");
+
+        reg_user.value = "请输入账号";
+        reg_nickname.value = "请输入昵称";
+        // reg_pow1.value="请输入密码";
+        // reg_pow2.value="再输入一次密码";
+        reg_user.onfocus = function () {
+            if (reg_user.value == "请输入账号") {
+                reg_user.value = "";
+            }
+        }
+        reg_nickname.onfocus = function () {
+            if (reg_nickname.value == "请输入昵称") {
+                reg_nickname.value = "";
+            }
+        }
+        reg_user.onblur = function () {
+            user_span.style.color = "";
+
+            if (reg_user.value == "请输入账号") {
+                user_span.innerHTML = "";
+
+            } else {
+                user_span.innerHTML = "<img src='./images/ico_ckick.gif'>";
+            }
+            if (reg_user.value == "") {
+                reg_user.value = "请输入账号";
+                user_span.innerHTML = "用于登录的账号";
+            } else {
+                // 检测数据库是否存在该账户
+                var xhr = new XMLHttpRequest();
+                var fd = reg_user.value;
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        var txt = xhr.responseText;
+                        if (txt == "1") {
+                            user_span.innerHTML = "该账户已存在!";
+                            user_span.style.color = "red";
+                        }
+                        if (txt == "2") {
+                            user_span.innerHTML = "账户可以使用!";
+                            user_span.style.color = "green";
+                        }
+                    }
+                }
+                xhr.open("get", "./login/login.php?user=" + encodeURIComponent(fd));
+                // xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+                xhr.send(null);
+            }
+        }
+        reg_nickname.onblur = function () {
+            if (reg_nickname.value == "") {
+                reg_nickname.value = "请输入昵称";
+                document.getElementById("regnikenames").innerHTML = "输入一个昵称";
+            } else if (reg_nickname.value == "请输入昵称") {
+                document.getElementById("regnikenames").innerHTML = "";
+
+            } else {
+                document.getElementById("regnikenames").innerHTML = "<img src='./images/ico_ckick.gif'>";
+            }
+        }
+
+
+        reg_pow1.onblur = function () {
+            if (reg_pow1.value == "") {
+                document.getElementById("reg_pow1").innerHTML = "请输入密码";
+            }
+            else if (!(/^[A-Za-z0-9]{ 6,20 }$/).exec(reg_pow1.value)) {
+                document.getElementById("reg_pow1").innerHTML = "请输入6-20位字符";
+            }
+            else {
+                document.getElementById("reg_pow1").innerHTML = "<img src='./images/ico_ckick.gif'>";
+            }
+        }
+        reg_pow2.onblur = function () {
+            if (reg_pow2.value == "") {
+                document.getElementById("reg_pow2").innerHTML = "请输入密码";
+            } else if (reg_pow2.value !== reg_pow1.value) {
+                document.getElementById("reg_pow2").innerHTML = "输入的密码不一致";
+            } else {
+                document.getElementById("reg_pow2").innerHTML = "<img src='./images/ico_ckick.gif'>";
+            }
+        }
+
+
+        document.getElementById("reg_form").onclick = function () {
+            if (reg_user.value == "" || reg_nickname.value == "" || reg_pow1.value == "" || reg_pow2.value == "" || reg_pow2.value !== reg_pow1.value) {
+                return false;
+            }
+            return true;
+        }
+    </script>
 </footer>
-<!---返回顶部-->
-<!--换肤--->
+<!--END 底部结束-->
 
-</div>
-<!---END 底部开始-->
-</div>
-<!---END 最外层-->
-<!--<script type="text/javascript" src="../js/xiaoxiao.js"></script>-->
+<style type="text/css">
+    .syntaxhighlighter .code {
+        overflow-x: scroll !important;
+        /*background: red  !important;*/
+
+    }
+
+    .syntaxhighlighter, table {
+        padding: 10px 20px 10px 2px !important;
+        overflow-x: auto !important;
+        margin-bottom: 30px !important;
+    }
+
+    .syntaxhighlighter tr td div {
+        /*white-space:keep-all !important;*/
+        /*white-space:nowrap !important;*/
+    }
+
+    .article-body {
+        overflow-x: auto !important;
+    }
+</style>
+
 </body>
 </html>
+
