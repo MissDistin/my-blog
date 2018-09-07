@@ -1,0 +1,237 @@
+	/* ç¬¬ä¸‰æ–¹ç™»é™† */
+	#reg1 {
+		width: 400px;
+		height: 30px;
+		margin-right: 200px;
+		font: 400 16px/30px "microsoft yahei";
+		float: right;
+	}
+	#reg1 img{
+		width: 30px;
+		height: 30px;
+		border-radius: 30px;
+	}
+
+	.login {
+	    position: fixed;
+	    display: none;
+	    top: 0;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+	    z-index: 2000;
+	    background-color:rgba(0, 0, 0, 0.4);
+	}
+	#login_main {
+		width: 400px;
+		margin: 200px auto;
+		background-color:#fff;
+		position: relative;
+		padding: 40px 10px;
+	}
+	
+	.login_logo {
+	    /*padding-top:30px;*/
+		width: 124px;
+		height: 55px;
+		background: url('../images/top_logo.png') no-repeat;
+		margin: 0px auto;
+		/* padding-top: 80px; */
+	}
+	.login_logo_hr1 {
+		width: 30px;
+		border-top:solid 1px #eee;
+		float:left;
+		margin-top: 10px;
+		margin-left: 10px;
+	}
+	.login_logo_hr2 {
+		width: 40px;
+		border-top:solid 1px #eee;
+		float:right;
+	}
+	.login_logo_txt {
+		float:left;
+		padding: 0px 20px;
+		color: #444;
+		/* margin-top: 10px; */
+	}
+	.login_hr {
+		width: 264px;
+		margin: 0px auto;
+	}
+	.login_ico {
+		width: 240px;
+		margin: 0px auto;
+		margin-top: 50px;
+		height: 74px;
+	}
+	.login_ico1 {
+		width: 74px;
+		height: 74px;
+		float: left;
+		margin-right:9px;
+		background: url('../images/logo.png') no-repeat;
+		background-position:-3px -102px;
+	}
+	.login_ico2 {
+		width: 74px;
+		height: 74px;
+		float: left;
+		margin-right:9px;
+		background: url('../images/logo.png') no-repeat;
+		background-position:-85px -102px;
+	}
+	.login_ico3 {
+		width: 74px;
+		height: 74px;
+		float: right;
+		/* margin-right:9px; */
+		background: url('../images/logo.png') no-repeat;
+		background-position:-165px -102px;
+	}
+	.login_ico1:hover {
+		background-position:-3px -187px;
+	}
+	.login_ico2:hover {
+		background-position:-85px -187px;
+	}
+	.login_ico3:hover {
+		background-position:-165px -187px;
+	}
+	.login_nei {
+		text-align:center;
+		margin-top: 30px;
+	}
+	.login_nei a {
+		text-decoration: underline;
+		color: #666;
+	}
+	.login_nei a:hover {
+		color: #10c55b;
+	}
+	.login_nei1 {
+		float: right;
+		margin-top: 20px;
+		font-size: 14px;
+	}
+	.login_nei1 a {
+		color: #10c55b;
+	}
+	.login_nei1 span {
+		color: #999;
+	}
+	.xx {
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		top: 0;
+		right: 5px;
+		color: #888;
+		text-align: center;
+		font: 400 22px/40px "Microsoft YaHei";
+		cursor: pointer;
+		text-decoration: none;
+		/* vertical-align: baseline; */
+	}
+	#login_qq {
+		cursor: pointer;
+	}
+	.login_icoa {
+		width: 240px;
+		margin: 0px auto;
+		margin-top: 50px;
+	}
+	.login_icoa input {
+		width: 210px;
+		height: 32px;
+		border: 1px solid #999;
+		margin-bottom: 10px;
+		float: left;
+		font: 400 18px/18px "microsoft yahei";
+		padding-left: 6px;
+		color: #444;
+	}
+	.login_icoa button {
+		width: 216px;
+		height: 40px;
+		background-color: #10c55b;
+		float: left;
+		cursor: pointer;
+	}
+	.fan {
+		width: 60px;
+		height: 20px;
+		position: absolute;
+		top: 10;
+		left: 8px;
+		color: #888;
+		text-align: center;
+		font: 400 14px/14px "Microsoft YaHei";
+		cursor: pointer;
+		text-decoration: none;
+	}
+	#reg_chick {
+		font-size: 18px;
+		line-height: 36px;
+	}
+	#login_chick span {
+		width: 15px;
+		height: 11px;
+		float: right;
+	}
+	#reg_chick input {
+		width: 154px;
+		height: 26px;
+		border: 1px solid #999;
+		margin-bottom: 10px;
+		margin-top: 6px;
+		/* float: left; */
+		font: 400 14px/14px "microsoft yahei";
+		padding-left: 6px;
+		color: #444;
+	}
+	#reg_chick button {
+		width: 340px;
+		height: 30px;
+		background-color: #10c55b;
+		float: left;
+		cursor: pointer;
+	}
+	#reg_chick span {
+		width: 110px;
+		height: 26px;
+		line-height: 26px;
+		/* float: left; */
+		font-size: 12px;
+	}
+
+	#login_c {
+		width: 340px;
+		margin: 0px auto;
+	}
+	.login_icoc {
+		width: 340px;
+		margin: 0px auto;
+		margin-top: 50px;
+	}
+	#login_chick {
+		position: relative;
+	}
+	#login_chick  p {
+		position: absolute;
+		width: 160px;
+		height: 20px;
+		top: -24px;
+		left: 40px;
+		font-size: 18px;
+	}
+	
+	
+	
+	.fx-download {
+	    background: #E6176A  !important;
+	}
+	.fx-read {
+	    background: #13C5F8  !important;
+	}

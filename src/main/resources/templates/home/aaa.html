@@ -1,0 +1,1793 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>个人博客模板_免费网站模板下载_博客网站源码下载_手机网站模板-雷小天博客</title>
+<meta name="keywords" content="个人博客，个人博客模板，php源码下载，个人网站，模板分享，博客程序，网站模板，雷小天博客,php个人博客,seo个人博客,雷小天" />
+<meta name="description" content="雷小天个人博客是一个基于thinkPHP框架开发的php个人网站，该博客涵盖PHP技术，前端，Linux系统，数据库，SEO优化等方面的知识。雷小天站长一个专注于PHP技术开发的程序员，个人博客不仅分享PHP开发技术，提供网站模板下载、而且还分享PHP源码作品。" />
+<meta name="author" content="雷小天" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable="no" />
+<!--CSS-->
+
+
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<link rel="shortcut icon" href="/Template/xiao/Home/Public/images/favicon.ico" />
+
+<!--CSS-->
+<link rel="stylesheet" href="/Template/xiao/Home/Public/css/default.css"/>
+<link rel="stylesheet" href="/Template/xiao/Home/Public/css/public.css"/>
+<link rel="stylesheet" href="/Template/xiao/Home/Public/css/animation.css"/>
+
+<link rel="stylesheet" type="text/css"href="/Template/xiao/Home/Public/css/skin_1.css"title="qingxin" />
+<link rel="stylesheet" type="text/css" href="/Template/xiao/Home/Public/css/skin_2.css"title="jianyue" />
+<link rel="stylesheet" type="text/css" href="/Template/xiao/Home/Public/css/skin_3.css"title="qingshuang" />
+<link rel="stylesheet" href="/Template/xiao/Home/Public/css/font-icon.css"/>
+<link rel="stylesheet" href="/Template/xiao/Home/Public/css/face.css"/>
+<!--JS-->
+<script type="text/javascript" src="https://res.100txy.com/www/js/jquery.2.1.4.min.js"></script>
+<script>
+  $("html").append("<div class='jiazai'><img src='/Template/xiao/Home/Public/images/icon/loading3.gif'/><span>正在加载中请等待...</span></div>")
+
+</script>
+<script type="text/javascript" src="https://res.100txy.com/www/js/my.js"></script>
+<script type="text/javascript" src="https://res.100txy.com/www/js/superbg.min.js"></script>
+<!-- <script type="text/javascript" src="/Template/xiao/Home/Public/js/supersized.3.2.7.min.js"></script> -->
+<script type="text/javascript" src="https://res.100txy.com/www/js/superbg-custom.js"></script>
+<script type="text/javascript" src="https://res.100txy.com/www/js/album.js"></script>
+<script type="text/javascript" src="https://res.100txy.com/www/js/tooltip.js"></script>
+<script type="text/javascript" src="https://res.100txy.com/www/js/face.js"></script>
+<script type="text/javascript" src="/Template/xiao/Home/Public/js/layer/layer.js" ></script>
+<script type="text/javascript" src="https://res.100txy.com/www/js/checkform.js" charset="utf-8"></script>
+<script type="text/javascript"  src="https://res.100txy.com/www/js/skin.js"></script>
+<!--[if lte IE 9]>
+  <script>window.location.href='https://cdn.dmeng.net/upgrade-your-browser.html?referrer='+location.href;</script>
+<![endif]-->
+<script type="text/javascript"  src="https://res.100txy.com/www/js/index.js"></script>
+<script type="text/javascript" src="https://res.100txy.com/www/js/comment.js"></script>
+<script type="text/javascript">
+
+      ajaxCommentUrl="http://www.100txy.com/Home/Index/ajax_comment";
+
+      check_login="http://www.100txy.com/Home/User/check_login";
+
+      logoutUrl="http://www.100txy.com/Home/User/logout";
+
+  </script>
+
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?136bd7aac0d158dec628add4b8dd4c3a";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- 百度统计 end-->
+
+<script>
+$(function(){
+  if($(".sucailist").children("ul:first-child").children("li").length>=10){
+    $(".page").show();
+  }
+  else{
+  $(".page").hide();
+  }
+  //点击给分类加上背景色
+  $("#cmenu").find("li").eq(0).addClass("classify-active");
+  var cotrs = $(".cmenu li");
+  cotrs.click(function(){
+ $(this).addClass("classify-active").siblings().removeClass("classify-active");
+});
+});
+</script>
+<style type="text/css">
+.index-title ul li {
+    width: auto;
+    line-height: 20px;
+    float: left;
+    font-size: 14px;
+    color: #9c918a;
+    height: 20px;
+    margin-top: 3px;
+    border-right: 1px solid #eee;
+    padding: 0px 10px;
+}
+.cmenu{
+  height: 26px;
+  line-height: 26px;
+}
+/*.classify-active{
+  border:#4876ff 1px solid;
+}*/
+.classify-active a{
+  color:white;
+  background:deepskyblue;
+  padding:5px;
+}
+</style>
+<script type="text/javascript" src="/Template/xiao/Home/Public/js/cypager.min.js"></script>
+<style ype="text/css">
+.pager{padding:0;margin:0;white-space:nowrap}
+.pager li{list-style:none;font-family:arial;font-size:14px;padding:2px;margin:5px;border:#333 1px solid;text-align:center;border-radius:5px;max-width:80px;width:25px;height:22px;line-height:22px;cursor:pointer;background:#fff;display:inline-block}
+.pager li:hover{border:#4876ff 1px solid;color:#4876ff}
+.pager li.pg-hidepage{display:none}
+.pager li.pg-prev,li.pg-next{width:80px}
+.pager li.pg-selected{border:#4876ff 1px solid;background:deepskyblue;color:white}
+.pager li.pg-selected:hover{color:#000;cursor:default}
+.pager li.pg-dislabel{color:#ccc;border:#ccc 1px solid;cursor:default}
+.pager li.pg-dislabel:hover{border:#ccc 1px solid}
+</style>
+</head>
+<body class="nobg">
+
+<!--导航开始-->
+<header class="myheader">
+  <div class="top">
+    <!--头像左边部分-->
+    <div class="top-left">
+      <div class="logo"><a href="/"><img src="/Template/xiao/Home/Public/images/logo3.gif"/></a></div>
+        <!--滚动消息-->
+      <div class="web-xiaoxi">
+        <i class="el-speaker"></i>
+        <ul class="mulitline">
+          <li>做了一些小调整，使之看起来更像博客。</li>
+          <li>本站提供丰富的素材下载，有源码、模板、插件...</li>
+          <li>内容如有侵犯，请立即联系管理员删除</li>
+        </ul>
+      </div>
+        <!--END 消息 -->
+
+      <!--手机菜单按钮-->
+      <div class="mobile-nav"><i class="el-lines"></i><i class="el-remove"></i></div>
+    </div>
+  <!--电脑导航开始-->
+    <nav class="mynav">
+      <ul class="orange-text">
+        <li class=""><a href="/">首页</a></li>
+        <!-- <li  ><a href="/Home/Index/chat.html" >说说</a></li> -->
+        <li  ><a href="/chat.html" >说说</a></li>
+        <li class='drop'  >
+          <a href="JavaScript:;" >分类<i class='el-chevron-down'></i></a>
+          <div class="drop-nav orange-text ">
+            <ul>
+              <li><a href="/category/28.html">PHP</a></li>
+              <li><a href="/category/29.html">Linux</a></li>
+              <li><a href="/category/36.html">Java</a></li>
+              <li><a href="/category/39.html">C</a></li>
+              <li><a href="/category/31.html">MySQL</a></li>
+              <li><a href="/category/40.html">Android</a></li>
+              <li><a href="/category/37.html">Python</a></li>
+              <li><a href="/category/30.html">Web</a></li>
+              <li><a href="/category/34.html">SEO</a></li>
+              <li><a href="/category/33.html">黑客</a></li>
+              <li><a href="/category/35.html">面试</a></li>
+              <li><a href="/category/32.html">提高</a></li>
+              <li><a href="/category/38.html">站长</a></li>
+            </ul>
+          </div>
+        </li>
+        <!-- <li  ><a href="/Links/" >链接</a></li> -->
+        <li  ><a href="/album.html" >相册</a></li>
+        <li  ><a href="/downlist.html" >下载</a></li>
+        <li  ><a href="/feedback.html" >留言</a>  </li>
+        <li  ><a href="/about.html" >关于</a></li>
+      </ul>
+       <!--移动的滑动-->
+        <div class="move-bg"></div>
+        <!--移动的滑动 end-->
+    </nav>
+     <!--会员登录-->
+    <div class="vip" style="width: 4%;float: right;text-align: right;">
+            <div class="vipsignin" id="vipsignin">
+      <img class="img-circle"  src="https://thirdqq.qlogo.cn/qqapp/101370818/C5BB4CE67D54CCE667A8A2EAC568BA58/100" alt="TinKo" title="TinKo" style="width:87.5%;margin-top: 17px;" />
+        <!--start-->
+        <div class="vipsignin-z" id="vipsignin-z">
+        <div class="vip-top">
+            <div class="vip-top-left">
+              <img src="https://thirdqq.qlogo.cn/qqapp/101370818/C5BB4CE67D54CCE667A8A2EAC568BA58/100" alt="TinKo" >
+            </div>
+            <div class="vip-top-right">
+              <div class="vip-top-right-t"><a href="#" ><span>TinKo</span></a></div>
+              <div class="vip-top-right-b">
+                <ul>
+                 <li>
+                   <div class="vipltag">金币：<span>0</span></div>
+                   <div class="viprtag">积分：<span>0</span></div>
+                 </li>
+                 <li>
+                   <div class="vipltag">签到：<span>0</span></div>
+                   <div class="viprtag">消费：<span>0</span></div>
+                 </li>
+
+               </ul>
+              </div>
+          </div>
+        </div>
+        <div class="vip-center">
+          <ul >
+            <li ><a href="/vip.html" target="_blank"><i class="el el-user"></i>会员中心</a></li>
+            <li ><a href="#" target="_blank"><i class="el el-music"></i>娱乐频道</a></li>
+            <li ><a href="#" target="_blank"><i class="el el-shopping-cart"></i>积分商城</a></li>
+            <li ><a href="javascript:void(0);" target="_blank"><i class="el el-cogs"></i>个人设置</a></li>
+          </ul>
+        </div>
+        <div class="vip-bottom">
+          <div class="vip-bottom-left"><p>你是本站第<span style="color:red;">428</span>位会员</p></div>
+          <div class="vip-bottom-right"><a class="bh" href="javascript:;" onclick="logout()">安全退出</a></div>
+        </div>
+      </div>
+      <!--end-->
+        </div>    </div>
+   <!--会员登录-->
+    <!--这里是手机导航-->
+    <div class="mob-menu">
+    <!--手机顶部搜索-->
+      <div class="search ">
+        <ul class="loginwap-third-list">
+                <li><a class="weixin-login" title="微信账号登录" href="/Home/User/oauth_login/type/wechat.html"></a></li>
+                <li><a class="qq-login" title="QQ账号登录" href="/Home/User/oauth_login/type/qq.html"></a></li>
+                <li style="margin-right: 0!important;"><a class="weibo-login" title="新浪微博账号登录" href="/Home/User/oauth_login/type/sina.html"></a></li>
+        </ul>
+      </div>
+      <!--手机下拉菜单-->
+      <ul class="mob-ulnav">
+        <li><a href="/">首页</a></li>
+        <li ><a href="/Home/Index/chat.html">说说</a></li>
+        <li class='mob-drop' >
+          <a href="javascrip:;">分类<i></i></a>
+          <ul class="mob-dropmenu">
+            <li><a href="/category/28.html">PHP</a></li>
+              <li><a href="/category/29.html">Linux</a></li>
+              <li><a href="/category/36.html">Java</a></li>
+              <li><a href="/category/39.html">C</a></li>
+              <li><a href="/category/31.html">MySQL</a></li>
+              <li><a href="/category/40.html">Android</a></li>
+              <li><a href="/category/37.html">Python</a></li>
+              <li><a href="/category/30.html">Web</a></li>
+              <li><a href="/category/34.html">SEO</a></li>
+              <li><a href="/category/33.html">黑客</a></li>
+              <li><a href="/category/35.html">面试</a></li>
+              <li><a href="/category/32.html">提高</a></li>
+              <li><a href="/category/38.html">站长</a></li>
+            </ul>
+          </li>
+          <!-- <li  ><a href="/Links/" >链接</a></li> -->
+          <li  ><a href="/Home/Index/album.html" >相册</a></li>
+          <li  ><a href="/Home/Index/downlist.html" >下载</a></li>
+          <li  ><a href="/Home/Index/feedback.html" >留言</a> </li>
+          <li  ><a href="/Home/Index/about.html" >关于</a></li>
+        </ul>
+      </div>
+  </div>
+</header>
+<!--导航结束-->
+
+<!--主题框架开始-->
+<div class="container" id="location">
+<!--左侧开始-->
+  <section>
+    <!--百度联盟代码-->
+    <!-- <script type="text/javascript">
+    var cpro_id = "u3386645";
+    </script>
+    <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js"></script> -->
+    <!--百度联盟代码end-->
+    <div class="sucailist">
+      <!--列表开始-->
+      <h4 class="index-title mclassify">
+        <!-- <a href="javascript::void(0);" class="all"><i class="el-camera"></i>查看所有素材> ></a> -->
+        <ul class="cmenu" id="cmenu">
+          <li><a id="0"  onclick="getmaterial(this)" href="javascript:;">全部</a></li>
+          <li><a id="1"  onclick="getmaterial(this)" href="javascript:;">模板</a></li><li><a id="2"  onclick="getmaterial(this)" href="javascript:;">源码</a></li><li><a id="3"  onclick="getmaterial(this)" href="javascript:;">插件</a></li><li><a id="4"  onclick="getmaterial(this)" href="javascript:;">功能</a></li><li><a id="5"  onclick="getmaterial(this)" href="javascript:;">工具</a></li>        </ul>
+      </h4>
+      <ul class="su" id="downlist">
+
+        
+            <li class="su-li">
+        <!-- <li class="su-li" id="Hot"> -->
+
+          <a href="/downdetail/26.html" title="纯CSS3 3D立方体焦点图动画">
+
+          <div class="sucaiimg img_loading">
+
+          <img  src="/Upload/image/download/201805305b0e0eadcdaf3.png" alt="纯CSS3 3D立方体焦点图动画"/>
+
+          </div>
+
+          </a>
+
+          <div class="sucai-right">
+
+            <h4 class="blue-text"><a href="/downdetail/26.html" title="纯CSS3 3D立方体焦点图动画">纯CSS3 3D立方体焦点图动画</a></h4>
+
+            <ul >
+
+              <li ><a title="纯CSS3 3D立方体焦点图动画2018-05-30发表 "><i class="el-time"></i> 2018-05-30</a></li>
+
+              <li class="mob-hidden">
+
+                <i class="el-download-alt"></i>
+
+                <a href="javascript::void(0);">4</a>&nbsp;
+
+              </li>
+
+            </ul>
+
+          </div>
+
+          </li>
+            <li class="su-li">
+        <!-- <li class="su-li" id="Hot"> -->
+
+          <a href="/downdetail/25.html" title="酷炫立体轮播个人博客模板">
+
+          <div class="sucaiimg img_loading">
+
+          <img  src="/Upload/image/download/201805285b0b974116d33.jpg" alt="酷炫立体轮播个人博客模板"/>
+
+          </div>
+
+          </a>
+
+          <div class="sucai-right">
+
+            <h4 class="blue-text"><a href="/downdetail/25.html" title="酷炫立体轮播个人博客模板">酷炫立体轮播个人博客模板</a></h4>
+
+            <ul >
+
+              <li ><a title="酷炫立体轮播个人博客模板2018-05-28发表 "><i class="el-time"></i> 2018-05-28</a></li>
+
+              <li class="mob-hidden">
+
+                <i class="el-download-alt"></i>
+
+                <a href="javascript::void(0);">0</a>&nbsp;
+
+              </li>
+
+            </ul>
+
+          </div>
+
+          </li>
+            <li class="su-li">
+        <!-- <li class="su-li" id="Hot"> -->
+
+          <a href="/downdetail/24.html" title="个人博客模板分享下载">
+
+          <div class="sucaiimg img_loading">
+
+          <img  src="/Upload/image/download/2017091259b7b3b11f910.jpg" alt="个人博客模板分享下载"/>
+
+          </div>
+
+          </a>
+
+          <div class="sucai-right">
+
+            <h4 class="blue-text"><a href="/downdetail/24.html" title="个人博客模板分享下载">个人博客模板分享下载</a></h4>
+
+            <ul >
+
+              <li ><a title="个人博客模板分享下载2017-09-12发表 "><i class="el-time"></i> 2017-09-12</a></li>
+
+              <li class="mob-hidden">
+
+                <i class="el-download-alt"></i>
+
+                <a href="javascript::void(0);">10</a>&nbsp;
+
+              </li>
+
+            </ul>
+
+          </div>
+
+          </li>
+            <li class="su-li">
+        <!-- <li class="su-li" id="Hot"> -->
+
+          <a href="/downdetail/23.html" title="珠宝首饰微商城wap网站模板下载">
+
+          <div class="sucaiimg img_loading">
+
+          <img  src="/Upload/image/download/2017083159a7d848689a8.png" alt="珠宝首饰微商城wap网站模板下载"/>
+
+          </div>
+
+          </a>
+
+          <div class="sucai-right">
+
+            <h4 class="blue-text"><a href="/downdetail/23.html" title="珠宝首饰微商城wap网站模板下载">珠宝首饰微商城wap网站模板下载</a></h4>
+
+            <ul >
+
+              <li ><a title="珠宝首饰微商城wap网站模板下载2017-08-31发表 "><i class="el-time"></i> 2017-08-31</a></li>
+
+              <li class="mob-hidden">
+
+                <i class="el-download-alt"></i>
+
+                <a href="javascript::void(0);">2</a>&nbsp;
+
+              </li>
+
+            </ul>
+
+          </div>
+
+          </li>
+            <li class="su-li">
+        <!-- <li class="su-li" id="Hot"> -->
+
+          <a href="/downdetail/22.html" title="美食餐饮公司微店网站模板下载">
+
+          <div class="sucaiimg img_loading">
+
+          <img  src="/Upload/image/download/2017083159a7d236c70b2.jpg" alt="美食餐饮公司微店网站模板下载"/>
+
+          </div>
+
+          </a>
+
+          <div class="sucai-right">
+
+            <h4 class="blue-text"><a href="/downdetail/22.html" title="美食餐饮公司微店网站模板下载">美食餐饮公司微店网站模板下载</a></h4>
+
+            <ul >
+
+              <li ><a title="美食餐饮公司微店网站模板下载2017-08-31发表 "><i class="el-time"></i> 2017-08-31</a></li>
+
+              <li class="mob-hidden">
+
+                <i class="el-download-alt"></i>
+
+                <a href="javascript::void(0);">17</a>&nbsp;
+
+              </li>
+
+            </ul>
+
+          </div>
+
+          </li>
+            <li class="su-li">
+        <!-- <li class="su-li" id="Hot"> -->
+
+          <a href="/downdetail/21.html" title="韩国手机导购网站主页免费分享下载">
+
+          <div class="sucaiimg img_loading">
+
+          <img  src="/Upload/image/download/2017083159a7c5cb5262e.png" alt="韩国手机导购网站主页免费分享下载"/>
+
+          </div>
+
+          </a>
+
+          <div class="sucai-right">
+
+            <h4 class="blue-text"><a href="/downdetail/21.html" title="韩国手机导购网站主页免费分享下载">韩国手机导购网站主页免费分享下载</a></h4>
+
+            <ul >
+
+              <li ><a title="韩国手机导购网站主页免费分享下载2017-08-31发表 "><i class="el-time"></i> 2017-08-31</a></li>
+
+              <li class="mob-hidden">
+
+                <i class="el-download-alt"></i>
+
+                <a href="javascript::void(0);">16</a>&nbsp;
+
+              </li>
+
+            </ul>
+
+          </div>
+
+          </li>
+            <li class="su-li">
+        <!-- <li class="su-li" id="Hot"> -->
+
+          <a href="/downdetail/20.html" title="带背景音乐的手机网站模板下载">
+
+          <div class="sucaiimg img_loading">
+
+          <img  src="/Upload/image/download/2017083159a7c0dab39fd.jpg" alt="带背景音乐的手机网站模板下载"/>
+
+          </div>
+
+          </a>
+
+          <div class="sucai-right">
+
+            <h4 class="blue-text"><a href="/downdetail/20.html" title="带背景音乐的手机网站模板下载">带背景音乐的手机网站模板下载</a></h4>
+
+            <ul >
+
+              <li ><a title="带背景音乐的手机网站模板下载2017-08-31发表 "><i class="el-time"></i> 2017-08-31</a></li>
+
+              <li class="mob-hidden">
+
+                <i class="el-download-alt"></i>
+
+                <a href="javascript::void(0);">0</a>&nbsp;
+
+              </li>
+
+            </ul>
+
+          </div>
+
+          </li>
+            <li class="su-li">
+        <!-- <li class="su-li" id="Hot"> -->
+
+          <a href="/downdetail/19.html" title="wap端微官网手机模板分享下载">
+
+          <div class="sucaiimg img_loading">
+
+          <img  src="/Upload/image/download/2017083159a7bc72bb166.jpg" alt="wap端微官网手机模板分享下载"/>
+
+          </div>
+
+          </a>
+
+          <div class="sucai-right">
+
+            <h4 class="blue-text"><a href="/downdetail/19.html" title="wap端微官网手机模板分享下载">wap端微官网手机模板分享下载</a></h4>
+
+            <ul >
+
+              <li ><a title="wap端微官网手机模板分享下载2017-08-31发表 "><i class="el-time"></i> 2017-08-31</a></li>
+
+              <li class="mob-hidden">
+
+                <i class="el-download-alt"></i>
+
+                <a href="javascript::void(0);">10</a>&nbsp;
+
+              </li>
+
+            </ul>
+
+          </div>
+
+          </li>
+            <li class="su-li">
+        <!-- <li class="su-li" id="Hot"> -->
+
+          <a href="/downdetail/18.html" title="HTML5响应式设计创意企业手机模板下载">
+
+          <div class="sucaiimg img_loading">
+
+          <img  src="/Upload/image/download/20170825599ff8b8d29fc.png" alt="HTML5响应式设计创意企业手机模板下载"/>
+
+          </div>
+
+          </a>
+
+          <div class="sucai-right">
+
+            <h4 class="blue-text"><a href="/downdetail/18.html" title="HTML5响应式设计创意企业手机模板下载">HTML5响应式设计创意企业手机模板下载</a></h4>
+
+            <ul >
+
+              <li ><a title="HTML5响应式设计创意企业手机模板下载2017-08-25发表 "><i class="el-time"></i> 2017-08-25</a></li>
+
+              <li class="mob-hidden">
+
+                <i class="el-download-alt"></i>
+
+                <a href="javascript::void(0);">17</a>&nbsp;
+
+              </li>
+
+            </ul>
+
+          </div>
+
+          </li>
+            <li class="su-li">
+        <!-- <li class="su-li" id="Hot"> -->
+
+          <a href="/downdetail/17.html" title="手机WAP性感美女图片资源网站模板下载">
+
+          <div class="sucaiimg img_loading">
+
+          <img  src="/Upload/image/download/20170825599ff0c761341.jpg" alt="手机WAP性感美女图片资源网站模板下载"/>
+
+          </div>
+
+          </a>
+
+          <div class="sucai-right">
+
+            <h4 class="blue-text"><a href="/downdetail/17.html" title="手机WAP性感美女图片资源网站模板下载">手机WAP性感美女图片资源网站模板下载</a></h4>
+
+            <ul >
+
+              <li ><a title="手机WAP性感美女图片资源网站模板下载2017-08-25发表 "><i class="el-time"></i> 2017-08-25</a></li>
+
+              <li class="mob-hidden">
+
+                <i class="el-download-alt"></i>
+
+                <a href="javascript::void(0);">1</a>&nbsp;
+
+              </li>
+
+            </ul>
+
+          </div>
+
+          </li>
+            <li class="su-li">
+        <!-- <li class="su-li" id="Hot"> -->
+
+          <a href="/downdetail/16.html" title="汽车行业手机网站企业模板下载">
+
+          <div class="sucaiimg img_loading">
+
+          <img  src="/Upload/image/download/20170825599fe7443de43.png" alt="汽车行业手机网站企业模板下载"/>
+
+          </div>
+
+          </a>
+
+          <div class="sucai-right">
+
+            <h4 class="blue-text"><a href="/downdetail/16.html" title="汽车行业手机网站企业模板下载">汽车行业手机网站企业模板下载</a></h4>
+
+            <ul >
+
+              <li ><a title="汽车行业手机网站企业模板下载2017-08-25发表 "><i class="el-time"></i> 2017-08-25</a></li>
+
+              <li class="mob-hidden">
+
+                <i class="el-download-alt"></i>
+
+                <a href="javascript::void(0);">1</a>&nbsp;
+
+              </li>
+
+            </ul>
+
+          </div>
+
+          </li>
+            <li class="su-li">
+        <!-- <li class="su-li" id="Hot"> -->
+
+          <a href="/downdetail/15.html" title="手机端登录注册页面模板下载">
+
+          <div class="sucaiimg img_loading">
+
+          <img  src="/Upload/image/download/201708155992c4f2a4731.jpg" alt="手机端登录注册页面模板下载"/>
+
+          </div>
+
+          </a>
+
+          <div class="sucai-right">
+
+            <h4 class="blue-text"><a href="/downdetail/15.html" title="手机端登录注册页面模板下载">手机端登录注册页面模板下载</a></h4>
+
+            <ul >
+
+              <li ><a title="手机端登录注册页面模板下载2017-08-15发表 "><i class="el-time"></i> 2017-08-15</a></li>
+
+              <li class="mob-hidden">
+
+                <i class="el-download-alt"></i>
+
+                <a href="javascript::void(0);">37</a>&nbsp;
+
+              </li>
+
+            </ul>
+
+          </div>
+
+          </li>
+            <li class="su-li">
+        <!-- <li class="su-li" id="Hot"> -->
+
+          <a href="/downdetail/14.html" title="手机微信签到转盘抽奖活动页面模板下载">
+
+          <div class="sucaiimg img_loading">
+
+          <img  src="/Upload/image/download/201708155992bbf2d8483.jpg" alt="手机微信签到转盘抽奖活动页面模板下载"/>
+
+          </div>
+
+          </a>
+
+          <div class="sucai-right">
+
+            <h4 class="blue-text"><a href="/downdetail/14.html" title="手机微信签到转盘抽奖活动页面模板下载">手机微信签到转盘抽奖活动页面模板下载</a></h4>
+
+            <ul >
+
+              <li ><a title="手机微信签到转盘抽奖活动页面模板下载2017-08-15发表 "><i class="el-time"></i> 2017-08-15</a></li>
+
+              <li class="mob-hidden">
+
+                <i class="el-download-alt"></i>
+
+                <a href="javascript::void(0);">7</a>&nbsp;
+
+              </li>
+
+            </ul>
+
+          </div>
+
+          </li>
+            <li class="su-li">
+        <!-- <li class="su-li" id="Hot"> -->
+
+          <a href="/downdetail/13.html" title="精美的jQuery图片轮播插件下载">
+
+          <div class="sucaiimg img_loading">
+
+          <img  src="/Upload/image/download/20170728597ae8dd9d587.jpg" alt="精美的jQuery图片轮播插件下载"/>
+
+          </div>
+
+          </a>
+
+          <div class="sucai-right">
+
+            <h4 class="blue-text"><a href="/downdetail/13.html" title="精美的jQuery图片轮播插件下载">精美的jQuery图片轮播插件下载</a></h4>
+
+            <ul >
+
+              <li ><a title="精美的jQuery图片轮播插件下载2017-07-28发表 "><i class="el-time"></i> 2017-07-28</a></li>
+
+              <li class="mob-hidden">
+
+                <i class="el-download-alt"></i>
+
+                <a href="javascript::void(0);">1</a>&nbsp;
+
+              </li>
+
+            </ul>
+
+          </div>
+
+          </li>
+            <li class="su-li">
+        <!-- <li class="su-li" id="Hot"> -->
+
+          <a href="/downdetail/12.html" title="HTML模板_企业网站模板_优秀网站模板_免费模板素材下载">
+
+          <div class="sucaiimg img_loading">
+
+          <img  src="/Upload/image/download/20170728597adfe37a970.jpg" alt="HTML模板_企业网站模板_优秀网站模板_免费模板素材下载"/>
+
+          </div>
+
+          </a>
+
+          <div class="sucai-right">
+
+            <h4 class="blue-text"><a href="/downdetail/12.html" title="HTML模板_企业网站模板_优秀网站模板_免费模板素材下载">HTML模板_企业网站模板_优秀网站模板_免费模板素材下载</a></h4>
+
+            <ul >
+
+              <li ><a title="HTML模板_企业网站模板_优秀网站模板_免费模板素材下载2017-07-28发表 "><i class="el-time"></i> 2017-07-28</a></li>
+
+              <li class="mob-hidden">
+
+                <i class="el-download-alt"></i>
+
+                <a href="javascript::void(0);">1</a>&nbsp;
+
+              </li>
+
+            </ul>
+
+          </div>
+
+          </li>
+      </ul>
+      <div id="pagerArea" unselectable="on" onselectstart="return false;" style="-moz-user-select:none;"></div>
+
+
+      <!--列表结束-->
+
+    </div>
+
+<!--分页-->
+
+<!-- <div class="pagination">
+
+  <div class="list-page">
+
+    <ul class="post-data">
+
+      <li ><a>第 1 - 1 页</a> <a>共 5 条</a></li>
+
+    </ul>
+
+  </div>
+
+  <ul>
+
+    <li class="active"><a>首页</a></li>
+
+    <li class="active"><a>上一页</a></li>
+
+    <li class="active"><a>下一页</a></li>
+
+    <li class="active"><a>尾页</a></li>
+
+  </ul>
+
+</div> -->
+
+  <!-- <div class="pagination"><div class="list-page"><ul class="post-data"><li><span class="rows">共 26 条记录</span></li></ul></div><ul> <li><a class="first" href="/Home/Index/downlist/m/Home/p/1.html">首页</a></li> <li><a class="prev not-allowed" href="javascript:;">上一页</a></li> <li class="active"><span>1</span><li><li><a class="num" href="/Home/Index/downlist/m/Home/p/2.html">2</a></li> <li><a class="next" href="/Home/Index/downlist/m/Home/p/2.html">下一页</a></li> <li><a class="end" href="/Home/Index/downlist/m/Home/p/2.html">尾页</a></li></ul></div> -->
+
+  </section>
+
+<!--左侧结束-->
+
+<!--=========右侧开始==========-->
+<aside class="myaside">
+
+<!--关注我-->
+
+<div class="focus-me bg-color animation-div">
+
+  <h4 class="index-title"><i class="el-heart"></i>关注我<small>Focus Me</small></h4>
+
+    <div class="xiangguan">
+
+        <div><a class="benbo" href="http://weibo.com/100txy" rel="nofollow" target="_blank"><i class="el el-globe-alt el-spin"></i></a><span>新浪微博</span></div>
+
+        <div><a class="taobao" href="https://github.com/leiphp"  rel="nofollow" target="_blank"><i class="el el-github el-spin"></i></a><span>github</span></div>
+
+        <div><a class="side-fx" href="https://author.baidu.com/home/1594081076351576" rel="nofollow" target="_blank"><i class="el el-cog el-spin"></i></a><span>熊掌号</span></div>
+
+        <div><a class="mail-btn" href="javascript:;"><i class="el el-picasa el-spin"></i></a><span>公众号</span></div>
+
+    </div>
+
+
+    <div class="mail-dy">
+
+      <img src="/Template/xiao/Home/Public/images/icon/weixin.jpg">
+      <i class="el-remove fx-close"></i>
+
+    </div>
+
+
+</div>
+
+<!--右侧个人统计-->
+
+<div class="web-author bg-color animation-div">
+
+    <div class="author-tx">
+
+      <a class="img-circle" href="/Home/Index/about.html" title="点击查看详细信息">
+
+        <img class="img-circle" src="/Template/xiao/Home/Public/images/icon/ava.jpg"/>
+
+      </a>
+
+    </div>
+
+    <div class="author-name"><span class="blue-text">雷小天</span><p>一位90后全栈开发站长</p></div>
+
+    <div class="data-info">
+
+      <ul>
+
+        <li><strong>0</strong><span>今日会员</span></li>
+
+        <li><strong>198</strong><span>今日访问ip</span></li>
+
+        <!-- <li><strong>115</strong><span>文章数量</span></li> -->
+        <li><strong>0</strong><span>公众号消息</span></li>
+
+      </ul>
+
+    </div>
+
+</div>
+
+<!--END 右侧个人统计-->
+
+<!--搜索-->
+
+<div class="search animation-div">
+
+  <form action="/Home/Index/search.html" method="get">
+
+    <div class="search-index">
+
+      <input name="search_word" type="text"  placeholder="请输入关键字" onfocus="this.placeholder=''" onblur="this.placeholder='请输入关键字'"/>
+
+      <i class="el-search"><input value=" "type="submit"/></i>
+
+    </div>
+
+  </form>
+
+</div>
+
+<!-- 广告位：ssp2 -->
+<!-- <script type="text/javascript">
+    var cpro_id = "u3387405";
+</script>
+<script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js"></script> -->
+<!-- 广告位：ssp2 end-->
+
+<!--最新更新-->
+<div class="clos-new bg-color animation-div">
+
+  <h4 class="index-title"><i class="el-bulb"></i>最新更新<small>Close New</small></h4>
+
+  <ul>
+
+  <!-- <li><i class="el-cloud"></i><iframe id="tianqi"  scrolling="no" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=34&icon=1&num=3"></iframe></li> -->
+
+  <li><span><i class="el-arrow-up"></i>最近：<font class="blue-text">雷小天</font> 前天&nbsp;&nbsp;10:42</span><a title="android studio项目导入细节问题" > 更新了<b class="lable">文章</b></a></li>
+
+  <li><i class="el-calendar"></i>开发动态：<a title="支付宝支付"  href="/Index/donate.html" class="orange-text" target="_blank"><b class="lable">支付宝捐赠</b></a></li>
+
+</ul>
+
+</div>
+<!--捐赠-->
+<div class="bg-color animation-div">
+  <h4 class="index-title"><i class="el-heart"></i><a href="/Home/Index/alidonate.html" target="_blank" >在线捐赠</a><small>Online donation</small><a href="/Index/donate.html" target="_blank" style="float:right;margin-right:5px;font-size:12px;">更多</a></h4>
+    <ul class="hudong-ul">
+      <li>
+          <div class="sd-tx">
+          <a href="javascript:void(0);" target="_blank" rel="nofollow" title="《匿名》支付宝捐赠￥5.00">
+              <img src="/Template/xiao/Home/Public/images/icon/default_head_img.gif" alt="匿名" class="img-circle"/>
+          </a>
+          </div>
+          <div class="sd-name">
+            <span><i class="el-user"></i>匿名&nbsp;&nbsp;&nbsp;<lable style="color:#FF5722;">捐赠￥5.00</lable><time >2018-05-04</time></span>
+                            <a class="blue-text" href="javascript:void(0);" title="留言：看了github社会化登录的文章，照着做就行了  谢谢" >  看了github社会化登录的文章，照着做就行了  谢谢</a>
+          </div>
+        </li><li>
+          <div class="sd-tx">
+          <a href="javascript:void(0);" target="_blank" rel="nofollow" title="《匿名》支付宝捐赠￥1.00">
+              <img src="/Template/xiao/Home/Public/images/icon/default_head_img.gif" alt="匿名" class="img-circle"/>
+          </a>
+          </div>
+          <div class="sd-name">
+            <span><i class="el-user"></i>匿名&nbsp;&nbsp;&nbsp;<lable style="color:#FF5722;">捐赠￥1.00</lable><time >2018-05-03</time></span>
+                            <a class="blue-text" href="javascript:void(0);" title="留言：你的博客源码能便宜点吗" >  你的博客源码能便宜点吗</a>
+          </div>
+        </li><li>
+          <div class="sd-tx">
+          <a href="javascript:void(0);" target="_blank" rel="nofollow" title="《匿名》支付宝捐赠￥1.00">
+              <img src="/Template/xiao/Home/Public/images/icon/default_head_img.gif" alt="匿名" class="img-circle"/>
+          </a>
+          </div>
+          <div class="sd-name">
+            <span><i class="el-user"></i>匿名&nbsp;&nbsp;&nbsp;<lable style="color:#FF5722;">捐赠￥1.00</lable><time >2018-05-02</time></span>
+                            <a class="blue-text" href="javascript:void(0);" title="留言：支持下" >  支持下</a>
+          </div>
+        </li>   </ul>
+</div>
+
+<!--说说-->
+<div class="bg-color animation-div">
+  <h4 class="index-title"><i class="el-headphones"></i>说说<small>Shuo Shuo</small></h4>
+  <div class="shuo-side">
+    <ul>
+      <li id="Hots">
+        <span class="shuobg1"><strong>05-29 </strong></span>
+        <div><a title="Apache 配置 单个项目 http重定向到https" href="/chatdetail/79.html" >Apache 配置 单个项目 http重定向到https</a><b title="点击0">(0)</b></div>
+      </li><li id="Hots">
+        <span class="shuobg2"><strong>05-29 </strong></span>
+        <div><a title="Address already in use: AH00072: make_sock: could not bind to address 0.0.0.0:443 no listening socke" href="/chatdetail/78.html" >Address already in use: AH00072: make_sock: could not bind to address 0.0.0.0:443 no listening socke</a><b title="点击5">(5)</b></div>
+      </li><li id="Hots">
+        <span class="shuobg3"><strong>05-02 </strong></span>
+        <div><a title="支付宝网站支付功能开发完成" href="/chatdetail/77.html" >支付宝网站支付功能开发完成</a><b title="点击169">(169)</b></div>
+      </li>   </ul>
+  </div>
+</div>
+<!--百度联盟代码-->
+<!-- <div class="cloud bg-color animation-div">
+  <h4 class="index-title"><i class="el el-cc"></i>广告<small>Ads Clouds</small></h4>
+<script type="text/javascript">
+    /*创建于 2018/3/13*/
+    var cpro_id = "u3384657";
+</script>
+<script type="text/javascript" src="http://cpro.baidustatic.com/cpro/ui/c.js"></script>
+</div> -->
+<!--百度联盟代码end-->
+
+<!--推荐图文-->
+<div class="article-push  bg-color animation-div">
+  <h4 class="index-title"><i class="el-asl"></i>推荐图文<small>Push Article</small></h4>
+  <ul>
+    <li>
+      <div class="arcimg img_loading">
+        <a href="/article/131.html" target="_blank">
+          <img src="/Upload/image/artimg/201803155aaa31a1ab9b8.png" alt="我的个人博客是如何申请百度联盟通过的？" title="我的个人博客是如何申请百度联盟通过的？">
+        </a>
+      </div>
+      <div class="arc-right">
+        <h4 class="blue-text"><a href="/article/131.html">我的个人博客是如何申请百度联盟通过的？</a></h4>
+        <p> 说实话，我从第一次开始申请百度联盟到申请通过，我也不知道花了多长时间，但我可以肯定的是应该有一年了，当然因为一直申请通过不了，打击了不少的积极性，申请的欲望也没有一开始那么强烈，直到我的博客有权重有预计流量我才开始琢磨着怎么能申请成功</p>
+        <ul>
+          <li><a title="发表于2018-03-15"><i class="el-time"></i>2018-03-15</a></li>
+          <li><a title="1034次浏览"><i class="el-fire"></i>1034</a></li>
+        </ul>
+      </div>
+    </li><li>
+      <div class="arcimg img_loading">
+        <a href="/article/64.html" target="_blank">
+          <img src="/Upload/image/artimg/20170118587f0307db632.jpg" alt="PHP生成excel表格导入及导出实用案例" title="PHP生成excel表格导入及导出实用案例">
+        </a>
+      </div>
+      <div class="arc-right">
+        <h4 class="blue-text"><a href="/article/64.html">PHP生成excel表格导入及导出实用案例</a></h4>
+        <p>以前记得总是用PHP生成csv格式的表格，可现在excel表格越来越流行了，许多公司都要求做成excel格式表格，但这并不复杂，因为phpexcel为我们提供了方便、快捷的excel操作类</p>
+        <ul>
+          <li><a title="发表于2017-05-16"><i class="el-time"></i>2017-05-16</a></li>
+          <li><a title="2595次浏览"><i class="el-fire"></i>2595</a></li>
+        </ul>
+      </div>
+    </li><li>
+      <div class="arcimg img_loading">
+        <a href="/article/57.html" target="_blank">
+          <img src="/Upload/image/artimg/2017032458d52f2124932.jpg" alt="Linux服务器运维常用操作命令" title="Linux服务器运维常用操作命令">
+        </a>
+      </div>
+      <div class="arc-right">
+        <h4 class="blue-text"><a href="/article/57.html">Linux服务器运维常用操作命令</a></h4>
+        <p>我把自己常用的Linux操作命令总结一下，以后用的时候也方便查找</p>
+        <ul>
+          <li><a title="发表于2017-03-23"><i class="el-time"></i>2017-03-23</a></li>
+          <li><a title="2059次浏览"><i class="el-fire"></i>2059</a></li>
+        </ul>
+      </div>
+    </li> </ul>
+</div>
+
+<!--文章排行tab-->
+<div class="mytab bg-color animation-div">
+  <div class="tab-btn"><a class="hd-btn tab-active"href="javascript:;"><i class="el-comment-alt"></i>文章评论</a><a class="ph-btn"href="javascript:;"><i class="el-signal"></i>文章排行</a></div>
+  <ul class="hudong-ul">
+  <li>
+      <div class="sd-tx">
+      <a href="/article/140.html" target="_blank" rel="nofollow" title="去《layui中使用form表单监听ajax异步验证注册》看看">
+          <img src="https://thirdqq.qlogo.cn/qqapp/101370818/676C95317C3A2B80E5CE2C532894C83C/100" alt="雷小天" class="img-circle"/>
+      </a>
+      </div>
+      <div class="sd-name">
+        <span><i class="el-user"></i>雷小天<time >2018-06-15</time></span>
+        <a class="blue-text" href="#" title="推荐一下，值得看！" >推荐一下，值得看！</a>
+      </div>
+    </li><li>
+      <div class="sd-tx">
+      <a href="/article/142.html" target="_blank" rel="nofollow" title="去《浅谈基于JavaScript的DDOS攻击》看看">
+          <img src="https://thirdqq.qlogo.cn/qqapp/101370818/708912C0B5A36E5E99A721B206C60A24/100" alt="霸王不别姬" class="img-circle"/>
+      </a>
+      </div>
+      <div class="sd-name">
+        <span><i class="el-user"></i>霸王不别姬<time >2018-06-14</time></span>
+        <a class="blue-text" href="#" title="我要好好消化" >我要好好消化</a>
+      </div>
+    </li><li>
+      <div class="sd-tx">
+      <a href="/article/139.html" target="_blank" rel="nofollow" title="去《Workerman+Thinkphp5搭建高性能的PHP socket 服务器框架》看看">
+          <img src="https://thirdqq.qlogo.cn/qqapp/101370818/708912C0B5A36E5E99A721B206C60A24/100" alt="霸王不别姬" class="img-circle"/>
+      </a>
+      </div>
+      <div class="sd-name">
+        <span><i class="el-user"></i>霸王不别姬<time >2018-04-17</time></span>
+        <a class="blue-text" href="#" title="这个可以" >这个可以</a>
+      </div>
+    </li><li>
+      <div class="sd-tx">
+      <a href="/article/67.html" target="_blank" rel="nofollow" title="去《MySQL报错cannot add foreign key constraint解决方法》看看">
+          <img src="https://thirdqq.qlogo.cn/qqapp/101370818/327CAB3A3943A02A9F591A080B429D1D/100" alt="八百控技术" class="img-circle"/>
+      </a>
+      </div>
+      <div class="sd-name">
+        <span><i class="el-user"></i>八百控技术<time >2018-04-10</time></span>
+        <a class="blue-text" href="#" title="还有数据表的引擎,有些引擎不支持!" >还有数据表的引擎,有些引擎不支持!</a>
+      </div>
+    </li><li>
+      <div class="sd-tx">
+      <a href="/article/131.html" target="_blank" rel="nofollow" title="去《我的个人博客是如何申请百度联盟通过的？》看看">
+          <img src="https://thirdqq.qlogo.cn/qqapp/101370818/708912C0B5A36E5E99A721B206C60A24/100" alt="霸王不别姬" class="img-circle"/>
+      </a>
+      </div>
+      <div class="sd-name">
+        <span><i class="el-user"></i>霸王不别姬<time >2018-04-03</time></span>
+        <a class="blue-text" href="#" title="非常不错，拜读了！" >非常不错，拜读了！</a>
+      </div>
+    </li> </ul>
+
+  <!--文章排行-->
+  <ul class="paihang-ul">
+    <li><span></span><a href="/article/102.html" title="微信小程序如何加载数据库真实数据？">微信小程序如何加载数据库真实数据？<b>(19542)</b></a></li><li><span></span><a href="/article/67.html" title="MySQL报错cannot add foreign key constraint解决方法">MySQL报错cannot add foreign key constraint解决方法<b>(15208)</b></a></li><li><span></span><a href="/article/43.html" title="PHP实现一次性多张图片上传功能">PHP实现一次性多张图片上传功能<b>(11988)</b></a></li><li><span></span><a href="/article/101.html" title="微信小程序将html转为wxml开发案例">微信小程序将html转为wxml开发案例<b>(8930)</b></a></li><li><span></span><a href="/article/48.html" title="一位资深php程序员在北京的面试30个题目">一位资深php程序员在北京的面试30个题目<b>(7488)</b></a></li>  </ul>
+
+  </div>
+
+<!--标签-->
+  <div class="cloud bg-color animation-div">
+      <h4 class="index-title"><i class="el-tags"></i>标签云<small>Tags Clouds</small></h4>
+    <ul id="3dcloud">
+                      <li><a class="tstyle-1" href="/tag/20.html" onclick="return recordId('tid',20)" title="标签：CSS3 ">CSS3 (1)</a></li>                <li><a class="tstyle-2" href="/tag/21.html" onclick="return recordId('tid',21)" title="标签：HTML5 ">HTML5 (1)</a></li>                <li><a class="tstyle-3" href="/tag/22.html" onclick="return recordId('tid',22)" title="标签：Ecstore ">Ecstore (1)</a></li>                <li><a class="tstyle-4" href="/tag/23.html" onclick="return recordId('tid',23)" title="标签：Linux ">Linux (14)</a></li>               <li><a class="tstyle-1" href="/tag/24.html" onclick="return recordId('tid',24)" title="标签：Mysql ">Mysql (5)</a></li>                <li><a class="tstyle-2" href="/tag/25.html" onclick="return recordId('tid',25)" title="标签：jQuery ">jQuery (12)</a></li>               <li><a class="tstyle-3" href="/tag/26.html" onclick="return recordId('tid',26)" title="标签：ThinkPHP ">ThinkPHP (13)</a></li>               <li><a class="tstyle-4" href="/tag/27.html" onclick="return recordId('tid',27)" title="标签：搜索引擎 ">搜索引擎 (7)</a></li>                <li><a class="tstyle-1" href="/tag/28.html" onclick="return recordId('tid',28)" title="标签：工程师 ">工程师 (1)</a></li>                <li><a class="tstyle-2" href="/tag/29.html" onclick="return recordId('tid',29)" title="标签：Mysql ">Mysql (1)</a></li>                <li><a class="tstyle-3" href="/tag/30.html" onclick="return recordId('tid',30)" title="标签：个人博客 ">个人博客 (4)</a></li>                <li><a class="tstyle-4" href="/tag/31.html" onclick="return recordId('tid',31)" title="标签：session ">session (2)</a></li>                <li><a class="tstyle-1" href="/tag/32.html" onclick="return recordId('tid',32)" title="标签：cookie ">cookie (1)</a></li>                <li><a class="tstyle-2" href="/tag/33.html" onclick="return recordId('tid',33)" title="标签：安全 ">安全 (4)</a></li>                <li><a class="tstyle-3" href="/tag/34.html" onclick="return recordId('tid',34)" title="标签：Web开发 ">Web开发 (5)</a></li>                <li><a class="tstyle-4" href="/tag/35.html" onclick="return recordId('tid',35)" title="标签：node.js ">node.js (1)</a></li>                <li><a class="tstyle-1" href="/tag/36.html" onclick="return recordId('tid',36)" title="标签：bootstrap ">bootstrap (1)</a></li>                <li><a class="tstyle-2" href="/tag/37.html" onclick="return recordId('tid',37)" title="标签：个人博客模板 ">个人博客模板 (5)</a></li>                <li><a class="tstyle-3" href="/tag/38.html" onclick="return recordId('tid',38)" title="标签：微信 ">微信 (2)</a></li>                <li><a class="tstyle-4" href="/tag/39.html" onclick="return recordId('tid',39)" title="标签：缓存 ">缓存 (1)</a></li>                <li><a class="tstyle-1" href="/tag/40.html" onclick="return recordId('tid',40)" title="标签：页面静态化 ">页面静态化 (1)</a></li>                <li><a class="tstyle-2" href="/tag/41.html" onclick="return recordId('tid',41)" title="标签：面试题 ">面试题 (5)</a></li>                <li><a class="tstyle-3" href="/tag/42.html" onclick="return recordId('tid',42)" title="标签：数据结构 ">数据结构 (2)</a></li>                <li><a class="tstyle-4" href="/tag/43.html" onclick="return recordId('tid',43)" title="标签：Redis ">Redis (2)</a></li>                <li><a class="tstyle-1" href="/tag/44.html" onclick="return recordId('tid',44)" title="标签：Nosql ">Nosql (2)</a></li>                <li><a class="tstyle-2" href="/tag/45.html" onclick="return recordId('tid',45)" title="标签：socket ">socket (6)</a></li>                <li><a class="tstyle-3" href="/tag/46.html" onclick="return recordId('tid',46)" title="标签：UDP协议 ">UDP协议 (2)</a></li>                <li><a class="tstyle-4" href="/tag/47.html" onclick="return recordId('tid',47)" title="标签：TCP协议 ">TCP协议 (1)</a></li>                <li><a class="tstyle-1" href="/tag/48.html" onclick="return recordId('tid',48)" title="标签：SVN ">SVN (2)</a></li>                <li><a class="tstyle-2" href="/tag/49.html" onclick="return recordId('tid',49)" title="标签：ajax ">ajax (3)</a></li>                <li><a class="tstyle-3" href="/tag/50.html" onclick="return recordId('tid',50)" title="标签：模块功能 ">模块功能 (5)</a></li>                <li><a class="tstyle-4" href="/tag/51.html" onclick="return recordId('tid',51)" title="标签：laravel ">laravel (2)</a></li>                <li><a class="tstyle-1" href="/tag/52.html" onclick="return recordId('tid',52)" title="标签：LAMP ">LAMP (4)</a></li>                <li><a class="tstyle-2" href="/tag/53.html" onclick="return recordId('tid',53)" title="标签：API ">API (1)</a></li>                <li><a class="tstyle-3" href="/tag/54.html" onclick="return recordId('tid',54)" title="标签：VMware ">VMware (2)</a></li>                <li><a class="tstyle-4" href="/tag/55.html" onclick="return recordId('tid',55)" title="标签：手机模板 ">手机模板 (11)</a></li>               <li><a class="tstyle-1" href="/tag/56.html" onclick="return recordId('tid',56)" title="标签：源码项目 ">源码项目 (1)</a></li>                <li><a class="tstyle-2" href="/tag/57.html" onclick="return recordId('tid',57)" title="标签：PC模板 ">PC模板 (4)</a></li>                <li><a class="tstyle-3" href="/tag/58.html" onclick="return recordId('tid',58)" title="标签：XSS ">XSS (2)</a></li>                <li><a class="tstyle-4" href="/tag/59.html" onclick="return recordId('tid',59)" title="标签：开发工具 ">开发工具 (2)</a></li>                <li><a class="tstyle-1" href="/tag/60.html" onclick="return recordId('tid',60)" title="标签：小程序 ">小程序 (7)</a></li>                <li><a class="tstyle-2" href="/tag/61.html" onclick="return recordId('tid',61)" title="标签：图片上传 ">图片上传 (3)</a></li>                <li><a class="tstyle-3" href="/tag/62.html" onclick="return recordId('tid',62)" title="标签：学习 ">学习 (3)</a></li>                <li><a class="tstyle-4" href="/tag/63.html" onclick="return recordId('tid',63)" title="标签：正则表达式 ">正则表达式 (1)</a></li>                <li><a class="tstyle-1" href="/tag/64.html" onclick="return recordId('tid',64)" title="标签：http协议 ">http协议 (2)</a></li>                <li><a class="tstyle-2" href="/tag/65.html" onclick="return recordId('tid',65)" title="标签：软件安装 ">软件安装 (2)</a></li>                <li><a class="tstyle-3" href="/tag/66.html" onclick="return recordId('tid',66)" title="标签：Composer ">Composer (2)</a></li>                <li><a class="tstyle-4" href="/tag/67.html" onclick="return recordId('tid',67)" title="标签：SSL ">SSL (2)</a></li>                <li><a class="tstyle-1" href="/tag/68.html" onclick="return recordId('tid',68)" title="标签：个人站长 ">个人站长 (2)</a></li>                <li><a class="tstyle-2" href="/tag/69.html" onclick="return recordId('tid',69)" title="标签：文件上传 ">文件上传 (0)</a></li>                <li><a class="tstyle-3" href="/tag/70.html" onclick="return recordId('tid',70)" title="标签：验证码 ">验证码 (1)</a></li>                <li><a class="tstyle-4" href="/tag/71.html" onclick="return recordId('tid',71)" title="标签：github ">github (1)</a></li>                <li><a class="tstyle-1" href="/tag/72.html" onclick="return recordId('tid',72)" title="标签：Tomcat ">Tomcat (2)</a></li>                <li><a class="tstyle-2" href="/tag/73.html" onclick="return recordId('tid',73)" title="标签：Eclipse ">Eclipse (4)</a></li>                <li><a class="tstyle-3" href="/tag/74.html" onclick="return recordId('tid',74)" title="标签：C指针 ">C指针 (0)</a></li>                <li><a class="tstyle-4" href="/tag/75.html" onclick="return recordId('tid',75)" title="标签：存储器 ">存储器 (1)</a></li>                <li><a class="tstyle-1" href="/tag/76.html" onclick="return recordId('tid',76)" title="标签：Memcached ">Memcached (2)</a></li>                <li><a class="tstyle-2" href="/tag/77.html" onclick="return recordId('tid',77)" title="标签：端口 ">端口 (1)</a></li>                <li><a class="tstyle-3" href="/tag/78.html" onclick="return recordId('tid',78)" title="标签：架构 ">架构 (1)</a></li>                <li><a class="tstyle-4" href="/tag/79.html" onclick="return recordId('tid',79)" title="标签：Android ">Android (1)</a></li>                <li><a class="tstyle-1" href="/tag/80.html" onclick="return recordId('tid',80)" title="标签：workerman ">workerman (2)</a></li>                <li><a class="tstyle-2" href="/tag/81.html" onclick="return recordId('tid',81)" title="标签：DDOS ">DDOS (1)</a></li>    </ul>
+  </div>
+</aside>
+
+<!--=========END右侧==========-->
+
+
+</div>
+
+<!--主题框架结束-->
+<!---底部开始-->
+<footer>
+  <div class="footer-area">
+  <!--博客相关-->
+  <div class="about-blog">
+    <h4>素材排行</h4>
+    <div class="ft-part1">
+          <!--素材排行-->
+        <ul class="paihang-ul" style="display:block;width:100%;">
+          <li><span></span><a href="/Home/Index/downdetail/id/3.html" title="杨青个人博客模板分享"> 杨青个人博客模板分享<b>(7793)</b></a></li><li><span></span><a href="/Home/Index/downdetail/id/6.html" title="个人博客模板下载（emlog系统）"> 个人博客模板下载（emlog系统）<b>(5590)</b></a></li><li><span></span><a href="/Home/Index/downdetail/id/2.html" title="柠檬绿兔小白个人博客模板下载"> 柠檬绿兔小白个人博客模板下载<b>(4143)</b></a></li><li><span></span><a href="/Home/Index/downdetail/id/7.html" title="雷小天个人博客源码下载"> 雷小天个人博客源码下载<b>(3198)</b></a></li><li><span></span><a href="/Home/Index/downdetail/id/5.html" title="jQuery俄罗斯方块小游戏下载"> jQuery俄罗斯方块小游戏下载<b>(2566)</b></a></li>        </ul>
+    </div>
+  </div>
+
+  <!--最新留言-->
+  <div class="close-fd mob-hidden">
+     <h4>留言频道</h4>
+    <ul >
+      <li>
+      <div class="sd-tx">
+        <a href="/Home/Index/feedback.html/#Comment-267"  target="_blank" rel="nofollow" title="去留言板看看?">
+
+          <img src="/Template/xiao/Home/Public/images/Portrait/97.jpg" alt="AndyGuo" class="img-circle"/>
+        </a>
+      </div>
+      <div class="sd-name">
+        <span>AndyGuo</span>
+        <a class="blue-text" href="/Home/Index/feedback.html/#Comment-267" title="网站模板很不错，我要把它扒下来。[Q25][Q8]" >网站模板很不错，我要把它扒下来。[Q25][Q8]</a>
+      </div>
+      </li><li>
+      <div class="sd-tx">
+        <a href="/Home/Index/feedback.html/#Comment-266"  target="_blank" rel="nofollow" title="去留言板看看?">
+
+          <img src="/Template/xiao/Home/Public/images/Portrait/69.jpg" alt="一点PHP www.yidianphp.com" class="img-circle"/>
+        </a>
+      </div>
+      <div class="sd-name">
+        <span>一点PHP www.yidianphp.com</span>
+        <a class="blue-text" href="/Home/Index/feedback.html/#Comment-266" title="https://www.yidianphp.com 一点PHP  想和贵站换个友链，如果可以请站长联系一下我" >https://www.yidianphp.com 一点PHP  想和贵站换个友链，如果可以请站长联系一下我</a>
+      </div>
+      </li><li>
+      <div class="sd-tx">
+        <a href="/Home/Index/feedback.html/#Comment-265"  target="_blank" rel="nofollow" title="去留言板看看?">
+
+          <img src="/Template/xiao/Home/Public/images/Portrait/86.jpg" alt="Joe" class="img-circle"/>
+        </a>
+      </div>
+      <div class="sd-name">
+        <span>Joe</span>
+        <a class="blue-text" href="/Home/Index/feedback.html/#Comment-265" title="
+额因为不能多次回复，只好另外开贴了。
+
+我这里可以有工具类和游戏类的广告主希望投放广告，目前可以用js对接的方式把广告放在你的博客里，在你的博客中只要有展示就可以赚钱了，这个和百度联盟是一样的，你可以用第三方统计来统计广告展示量，我们按约定时间结算就可以了，不知道你有兴趣试试吗？
+" >
+额因为不能多次回复，只好另外开贴了。
+
+我这里可以有工具类和游戏类的广告主希望投放广告，目前可以用js对接的方式把广告放在你的博客里，在你的博客中只要有展示就可以赚钱了，这个和百度联盟是一样的，你可以用第三方统计来统计广告展示量，我们按约定时间结算就可以了，不知道你有兴趣试试吗？
+</a>
+      </div>
+      </li>    </ul>
+  </div>
+
+
+
+  <!--图文频道-->
+
+  <div class="tuwen-pd mob-hidden">
+    <h4>博主相册</h4>
+      <ul >
+        <li>
+              <a  class="orange-text" href="/Home/Index/picture/id/1.html" title="杨青个人博客">
+              <img class="img-circle" alt="杨青个人博客" src="/Upload/image/album/2016411192233455.jpg" title="杨青个人博客"/>
+              </a>
+          </li><li>
+              <a  class="orange-text" href="/Home/Index/picture/id/2.html" title="卢松松博客">
+              <img class="img-circle" alt="卢松松博客" src="/Upload/image/album/2016418225948574.jpg" title="卢松松博客"/>
+              </a>
+          </li><li>
+              <a  class="orange-text" href="/Home/Index/picture/id/3.html" title="个人博客主页欣赏">
+              <img class="img-circle" alt="个人博客主页欣赏" src="/Upload/image/album/20161225585ea5215cfc2.jpg" title="个人博客主页欣赏"/>
+              </a>
+          </li><li>
+              <a  class="orange-text" href="/Home/Index/picture/id/4.html" title="月光博客">
+              <img class="img-circle" alt="月光博客" src="/Upload/image/album/201701095872e61ed4a98.jpg" title="月光博客"/>
+              </a>
+          </li><li>
+              <a  class="orange-text" href="/Home/Index/picture/id/5.html" title="全球中文网站前5排行榜">
+              <img class="img-circle" alt="全球中文网站前5排行榜" src="/Upload/image/album/201705085872e61ed4a98.jpg" title="全球中文网站前5排行榜"/>
+              </a>
+          </li><li>
+              <a  class="orange-text" href="/Home/Index/picture/id/6.html" title="laravel框架个人博客系统">
+              <img class="img-circle" alt="laravel框架个人博客系统" src="/Upload/image/album/2017061559425a3e45e41.jpg" title="laravel框架个人博客系统"/>
+              </a>
+          </li><li>
+              <a  class="orange-text" href="/Home/Index/picture/id/7.html" title="企业招聘前端工程师面试题">
+              <img class="img-circle" alt="企业招聘前端工程师面试题" src="/Upload/image/album/201708155992a4329eefe.jpg" title="企业招聘前端工程师面试题"/>
+              </a>
+          </li><li>
+              <a  class="orange-text" href="/Home/Index/picture/id/8.html" title="优秀的网站设计欣赏">
+              <img class="img-circle" alt="优秀的网站设计欣赏" src="/Upload/image/album/201801265a6aa5325b5b4.jpg" title="优秀的网站设计欣赏"/>
+              </a>
+          </li>     </ul>
+  </div>
+    <!--数据统计-->
+
+  <div class="data-count ">
+
+    <h4>数据统计</h4>
+
+    <ul>
+
+
+      <li><span><i class="el-picture"></i>图片数量：</span><a title="共有 21 张图片">21</a> 张</li>
+
+      <li><span><i class="el-headphones"></i>说说数量：</span><a title="共有 62 条说说">62</a> 条</li>
+
+      <li><span><i class="el-pencil"></i>文章数量：</span><a title="共有 115 篇文章">115</a> 篇</li>
+
+      <li><span><i class="el-comment"></i>留言数量：</span><a title="共有 98 条留言">98</a> 条</li>
+
+      <li><span><i class="el-comment-alt"></i>评论数量：</span><a title="共有 30 条评论">30</a> 条</li>
+
+      <li><span><i class="el-paper-clip"></i>素材个数：</span><a title="共有 24 个">24</a> 个</li>
+
+      <li><span><i class="el-cog"></i>运行天数：</span><a title="雷小天博客 已正常运行 918 天">918</a> 天</li>
+
+
+
+      <li><span><i class="el-adjust-alt"></i>访问统计：</span><a title="累计访问"></a> 次</a></li>
+
+
+
+      <!--<li><span><i class="el-arrow-up"></i>4天前 12:15</span><a title="晓晓 最后更新了文章" >更新了<b class="lable">文章</b></a></li>-->
+
+
+
+    </ul>
+
+  </div>
+
+
+
+  </div>
+
+  <!--底部导航-->
+
+  <div class="foot-nav">
+
+    <div class="copy-right"><span >CopyRight &#169; 2015-2017 雷小天博客 &#160;Design by Lei</span></div>
+
+    <div class="bottom-nav">
+
+      <span><a href="http://www.100txy.com/sitemap.xml" target="_blank">网站地图</a>-<a href="http://www.miitbeian.gov.cn/"> 粤ICP备16001325号-1</a></span>
+
+    </div>
+
+  </div>
+
+<div  id="toTop">Back to Top</div>
+
+<script>
+
+window.onload=function(){
+
+  $(".img_loading").removeClass("img_loading");
+
+  $(".silde-title").show();
+
+}
+
+    // 替换
+
+    document.body.innerHTML = document.body.innerHTML.replace(/\[Q([0-9]*)\]/g, "<img src='/Template/xiao/Home/Public/images/face/mr/$1.gif'/>");
+
+    document.body.innerHTML = document.body.innerHTML.replace(/\[yc_([0-9]*)\]/g,"<img src='/Template/xiao/Home/Public/images/face/yc/$1.gif'/>");
+
+    document.body.innerHTML = document.body.innerHTML.replace(/\[ali_([0-9]*)\]/g,"<img src='/Template/xiao/Home/Public/images/face/ali/$1.gif'/>");
+
+</script>
+
+
+
+
+
+</footer>
+
+<!---返回顶部-->
+
+<!--换肤--->
+
+
+
+<div class="select-skin">
+
+<div class="skin-btn">
+
+    <a href="javascript:void(0);" class="skin-btn-open">换<br>肤</a>
+
+</div>
+
+
+
+<div class="skin-content">
+
+    <h1>选择风格<span class="skin-close">关闭</span></h1>
+
+    <div class="skin-content-list">
+
+        <div class="skin-list"><a href="#" onclick="setActiveStyleSheet('qingxin'); return false;" class="btn1">清新</a></div>
+
+        <div class="skin-list"><a href="#" onclick="setActiveStyleSheet('jianyue'); return false;" class="btn2">简约</a></div>
+
+     <div class="skin-list"><a href="#" onclick="setActiveStyleSheet('qingshuang'); return false;" class="btn3">清爽</a></div>
+
+    </div>
+
+</div>
+
+</div>
+
+<!---END 底部开始-->
+
+<style type="text/css">
+.TY-login-window {
+  font-size:12px;
+  line-height:1.5;
+  font-family:"微软雅黑",Arial,Helvetica;
+  padding:15px;
+  /*background:#fff;
+  border-radius:6px;*/
+}
+.login-window-header {
+  height:65px;
+  overflow:hidden;
+  position:relative;
+  *zoom:1;
+}
+.loginWin-tab {
+  text-align:center;
+  margin-bottom:15px;
+}
+.loginWin-tab-list {
+  display:inline-block;
+  vertical-align:middle;
+  *display:inline;
+  *zoom:1;
+}
+.loginWin-tab-list li {
+  float:left;
+  display:inline;
+  border-bottom:1px solid #aaa;
+  color:#aaa;
+  width:143px;
+  height:21px;
+  line-height:21px;
+}
+.loginWin-tab-list li span {
+  padding-left:16px;
+  /*background:url(resources/images/loginWin_icons.png?_v=20170104) no-repeat;*/
+  cursor:pointer;
+}
+.loginWin-tab-list .normal-login-tab span {
+  background-position:0 -159px;
+}
+.loginWin-tab-list .qrcode-login-tab span {
+  background-position:0 -95px;
+}
+.loginWin-account {
+  width:286px;
+  margin:0 auto 15px;
+}
+.loginWin-account-title {
+  color:#000;
+  font-size:14px;
+  margin-bottom:15px;
+  text-indent:10px;
+}
+.loginWin-account-list {
+  margin-right:-10px!important;
+  height:152px;
+  overflow:hidden;
+}
+.loginWin-account-list li {
+  float:left;
+  display:inline;
+  margin-right:10px;
+}
+.loginWin-account-list li a {
+  display:block;
+  padding:9px 10px;
+  line-height:20px;
+  width:118px;
+  color:#aaa;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  overflow:hidden;
+  text-decoration:none;
+}
+.loginWin-account-list li a:hover {
+  color:#308ee3;
+}
+.loginWin-account-list li.checked a {
+  color:#fff;
+  background:#308ee3;
+  border-radius:6px;
+}
+.loginWin-account-list li.checked a:hover {
+  color:#fff;
+}
+.loginWin-form {
+  color:#000;
+}
+.loginWin-login-form {
+  width:286px;
+  margin:0 auto;
+}
+.loginWin-login-form a,.loginWin-login-form a:link,.loginWin-login-form a:visited {
+  color:#308ee3;
+  text-decoration:none;
+}
+.loginWin-login-form a:hover,.loginWin-login-form a:active {
+  color:#308ee3;
+  text-decoration:underline;
+}
+.loginWin-form-item {
+  margin-bottom:10px;
+}
+.loginWin-form-item .input-text {
+  border:1px solid #aaa;
+  border-radius:6px;
+  padding:6px 12px;
+  width:286px;
+  height:38px;
+  line-height:38px;
+  outline:0 none;
+}
+.loginWin-form-item .input-text:focus {
+  border-color:#308ee3;
+}
+.loginWin-form-item .input-checkbox {
+  vertical-align:middle;
+  margin:-2px 4px 0 0;
+  outline:0 none;
+}
+.loginWin-submit-btn {
+  border:0 none;
+  width:286px;
+  height:38px;
+  line-height:38px;
+  font-size:16px;
+  color:#fff;
+  text-align:center;
+  background:#308ee3;
+  border-radius:6px;
+  cursor:pointer;
+  vertical-align:middle;
+  outline:0 none;
+}
+.loginWin-account-input,.loginWin-password-input {
+  position:relative;
+  *zoom:1;
+}
+.loginWin-account-input .input-text,.loginWin-password-input .input-text {
+  padding-left:42px;
+  width:286;
+}
+.loginWin-account-input label,.loginWin-password-input label {
+  position:absolute;
+  width:24px;
+  height:24px;
+  font-size:0;
+  line-height:0;
+  left:12px;
+  top:6px;
+  background:url(/Template/xiao/Home/Public/images/icon/loginWin_icons.png?_v=20170104) no-repeat;
+}
+.fr {
+    float: right;
+    display: inline;
+}
+.loginWin-account-input label {
+  background-position:0 -256px;
+}
+.loginWin-password-input label {
+  background-position:0 -338px;
+}
+.loginWin-account-input .input-text:focus ~ label {
+  background-position:0 -296px;
+}
+.loginWin-password-input .input-text:focus ~ label {
+  background-position:0 -381px;
+}
+.switch-login-toggle,.normal-login-toggle {
+  color:#f9a30f;
+  padding-left:15px;
+  /*background:url(resources/images/loginWin_icons.png?_v=20170104) no-repeat;*/
+  cursor:pointer;
+}
+.normal-login-toggle {
+  background-position:0 -190px;
+}
+.switch-login-toggle {
+  background-position:0 -223px;
+}
+.loginWin-qrcode {
+  margin-top:50px;
+  height:273px;
+}
+.loginWin-qrcode-box {
+  width:180px;
+  padding-left:216px;
+  margin:0 auto;
+  text-align:center;
+  /*background:url(resources/images/loginWin_qrcode_bg.png?_v=20170104) no-repeat;*/
+  position:relative;
+  *zoom:1;
+}
+.loginWin-third {
+  width:286px;
+  margin:20px auto 0;
+}
+.loginWin-third-title {
+  text-align:center;
+  margin-bottom:20px;
+  position:relative;
+  *zoom:1;
+}
+.loginWin-third-title:before {
+  content:"";
+  width:100%;
+  height:1px;
+  background:#aaa;
+  position:absolute;
+  top:50%;
+  left:0;
+}
+.loginWin-third-title span {
+  padding:0 10px;
+  color:#aaa;
+  background:#fff;
+  position:relative;
+  *zoom:1;
+}
+.loginWin-third-list {
+  margin-right:-53px!important;
+  overflow:hidden;
+}
+.loginWin-third-list li {
+  float:left;
+  display:inline;
+  width:60px;
+  height:60px;
+  margin-right:53px;
+}
+.loginWin-third-list li a {
+  display:block;
+  width:60px;
+  height:60px;
+  background:url(/Template/xiao/Home/Public/images/icon/loginWin_third.png?_v=20170104) no-repeat;
+}
+.loginWin-third-list .weixin-login {
+  background-position:0 0;
+}
+.loginWin-third-list .qq-login {
+  background-position:0 -60px;
+}
+.loginWin-third-list .weibo-login {
+  background-position:0 -120px;
+}
+/*手机端登录*/
+.loginwap-third-list li {
+  float:left;
+  display:inline;
+  width:33.333%;
+  height:40px;
+  /*margin-right:32%;*/
+}
+.loginwap-third-list li a {
+  display:block;
+  width:40px;
+  height:40px;
+  margin-left: 34.76%;
+  background:url(/Template/xiao/Home/Public/images/icon/loginwap_third.png?_v=20170104) no-repeat;
+}
+.loginwap-third-list .weixin-login {
+  background-position:0 0;
+}
+.loginwap-third-list .qq-login {
+  background-position:0 -40px;
+}
+.loginwap-third-list .weibo-login {
+  background-position:0 -80px;
+}
+
+#loginWin_content_wrapper {
+  padding:10px 0;
+}
+.loginWin-switch-login-wrapper .loginWin-tab,.loginWin-switch-login-wrapper .loginWin-qrcode,.loginWin-switch-login-wrapper .loginWin-third,.loginWin-switch-login-wrapper .loginWin-account-input,.loginWin-switch-login-wrapper .loginWin-register-link,.loginWin-switch-login-wrapper .switch-login-toggle {
+  display:none;
+}
+.loginWin-normal-login-wrapper .loginWin-account,.loginWin-normal-login-wrapper .loginWin-qrcode,.loginWin-normal-login-wrapper .normal-login-toggle {
+  display:none;
+}
+.loginWin-normal-login-wrapper .normal-login-tab {
+  border-bottom-color:#308ee3;
+  color:#308ee3;
+}
+.loginWin-normal-login-wrapper .normal-login-tab span {
+  background-position:0 -127px;
+  cursor:text;
+}
+.loginWin-qrcode-login-wrapper .loginWin-account,.loginWin-qrcode-login-wrapper .loginWin-form,.loginWin-qrcode-login-wrapper .loginWin-third {
+  display:none;
+}
+.loginWin-qrcode-login-wrapper .qrcode-login-tab {
+  border-bottom-color:#308ee3;
+  color:#308ee3;
+}
+.loginWin-qrcode-login-wrapper .qrcode-login-tab span {
+  background-position:0 -64px;
+  cursor:text;
+}
+</style>
+<div class="hide_box2"></div>
+<div class="shang_box2">
+  <a class="shang_close2" href="javascript:void(0)" onClick="dashangToggle2()" title="关闭"><img src="/Template/xiao/Home/Public/images/icon/close.jpg" alt="取消" /></a>
+    <img class="shang_logo2" src="/Template/xiao/Home/Public/images/icon/logo2.png" alt="雷小天博客" />
+  <!-- <div class="ty-content clearfix shang_box2" style="padding:0;"> -->
+    <div class="TY-login-window">
+
+      <div class="login-window-body">
+        <div id="loginWin_content_wrapper" class="loginWin-normal-login-wrapper">
+          <div class="loginWin-tab">
+            <ul class="loginWin-tab-list cf">
+              <li class="normal-login-tab"><span>普通登录</span></li>
+              <li class="qrcode-login-tab"><span>扫码登录</span></li>
+            </ul>
+          </div>
+          <div class="loginWin-form">
+            <form class="loginWin-login-form" id="topguideloginform" name="topguideloginform" method="post" action="javascript::void(0);" accept-charset="UTF-8" target="_top">
+              <div class="loginWin-form-item loginWin-account-input"><input type="text" class="input-text" id="vwriter" name="vwriter" placeholder="用户名/手机/邮箱" autocomplete="off">
+                <input type="hidden" id="user_action" name="action" value="f7.1483930809431.111114|b2de5928fa17c27cadcda46f7cd0197f|d41d8cd98f00b204e9800998ecf8427e|Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36|0|9|v2.2"><label for="vwriter"></label>
+              </div>
+              <div class="loginWin-form-item loginWin-password-input">
+                <input type="password" class="input-text" id="vpassword" name="vpassword" placeholder="密码"><label for="vpassword"></label>
+              </div>
+              <div class="loginWin-form-item cf"><label class="fl">
+                <input type="checkbox" class="input-checkbox" id="rmflag" name="rmflag" value="1" checked="checked">下次自动登录</label><a class="loginWin-password-link fr" href="javascript::void(0);" onclick="return alert('暂不开放！');" target="_blank">忘记密码？</a>
+              </div>
+              <div class="loginWin-form-item"><button type="submit" onclick="return alert('暂不开放，请选择第三方！');" class="loginWin-submit-btn">登 录</button>
+              </div>
+              <div class="cf"><a class="loginWin-register-link fl" href="javascript::void(0);" onclick="return alert('暂不开放，请选择第三方！');" target="_blank">立即注册</a><span class="normal-login-toggle fr">返回登录</span>
+              </div>
+            </form>
+            </div>
+            <div class="loginWin-third"><p class="loginWin-third-title"><span>使用第三方账号登录</span></p>
+              <ul class="loginWin-third-list cf">
+                <li><a class="weixin-login" title="微信账号登录" href="/Home/User/oauth_login/type/wechat.html"></a></li>
+                <li><a class="qq-login" title="QQ账号登录" href="/Home/User/oauth_login/type/qq.html"></a></li>
+                <li><a class="weibo-login" title="新浪微博账号登录" href="/Home/User/oauth_login/type/sina.html"></a></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    <!-- </div> -->
+
+    <!-- <ul class="row">
+        <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+            <a href="/Home/User/oauth_login/type/qq.html"><img src="/Template/xiao/Home/Public/images/icon/qq-login.png" alt="QQ登录" title="QQ登录"></a>
+        </li>
+        <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+            <a href="/Home/User/oauth_login/type/sina.html"><img src="/Template/xiao/Home/Public/images/icon/sina-login.png" alt="微博登录" title="微博登录"></a>
+        </li>
+        <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+            <a href="/Home/User/oauth_login/type/douban.html"><img src="/Template/xiao/Home/Public/images/icon/douban-login.png" alt="豆瓣登录" title="豆瓣登录"></a>
+        </li>
+        <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+            <a href="/Home/User/oauth_login/type/renren.html"><img src="/Template/xiao/Home/Public/images/icon/renren-login.png" alt="人人登录" title="人人登录"></a>
+        </li>
+        <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+            <a href="/Home/User/oauth_login/type/kaixin.html"><img src="/Template/xiao/Home/Public/images/icon/kaixin-login.png" alt="开心网登录" title="开心网登录"></a>
+        </li>
+        <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+            <a href="/Home/User/oauth_login.html"><img src="" alt="待定" title="待定"></a>
+        </li>
+    </ul> -->
+
+</div>
+<script type="text/javascript">
+function dashangToggle2(){
+  $(".hide_box2").fadeToggle();
+  $(".shang_box2").fadeToggle();
+}
+</script>
+
+
+  <script type="text/javascript">
+    $(function(){
+    //瀑布流
+      $('.su').jaliswall({ item: '.su-li' });
+    });
+    //ajax根据分类获取下载列表
+    function getmaterial(obj){
+      var id=obj.id;
+      $.ajax({
+        type:"POST",
+        url:"http://www.100txy.com/Home/Index/ajax_getmaterial",
+        data:"id="+id,
+        dataType:"json",
+        success:function(data){
+          if(data.status=='yes'){
+            // $('.sucailist').html(data.str)
+            $("#downlist").remove();
+            $("#pagerArea").remove();
+            $(".mclassify").after(data.str)
+          }else{
+            layer.msg(data.msg, {icon: 2});
+            return false;
+            //  $('.su').html('没有该分类！');
+          }
+        },
+
+      });
+    }
+    //ajax加载分页
+    $(function() {
+    $("#pagerArea").cypager({pg_size: 15, pg_nav_count: 8, pg_total_count: 26, pg_call_fun: function(count) {
+         download_data(count);
+         $("html, body").animate({
+        scrollTop: $("#location").offset().top }, {duration: 500,easing: "swing"});
+        return false;
+        }});
+
+});
+
+function download_data(count){
+  var p=count;
+  $.ajax({
+    type:"POST",
+    url:"http://www.100txy.com/Home/Index/materialdata_ajax",
+    data:"p="+p,
+    dataType:"json",
+    success:function(data){
+      $("#downlist").empty();
+      $('#downlist').html(data.str);
+    },
+  });
+}
+  </script>
+
+</body>
+
+</html>
