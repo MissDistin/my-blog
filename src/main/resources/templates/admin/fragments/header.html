@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--suppress ALL-->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="headerFragment(title,active)">
     <meta charset="utf-8"/>
@@ -99,6 +100,11 @@
                     <a th:href="@{/admin/comments}"
                        th:class="${active}=='comments'?'waves-effect active':'waves-effect'"><i
                             class="fa fa-comments" aria-hidden="true"></i><span> 评论管理 </span></a>
+                </li>
+                <li th:class="${active}=='chart'?'active':''">
+                    <a th:href="@{/admin/chat}"
+                       th:class="${active}=='chart'?'waves-effect active':'waves-effect'"><i
+                            class="fa fa-comment" aria-hidden="true"></i><span> 说说管理 </span></a>
                 </li>
                 <li th:class="${active}=='category'?'active':''">
                     <a th:href="@{/admin/category}"

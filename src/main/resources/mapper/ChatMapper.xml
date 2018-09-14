@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wip.dao.ChatDao">
+
+    <!--表名-->
+    <sql id="BASE_TABLE">
+        t_chats
+    </sql>
+    <!--文章表列名-->
+    <sql id="BASE_COLUMN">
+        c.chid, c.content, c.clickNum, c.creator, c.created
+    </sql>
+
+    <!--添加说说-->
+    <insert id="addChat" parameterType="com.wip.model.ChatDomain" useGeneratedKeys="true" keyProperty="cid">
+        INSERT INTO
+        <include refid="BASE_TABLE"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            chid, content, clickNum, creator, created
+        </trim>
+        <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            #{chid, jdbcType=VARCHAR},
+            #{content, jdbcType=VARCHAR},
+            #{clickNum, jdbcType=INTEGER},
+            #{creator, jdbcType=VARCHAR},
+            UNIX_TIMESTAMP(NOW())
+        </trim>
+    </insert>
+
+    <!--查找说说列表-->
+    <select id="getChat" resultType="com.wip.model.ChatDomain">
+        SELECT
+        <include refid="BASE_COLUMN"/>
+        FROM
+        <include refid="BASE_TABLE"/> AS c
+        ORDER BY c.created
+    </select>
+
+    <!--根据ID查找说说-->
+    <select id="getChatByChid" resultType="com.wip.model.ChatDomain">
+        SELECT
+        <include refid="BASE_COLUMN"/>
+        FROM
+        <include refid="BASE_TABLE"/> AS c
+        WHERE
+        c.chid = #{chid, jdbcType=VARCHAR}
+    </select>
+
+    <!--更新评论状态-->
+    <update id="updateChatByCid" parameterType="com.wip.model.ChatDomain">
+        UPDATE
+        <include refid="BASE_TABLE"/>
+        SET
+        commentNum = #{commentNum, jdbcType=INTEGER}
+        WHERE
+        chid = #{chid, jdbcType=VARCHAR}
+    </update>
+</mapper>

@@ -8,12 +8,7 @@ package com.wip.model;
 /**
  * 网站图片文件相关表
  */
-public class AttAchDomain {
-
-    /**
-     * 主键编号
-     */
-    private Integer id;
+public class AttAchDomain extends BaseDomain{
 
     /**
      * 文件名称
@@ -39,14 +34,6 @@ public class AttAchDomain {
      * 创建的时间戳
      */
     private Integer created;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getFname() {
         return fname;

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--suppress ALL-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:with="title='说说管理',active='chat'">
+<header th:replace="admin/fragments/header::headerFragment(${title},${active})"></header>
+<body class="fixed-left">
+<div id="wrapper">
+    <div th:replace="admin/fragments/header::header-body"></div>
+    <div class="content-page">
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4 class="page-title">说说管理</h4>
+                    </div>
+                    <div class="col-md-12">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>说说内容</th>
+                                <th>说说时间</th>
+                                <th>说说人</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <th:block th:each="chat : ${chat.list}">
+                                <tr th:attr="chid=${chat.chid}">
+                                    <td th:text="${chat.chid}"></td>
+                                    <td th:text="${chat.content}"></td>
+                                    <td th:text="${commons.fmtdate(chat.created, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                                    <td th:text="${chat.creator}"></td>
+                                    <td>
+                                        <a href="javascript:void(0)" th:onclick="'delComment('+${chat.chid}+');'"
+                                           class="btn btn-danger btn-sm waves-effect waves-light m-b-5">
+                                            <i class="fa fa-trash-o"></i>
+                                            <span>删除</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </th:block>
+                            </tbody>
+                        </table>
+                        <!--<div th:replace="comm/macros :: pageAdminNav(${comments})"></div>-->
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12" style="padding: 20px;">
+                            <div class="panel panel-purple">
+                                <div class="panel-heading"><h3 class="panel-title">保存说说</h3></div>
+                                <div class="panel-body">
+                                    <form id="chatForm" class="form-inline" role="form" novalidate="novalidate">
+                                        <input type="hidden" id="mid" name="mid"/>
+                                        <div class="form-group" style="width: 900px">
+                                            <label class="sr-only">说说</label>
+                                            <input type="text" id="content" name="content" class="form-control" placeholder="请输入相关说说"
+                                                   required="required" aria-required="true" style="width: 900px"/>
+                                        </div>
+                                        <button type="submit" class="btn btn-success waves-effect waves-light m-l-10">保存说说</button>
+                                    </form>
+                                </div> <!-- panel-body -->
+                            </div> <!-- panel -->
+                        </div> <!-- col -->
+
+                    </div>
+                </div>
+                <div th:replace="admin/fragments/footer :: footer-content"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="admin/fragments/footer :: footer"></div>
+<script src="//cdn.bootcss.com/jquery-validate/1.15.1/jquery.validate.min.js"></script>
+<script src="//cdn.bootcss.com/jquery-validate/1.15.1/localization/messages_zh.min.js"></script>
+<script type="text/javascript">
+    var tale = new $.tale();
+
+    $('#chatForm').validate({
+        submitHandler: function (form) {
+            var params = $("#chatForm").serialize();
+            tale.post({
+                url : '/admin/chat/add',
+                data: params,
+                success: function (result) {
+                    if(result && result.code == 'success'){
+                        tale.alertOkAndReload('说说保存成功');
+                    } else {
+                        tale.alertError(result.msg || '说说保存失败');
+                    }
+                }
+            });
+        }
+    });
+
+    /*<![CDATA[*/
+    var tale = new $.tale();
+
+    function delComment(coid) {
+        tale.alertConfirm({
+            title: '确定删除该评论吗?',
+            then: function () {
+                tale.post({
+                    url: '/admin/comments/delete',
+                    data: {coid: coid},
+                    success: function (result) {
+                        if (result && result.code == 'success') {
+                            tale.alertOkAndReload('评论删除成功');
+                        } else {
+                            tale.alertError(result.msg || '评论删除失败');
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+    function updateStatus(coid) {
+        tale.alertConfirm({
+            title: '确定审核通过吗?',
+            then: function () {
+                tale.post({
+                    url: '/admin/comments/status',
+                    data: {coid: coid, status: "approved"},
+                    success: function (result) {
+                        if (result && result.code == 'success') {
+                            tale.alertOkAndReload('评论状态设置成功');
+                        } else {
+                            tale.alertError(result.msg || '评论设置失败');
+                        }
+                    }
+                });
+            }
+        });
+    }
+    /*]]>*/
+</script>
+</body>
+</html>

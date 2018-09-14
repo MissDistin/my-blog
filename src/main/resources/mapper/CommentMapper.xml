@@ -17,11 +17,12 @@
         INSERT INTO
           <include refid="BASE_TABLE"/>
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            cid, created, author,authorId,ownerId,mail,
+            coid, cid, created, author,authorId,ownerId,mail,
             url, ip, agent, type, status, parent, content
         </trim>
         <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
-            #{cid, jdbcType=INTEGER},
+            #{coid, jdbcType=VARCHAR},
+            #{cid, jdbcType=VARCHAR},
             #{created, jdbcType=INTEGER},
             #{author, jdbcType=VARCHAR},
             #{authorId, jdbcType=INTEGER},
@@ -43,9 +44,9 @@
         FROM
           <include refid="BASE_TABLE"/> AS cm
         WHERE
-          cm.cid = #{cid, jdbcType=INTEGER}
-          AND
-          cm.status = 'approved'
+          cm.cid = #{cid, jdbcType=VARCHAR}
+--           AND
+--           cm.status = 'approved'
         ORDER BY
           cm.created
     </select>
@@ -55,7 +56,7 @@
         DELETE FROM
           <include refid="BASE_TABLE"/>
         WHERE
-          coid = #{coid, jdbcType=INTEGER}
+          coid = #{coid, jdbcType=VARCHAR}
     </delete>
 
     <!--获取评论总数-->
@@ -96,7 +97,7 @@
         FROM
           <include refid="BASE_TABLE"/> AS cm
         WHERE
-          cm.coid = #{coid, jdbcType=INTEGER}
+          cm.coid = #{coid, jdbcType=VARCHAR}
     </select>
 
     <!--更新评论状态-->
@@ -106,7 +107,7 @@
         SET
           status = #{status, jdbcType=VARCHAR}
         WHERE
-          coid = #{coid, jdbcType=INTEGER}
+          coid = #{coid, jdbcType=VARCHAR}
     </update>
 
 

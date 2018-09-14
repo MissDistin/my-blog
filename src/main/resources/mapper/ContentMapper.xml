@@ -19,15 +19,16 @@
     </sql>
 
     <!--添加文章-->
-    <insert id="addArticle" parameterType="com.wip.model.ContentDomain" useGeneratedKeys="true" keyProperty="cid">
+    <insert id="addArticle" parameterType="com.wip.model.ContentDomain">
         INSERT INTO
           <include refid="BASE_TABLE"/>
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            title, titlePic, slug, created, content, authorId,
+            cid, title, titlePic, slug, created, content, authorId,
             type, status, tags, categories, hits, commentsNum, allowComment,
             allowPing, allowFeed
         </trim>
         <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            #{cid, jdbcType=VARCHAR},
             #{title, jdbcType=VARCHAR},
             #{titlePic, jdbcType=VARCHAR},
             #{slug, jdbcType=VARCHAR},
@@ -53,7 +54,7 @@
         FROM
           <include refid="BASE_TABLE"/> AS c
         WHERE
-          c.cid = #{cid, jdbcType=INTEGER}
+          c.cid = #{cid, jdbcType=VARCHAR}
     </select>
 
     <!--根据文章ID更新文章-->
@@ -103,7 +104,7 @@
             </if>
         </set>
         WHERE
-          cid = #{cid, jdbcType=INTEGER}
+          cid = #{cid, jdbcType=VARCHAR}
     </update>
 
     <!--根据条件查询文章-->
@@ -146,7 +147,7 @@
         DELETE FROM
           <include refid="BASE_TABLE"/>
         WHERE
-          cid = #{cid, jdbcType=INTEGER}
+          cid = #{cid, jdbcType=VARCHAR}
     </delete>
 
     <!--获取文章总数-->
@@ -175,7 +176,7 @@
         WHERE
           c.cid IN
         <foreach collection="list" item="param" index="index" open="(" close=")" separator=",">
-            #{param.cid, jdbcType=INTEGER}
+            #{param.cid, jdbcType=VARCHAR}
         </foreach>
     </select>
 </mapper>

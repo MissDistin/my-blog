@@ -29,14 +29,14 @@ public interface CommentDao {
      * @param cid
      * @return
      */
-    List<CommentDomain> getCommentByCId(@Param("cid") Integer cid);
+    List<CommentDomain> getCommentByCId(@Param("cid") String cid);
 
 
     /**
      * 删除评论
      * @param coid
      */
-    void deleteComment(@Param("coid") Integer coid);
+    void deleteComment(@Param("coid") String coid);
 
     /**
      * 获取评论总数

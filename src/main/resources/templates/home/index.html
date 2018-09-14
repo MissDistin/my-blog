@@ -30,7 +30,7 @@
 <script type="text/javascript" th:src="@{/home/js/album.js}"></script>
 <script type="text/javascript" th:src="@{/home/js/tooltip.js}"></script>
 <script type="text/javascript" th:src="@{/home/js/face.js}"></script>
-<script type="text/javascript" th:src="@{/home/js/layer.js}" ></script>
+<script type="text/javascript" th:src="@{/home/js/layer/layer.js}" ></script>
 <script type="text/javascript" th:src="@{/home/js/checkform.js}" charset="utf-8"></script>
 <script type="text/javascript"  th:src="@{/home/js/skin.js}"></script>
 <script type="text/javascript" th:src="@{/home/js/swiper.min.js}"></script>
@@ -89,7 +89,7 @@
                     </div>
                     <div class="arc-right">
                         <h4 class="blue-text"><a th:href="@{'/detail/'+${post.cid}}" th:title="${post.title}" th:text="${post.title}"></a></h4>
-                        <th:block th:utext="${commons.article(commons.subStr(post.content,60))}"></th:block>
+                        <th:block th:utext="${commons.article(commons.subStr(post.content,50))}"></th:block>
 
                         <ul>
                             <li><i class="fa fa-calendar"></i><a title="小陈 2018-05-13 发表 " th:text="${commons.fmtdate(post.created, 'yyyy-MM-dd')}"></a></li>
@@ -102,7 +102,6 @@
                         </ul>
                     </div>
                 </li>
-
                 </th:block>
             </ul>
             <!--列表结束-->
@@ -177,9 +176,6 @@
     </script>
     <!--站长需要在每个页面的HTML代码中包含以下自动推送JS代码：-->
 
-
-
-
     <!--底部导航-->
     <div class="foot-nav">
         <div class="copy-right"><span >CopyRight © 2015-2017 小陈博客     Design by http://05mi.cn</span></div>
@@ -242,10 +238,6 @@
             </div>
         </div>
     </div>
-
-
-
-
 
     <!-- 第三方登录 -->
     <div class="login" id="login" style="display:none">

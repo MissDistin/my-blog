@@ -20,14 +20,14 @@ public interface CommentService {
      * 添加评论
      * @param comments
      */
-    void addComment(CommentDomain comments);
+    void addComment(CommentDomain comments, String string);
 
     /**
      * 通过文章ID获取评论
      * @param cid
      * @return
      */
-    List<CommentDomain> getCommentsByCId(Integer cid);
+    List<CommentDomain> getCommentsByCId(String cid);
 
     /**
      * 根据条件获取评论列表

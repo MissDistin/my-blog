@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wip.dao.FeedbackDao">
+
+    <!--表名-->
+    <sql id="BASE_TABLE">
+        t_feedbacks
+    </sql>
+    <!--文章表列名-->
+    <sql id="BASE_COLUMN">
+        f.fid, f.created, f.author, f.mail,
+        f.url, f.ip, f.parent, f.content
+    </sql>
+
+    <!--添加评论-->
+    <insert id="addFeedback" parameterType="com.wip.model.FeedbackDomain">
+        INSERT INTO
+          <include refid="BASE_TABLE"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            fid, created, author, mail, url, ip, parent, content
+        </trim>
+        <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            #{fid, jdbcType=VARCHAR},
+            #{created, jdbcType=INTEGER},
+            #{author, jdbcType=VARCHAR},
+            #{mail, jdbcType=VARCHAR},
+            #{url, jdbcType=VARCHAR},
+            #{ip, jdbcType=VARCHAR},
+            #{parent, jdbcType=INTEGER},
+            #{content, jdbcType=VARCHAR}
+        </trim>
+    </insert>
+    <!--获取留言-->
+    <select id="getFeedback" resultType="com.wip.model.FeedbackDomain">
+        SELECT
+          <include refid="BASE_COLUMN"/>
+        FROM
+          <include refid="BASE_TABLE"/> AS f
+        ORDER BY
+          f.created
+    </select>
+
+    <!--&lt;!&ndash;删除评论&ndash;&gt;-->
+    <!--<delete id="deleteComment">-->
+        <!--DELETE FROM-->
+          <!--<include refid="BASE_TABLE"/>-->
+        <!--WHERE-->
+          <!--coid = #{coid, jdbcType=VARCHAR}-->
+    <!--</delete>-->
+
+    <!--&lt;!&ndash;获取评论总数&ndash;&gt;-->
+    <!--<select id="getCommentCount" resultType="java.lang.Long">-->
+        <!--SELECT-->
+          <!--COUNT(*)-->
+        <!--FROM-->
+          <!--<include refid="BASE_TABLE"/>-->
+    <!--</select>-->
+
+    <!--&lt;!&ndash;根据条件查找评论列表&ndash;&gt;-->
+    <!--<select id="getCommentsByCond" resultType="com.wip.model.CommentDomain" parameterType="com.wip.dto.cond.CommentCond">-->
+        <!--SELECT-->
+          <!--<include refid="BASE_COLUMN"/>-->
+        <!--FROM-->
+          <!--<include refid="BASE_TABLE"/> AS cm-->
+        <!--<where>-->
+            <!--<if test="status != null">-->
+                <!--AND cm.status = #{status, jdbcType=VARCHAR}-->
+            <!--</if>-->
+            <!--<if test="startTime != null">-->
+                <!--AND cm.created &gt;= #{startTime, jdbcType=INTEGER}-->
+            <!--</if>-->
+            <!--<if test="endTime != null">-->
+                <!--AND cm.created &lt;= #{endTime, jdbcType=INTEGER}-->
+            <!--</if>-->
+            <!--<if test="parent != null">-->
+                <!--AND cm.parent = #{parent, jdbcType=INTEGER}-->
+            <!--</if>-->
+        <!--</where>-->
+        <!--ORDER BY cm.created-->
+    <!--</select>-->
+
+    <!--&lt;!&ndash;通过ID获取评论&ndash;&gt;-->
+    <!--<select id="getCommentById" resultType="com.wip.model.CommentDomain">-->
+        <!--SELECT-->
+          <!--<include refid="BASE_COLUMN"/>-->
+        <!--FROM-->
+          <!--<include refid="BASE_TABLE"/> AS cm-->
+        <!--WHERE-->
+          <!--cm.coid = #{coid, jdbcType=VARCHAR}-->
+    <!--</select>-->
+
+    <!--&lt;!&ndash;更新评论状态&ndash;&gt;-->
+    <!--<update id="updateCommentStatus">-->
+        <!--UPDATE-->
+          <!--<include refid="BASE_TABLE"/>-->
+        <!--SET-->
+          <!--status = #{status, jdbcType=VARCHAR}-->
+        <!--WHERE-->
+          <!--coid = #{coid, jdbcType=VARCHAR}-->
+    <!--</update>-->
+
+
+</mapper>

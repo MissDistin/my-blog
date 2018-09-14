@@ -36,7 +36,7 @@ public interface RelationShipDao {
      * @param mid
      * @return
      */
-    Long getCountById(@Param("cid") Integer cid, @Param("mid") Integer mid);
+    Long getCountById(@Param("cid") String cid, @Param("mid") Integer mid);
 
     /**
      * 添加
@@ -49,11 +49,11 @@ public interface RelationShipDao {
      * 根据文章编号删除关联
      * @param cid
      */
-    void deleteRelationShipByCid(int cid);
+    void deleteRelationShipByCid(String cid);
 
     /**
      * 根据文章ID获取关联
      * @param cid
      */
-    List<RelationShipDomain> getRelationShipByCid(Integer cid);
+    List<RelationShipDomain> getRelationShipByCid(String cid);
 }

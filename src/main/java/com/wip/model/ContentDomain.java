@@ -5,6 +5,8 @@
  **/
 package com.wip.model;
 
+import com.wip.utils.UUID;
+
 /**
  * 文章表
  */
@@ -12,7 +14,7 @@ public class ContentDomain {
     /**
      * 文章的主键编号
      */
-    private Integer cid;
+    private String cid = UUID.UU32();
     /**
      * 内容标题
      */
@@ -78,11 +80,11 @@ public class ContentDomain {
      */
     private Integer allowFeed;
 
-    public Integer getCid() {
+    public String getCid() {
         return cid;
     }
 
-    public void setCid(Integer cid) {
+    public void setCid(String cid) {
         this.cid = cid;
     }
 

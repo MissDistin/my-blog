@@ -39,7 +39,7 @@ public interface MetaService {
      * @param name
      * @param type
      */
-    void saveOrUpdate(Integer cid, String name, String type);
+    void saveOrUpdate(String cid, String name, String type);
 
     /**
      * 批量添加
@@ -47,7 +47,7 @@ public interface MetaService {
      * @param names
      * @param type
      */
-    void addMetas(Integer cid, String names, String type);
+    void addMetas(String cid, String names, String type);
 
     /**
      * 删除项目

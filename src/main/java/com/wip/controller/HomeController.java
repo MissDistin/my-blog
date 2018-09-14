@@ -1,29 +1,22 @@
 package com.wip.controller;
 
 import com.github.pagehelper.PageInfo;
-import com.vdurmont.emoji.EmojiParser;
 import com.wip.constant.ErrorConstant;
 import com.wip.constant.Types;
 import com.wip.constant.WebConst;
 import com.wip.dto.MetaDto;
-import com.wip.dto.StatisticsDto;
 import com.wip.dto.cond.ContentCond;
-import com.wip.dto.cond.MetaCond;
 import com.wip.exception.BusinessException;
-import com.wip.model.CommentDomain;
-import com.wip.model.ContentDomain;
-import com.wip.model.MetaDomain;
+import com.wip.model.*;
 import com.wip.service.article.ContentService;
+import com.wip.service.chat.ChatService;
 import com.wip.service.comment.CommentService;
+import com.wip.service.feedback.FeedbackService;
 import com.wip.service.meta.MetaService;
-import com.wip.service.site.SiteService;
 import com.wip.utils.APIResponse;
-import com.wip.utils.IPKit;
-import com.wip.utils.TaleUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -31,8 +24,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.net.URLEncoder;
 import java.util.List;
 
 @Api("博客前台页面")
@@ -47,6 +38,12 @@ public class HomeController extends BaseController {
 
     @Autowired
     private MetaService metaService;
+
+    @Autowired
+    private ChatService chatService;
+
+    @Autowired
+    private FeedbackService feedBackService;
 
 
     @GetMapping(value = "/")
@@ -142,7 +139,7 @@ public class HomeController extends BaseController {
     public String detail(
             @ApiParam(name = "cid", value = "文章主键", required = true)
             @PathVariable("cid")
-            Integer cid,
+            String cid,
             HttpServletRequest request
     ) {
         ContentDomain article = contentService.getArticleById(cid);
@@ -162,7 +159,7 @@ public class HomeController extends BaseController {
      * @param cid
      * @param chits
      */
-    private void updateArticleHits(Integer cid, Integer chits) {
+    private void updateArticleHits(String cid, Integer chits) {
         Integer hits = cache.hget("article", "hits");
         if (chits == null) {
             chits = 0;
@@ -180,61 +177,30 @@ public class HomeController extends BaseController {
 
     }
 
+    /**
+     * 文章和说说的评论
+     * @param request
+     * @param response
+     * @param type
+     * @param cid
+     * @param coid
+     * @param author
+     * @param email
+     * @param url
+     * @param content
+     * @return
+     */
     @PostMapping(value = "/comment")
     @ResponseBody
     public APIResponse comment(HttpServletRequest request, HttpServletResponse response,
-                               @RequestParam(name = "cid", required = true) Integer cid,
-                               @RequestParam(name = "coid", required = false) Integer coid,
-                               @RequestParam(name = "author", required = false) String author,
-                               @RequestParam(name = "email", required = false) String email,
-                               @RequestParam(name = "url", required = false) String url,
-                               @RequestParam(name = "content", required = true) String content,
-                               @RequestParam(name = "csrf_token", required = true) String csrf_token
+                               @RequestParam(name = "type", required = true) String type,
+                               @RequestParam(name = "cid", required = true) String cid,
+                               @RequestParam(name = "coid",required = false) Integer coid,
+                               @RequestParam(name = "author",required = false) String author,
+                               @RequestParam(name = "email",required = false) String email,
+                               @RequestParam(name = "url",required = false) String url,
+                               @RequestParam(name = "content",required = true) String content
                                ) {
-
-        String ref = request.getHeader("Referer");
-        if (StringUtils.isBlank(ref) || StringUtils.isBlank(csrf_token)){
-            return APIResponse.fail("访问失败");
-        }
-
-        String token = cache.hget(Types.CSRF_TOKEN.getType(), csrf_token);
-        if (StringUtils.isBlank(token)) {
-            return APIResponse.fail("访问失败");
-        }
-
-        if (null == cid || StringUtils.isBlank(content)) {
-            return APIResponse.fail("请输入完整后评论");
-        }
-
-        if (StringUtils.isNotBlank(author) && author.length() > 50) {
-            return APIResponse.fail("姓名过长");
-        }
-
-        if (StringUtils.isNotBlank(email) && !TaleUtils.isEmail(email)) {
-            return APIResponse.fail("请输入正确的邮箱格式");
-        }
-
-        if (StringUtils.isNotBlank(url) && !TaleUtils.isURL(url)) {
-            return APIResponse.fail("请输入正确的网址格式");
-        }
-
-        if (content.length() > 200) {
-            return APIResponse.fail("请输入200个字符以内的评价");
-        }
-
-        String val = IPKit.getIpAddressByRequest1(request) + ":" + cid;
-        Integer count = cache.hget(Types.COMMENTS_FREQUENCY.getType(), val);
-        if (null != count && count > 0) {
-            return APIResponse.fail("您发表的评论太快了，请过会再试");
-        }
-
-        author = TaleUtils.cleanXSS(author);
-        content = TaleUtils.cleanXSS(content);
-
-        author = EmojiParser.parseToAliases(author);
-        content = EmojiParser.parseToAliases(content);
-
-
         CommentDomain comments = new CommentDomain();
         comments.setAuthor(author);
         comments.setCid(cid);
@@ -244,22 +210,8 @@ public class HomeController extends BaseController {
         comments.setEmail(email);
         comments.setParent(coid);
 
-        try {
-            commentService.addComment(comments);
-            cookie("tale_remember_author", URLEncoder.encode(author,"UTF-8"), 7 * 24 * 60 * 60, response);
-            cookie("tale_remember_mail", URLEncoder.encode(email,"UTF-8"), 7 * 24 * 60 * 60, response);
-            if (StringUtils.isNotBlank(url)) {
-                cookie("tale_remember_url",URLEncoder.encode(url,"UTF-8"),7 * 24 * 60 * 60, response);
-            }
-            // 设置对每个文章1分钟可以评论一次
-            cache.hset(Types.COMMENTS_FREQUENCY.getType(),val,1,60);
-
-            return APIResponse.success();
-
-        } catch (Exception e) {
-            throw BusinessException.withErrorCode(ErrorConstant.Comment.ADD_NEW_COMMENT_FAIL);
-        }
-
+        commentService.addComment(comments, type);
+        return APIResponse.success();
     }
 
     @ApiOperation("关于我内容页")
@@ -270,12 +222,76 @@ public class HomeController extends BaseController {
         return "home/about";
     }
 
+    @ApiOperation("说说内容页")
+    @GetMapping(value = "/chat")
+    public String chat(HttpServletRequest request,
+                       @ApiParam(name = "page", value = "页数", required = false)
+                       @RequestParam(name = "page", required = false, defaultValue = "1") int page,
+                       @ApiParam(name = "limit", value = "每页数量", required = false)
+                       @RequestParam(name = "limit", required = false, defaultValue = "10") int limit) {
+        PageInfo<ChatDomain> chat = chatService.getChat(new ChatDomain(), page, limit);
+        request.setAttribute("chat", chat);
+        return "home/chat";
+    }
+
+    @ApiOperation("进入说说详情页")
+    @GetMapping(value = "/chatDetail/{chid}")
+    public String chatDetail(@ApiParam(name = "chid", value = "文章主键", required = true)
+                         @PathVariable("chid") String chid,
+                         HttpServletRequest request){
+        ChatDomain chat = chatService.getChatByChid(chid);
+        List<CommentDomain> comments = commentService.getCommentsByCId(chid);
+        request.setAttribute("chat", chat);
+        request.setAttribute("comments", comments);
+        return "home/chat_detail";
+    }
+
+    @ApiOperation("进入留言页")
+    @GetMapping(value = "/feedback")
+    public String feedback(HttpServletRequest request,
+                           @ApiParam(name = "page", value = "页数", required = false)
+                           @RequestParam(name = "page", required = false, defaultValue = "1") int page,
+                           @ApiParam(name = "limit", value = "每页数量", required = false)
+                           @RequestParam(name = "limit", required = false, defaultValue = "10") int limit){
+        PageInfo<FeedbackDomain> feedback = feedBackService.getFeedback(new FeedbackDomain(), page, limit);
+        request.setAttribute("feedback", feedback);
+        return "home/feedback";
+    }
+
+    /**
+     * 添加留言
+     * @param request
+     * @param parent
+     * @param author
+     * @param email
+     * @param url
+     * @param content
+     * @return
+     */
+    @PostMapping(value = "/feedback")
+    @ResponseBody
+    public APIResponse feedback(HttpServletRequest request,
+                               @RequestParam(name = "parent", required = false) String parent,
+                               @RequestParam(name = "author",required = false) String author,
+                               @RequestParam(name = "email",required = false) String email,
+                               @RequestParam(name = "url",required = false) String url,
+                               @RequestParam(name = "content",required = true) String content
+    ) {
+        FeedbackDomain feedback = new FeedbackDomain();
+        feedback.setAuthor(author);
+        feedback.setContent(content);
+        feedback.setMail(email);
+        feedback.setUrl(url);
+        feedback.setParent(parent);
+        feedBackService.addFeedback(feedback);
+        return APIResponse.success();
+    }
+
     private void cookie(String name, String value, int maxAge, HttpServletResponse response) {
         Cookie cookie = new Cookie(name,value);
         cookie.setMaxAge(maxAge);
         cookie.setSecure(false);
         response.addCookie(cookie);
     }
-
 
 }

@@ -32,7 +32,7 @@
     <script type="text/javascript" th:src="@{/home/js/album.js}"></script>
     <script type="text/javascript" th:src="@{/home/js/tooltip.js}"></script>
     <script type="text/javascript" th:src="@{/home/js/face.js}"></script>
-    <script type="text/javascript" th:src="@{/home/js/layer.js}"></script>
+    <script type="text/javascript" th:src="@{/home/js/layer/layer.js}"></script>
     <script type="text/javascript" th:src="@{/home/js/checkform.js}" charset="utf-8"></script>
     <script type="text/javascript" th:src="@{/home/js/skin.js}"></script>
     <script type="text/javascript" th:src="@{/home/js/swiper.min.js}"></script>
@@ -117,67 +117,76 @@
             <span><i class="fa fa-arrow-down"></i>下一篇：<a href="/Home/Cont/xiang/c_id/3.html">分享整理的免费API接口</a></span>
         </div>
 
-        <h4 class="index-title">
-            <i class="fa fa-comments"></i>
-            当前共有<span id="comment2">0</span> 条评论</h4>
+        <h4 class="index-title"> <i class="fa fa-comments fa-lg"></i> 暂无评论
+        </h4>
         <div class="comment-area">
-            <ul id="comment_list">
-                <p style="line-height:35px;text-align:center;border:1px solid #0181DA;color:#0181DA">暂无评论，快来抢沙发吧！</p>
-
+            <ul>
             </ul>
         </div>
-
         <!--评论表单-->
-        <h3 class="form-btn blue-text"><a href="javascript:;"><i class="fa fa-edit fa-lg"></i>我要留言 / 展开表单</a></h3>
+        <h3 class="form-btn blue-text"><a href="javascript:;" title=""><i class="fa fa-pencil-square-o fa-lg"></i>我要留言 / 展开表单</a></h3>
         <div id="Coon" class="form-zd form-in">
-
-
             <!--表单开始-->
-            <div id="for-in">
-                <form id="comment_form" action="/Home/Cont/inspl/c_id/2" method="post"
-                      onsubmit="return checkform_pinglun()">
-                    <input type="hidden" class="user_name" name="name" value=""/>
-                    <input type="hidden" name="user_ico" value=""/>
-                    <textarea id="txtContent" name="cont" class="input" datatype="*" sucmsg=" " placeholder="请先登录后评论..."
-                              style="padding:10px 4px;font-size:16px;"></textarea>
-                    <!--表情按钮-->
-                    <div class="face-box">
-                        <div id="face-btn"><a href="javascript:void(0);"><img
-                                th:src="@{/home/images/biaoqing/ali/3.gif}"
-                                width='25'></a></div>
-                        <div class="feed-email">
-                            <input name="emall" type="text" id="u_mail" value="" size="16" placeholder="接收回复的email"/>
-                        </div>
-                        <!--提交表单-->
-                        <div class="feed-sub">
-                            <input type="submit" name="pinglun" class="btn btn-inverse" value="评论"/>
-                        </div>
-                        <!--表情-->
-                        <div class="face-main" id="face-area" style="display:none;">
-                            <ul class="face-tab clearfix">
-                                <li><a href="javascript:void(0);" class="selected-a">默认</a></li>
-                                <li><a href="javascript:void(0);">阿狸</a></li>
-                                <li><a href="javascript:void(0);">贴吧表情</a></li>
-                            </ul>
-                            <ul class="face-ul clearfix face_selected"></ul>
-                            <ul class="face-ul clearfix" style="display:none;"></ul>
-                            <ul class="face-ul clearfix" style="display:none;"></ul>
-                            <ul class="face-ul clearfix" style="display:none;"></ul>
-                            <a href="javascript:void(0);" class="face-close"><i class="fa fa-times"></i></a>
-                        </div>
+            <form action="../Post/Shuo.asp" id="comment-form" method="post">
+                <ul class="hdmenu">
+                    <li><i class="fa fa-ban"></i> 审核未开启</li>
+                    <li><input name="jizhu" type="checkbox" value="1" checked="" class="comment-fuxuna"> 记住信息</li>
+                    <li><input name="huifu" type="checkbox" value="1" checked="" class="comment-fuxuna"> 邮件回复</li>
+                </ul>
+                <!----昵称------->
+                <div class="input-prepend">
+                    <i class="fa fa-user-circle"></i>
+                    <input name="u_name" type="text" id="u_name" value="代号706" size="16" placeholder="您的称呼（必须）">
+                    <input name="post_id" type="hidden" id="post_id" value="71">
+                </div>
+                <!------邮箱----->
+                <div class="input-prepend">
+                    <i class="fa fa-envelope"></i>
+                    <input name="u_mail" type="text" id="prependedInput" value="" size="16" placeholder="您的邮箱（选填）">
+                </div>
+                <!----网址------->
+                <div class="input-prepend">
+                    <i class="fa fa-globe"></i>
+                    <input name="u_url" type="text" id="prependedInput" size="16" value="" placeholder="您的网站（选填）">
+                </div>
+                <!--表情按钮-->
+                <div class="face-box">
+                    <div id="face-btn"><a href="javascript:void(0);"><img th:src="@{/home/images/icon/0.gif}" width="25"></a></div>
+                    <textarea name="u_content" id="txaArticle" placeholder="说点什么吧..."></textarea>
+                    <!--表情--------->
+                    <div class="face-main" id="face-area" style="display:none;">
+                        <ul class="face-tab clearfix">
+                            <li><a href="javascript:void(0);" class="selected-a">默认</a></li>
+                            <li><a href="javascript:void(0);">阿狸</a></li>
+                            <li><a href="javascript:void(0);">贴吧表情</a></li>
+                            <!--<li><a href="javascript:void(0);">暴走漫画</a></li>-->
+                        </ul>
+                        <ul class="face-ul clearfix face_selected"></ul>
+                        <ul class="face-ul clearfix" style="display:none;"></ul>
+                        <ul class="face-ul clearfix" style="display:none;"></ul>
+                        <ul class="face-ul clearfix" style="display:none;"></ul>
+                        <a href="javascript:void(0);" class="face-close"><i class="el-remove"></i></a>
                     </div>
-
-                </form>
-            </div>
+                </div>
+                <!--验证码-->
+                <div class="input-prepend yzm">
+                    <i class="fa fa-code"></i>
+                    <input name="txt_check" type="text" id="prependedInput" size="16" placeholder="验证码">
+                    <span>
+					<img src="/kaptcha/image" title="点击刷新验证码?" onclick="this.src='/kaptcha/image?t='+(new Date().getTime());">
+				</span>
+                </div>
+                <!--提交表单--------->
+                <div class="feed-sub"><input type="submit" class="btn btn-inverse" value="提交留言" onclick="return checkform()">  </div>
+            </form>
             <!--表单结束-->
         </div>
-        <br/><br/><br/><br/><br/><br/><br/>
         <!--用户评论-->
     </section>
     <!--左侧结束-->
     <!--左侧结束-->
 
-    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" th:src="@{/home/js/comment.js}"></script>
     <div th:replace="home/fragments/aside::aside"></div>
 </div>
 <!---底部开始-->

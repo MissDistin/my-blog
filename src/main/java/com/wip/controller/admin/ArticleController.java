@@ -71,7 +71,7 @@ public class ArticleController extends BaseController {
     public String editArticle(
             @ApiParam(name = "cid", value = "文章编号", required = true)
             @PathVariable
-            Integer cid,
+            String cid,
             HttpServletRequest request
     ) {
         ContentDomain content = contentService.getArticleById(cid);
@@ -91,7 +91,7 @@ public class ArticleController extends BaseController {
             HttpServletRequest request,
             @ApiParam(name = "cid", value = "文章主键", required = true)
             @RequestParam(name = "cid", required = true)
-            Integer cid,
+            String cid,
             @ApiParam(name = "title", value = "标题", required = true)
             @RequestParam(name = "title", required = true)
             String title,
@@ -195,7 +195,7 @@ public class ArticleController extends BaseController {
     public APIResponse deleteArticle(
             @ApiParam(name = "cid", value = "文章ID", required = true)
             @RequestParam(name = "cid", required = true)
-            Integer cid,
+            String cid,
             HttpServletRequest request
     ) {
         // 删除文章

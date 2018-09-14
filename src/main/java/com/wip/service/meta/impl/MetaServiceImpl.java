@@ -98,7 +98,7 @@ public class MetaServiceImpl implements MetaService {
     @Override
     @Transactional
     @CacheEvict(value = {"metaCaches","metaCache"}, allEntries = true, beforeInvocation = true)
-    public void addMetas(Integer cid, String names, String type) {
+    public void addMetas(String cid, String names, String type) {
         if (null == cid)
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
 
@@ -112,7 +112,7 @@ public class MetaServiceImpl implements MetaService {
 
     @Override
     @CacheEvict(value = {"metaCaches","metaCache"}, allEntries = true,beforeInvocation = true)
-    public void saveOrUpdate(Integer cid, String name, String type) {
+    public void saveOrUpdate(String cid, String name, String type) {
         MetaCond metaCond = new MetaCond();
         metaCond.setName(name);
         metaCond.setType(type);

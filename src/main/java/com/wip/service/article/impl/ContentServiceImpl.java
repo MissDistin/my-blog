@@ -72,7 +72,7 @@ public class ContentServiceImpl implements ContentService {
         contentDao.addArticle(contentDomain);
 
         // 添加分类和标签
-        int cid = contentDomain.getCid();
+        String cid = contentDomain.getCid();
         metaService.addMetas(cid, tags, Types.TAG.getType());
         metaService.addMetas(cid, categories, Types.CATEGORY.getType());
 
@@ -81,7 +81,7 @@ public class ContentServiceImpl implements ContentService {
 
     @Override
     @Cacheable(value = "articleCache", key = "'articleById_' + #p0")
-    public ContentDomain getArticleById(Integer cid) {
+    public ContentDomain getArticleById(String cid) {
         if (null == cid)
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
         return contentDao.getArticleById(cid);
@@ -97,7 +97,7 @@ public class ContentServiceImpl implements ContentService {
 
         // 更新文章
         contentDao.updateArticleById(contentDomain);
-        int cid = contentDomain.getCid();
+        String cid = contentDomain.getCid();
         relationShipDao.deleteRelationShipByCid(cid);
         metaService.addMetas(cid,tags,Types.TAG.getType());
         metaService.addMetas(cid,categories,Types.CATEGORY.getType());
@@ -118,7 +118,7 @@ public class ContentServiceImpl implements ContentService {
     @Override
     @Transactional
     @CacheEvict(value = {"articleCache","articleCaches"},allEntries = true, beforeInvocation = true)
-    public void deleteArticleById(Integer cid) {
+    public void deleteArticleById(String cid) {
         if (null == cid)
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
         // 删除文章

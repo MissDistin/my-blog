@@ -5,6 +5,8 @@
  **/
 package com.wip.model;
 
+import com.wip.utils.UUID;
+
 /**
  * 评论表
  */
@@ -12,11 +14,11 @@ public class CommentDomain {
     /**
      * comment表主键
      */
-    private Integer coid;
+    private String coid = UUID.UU32();
     /**
      * contents表主键,关联字段
      */
-    private Integer cid;
+    private String cid;
     /**
      * 评论生成时的GMT unix时间戳
      */
@@ -67,19 +69,19 @@ public class CommentDomain {
      */
     private String content;
 
-    public Integer getCoid() {
+    public String getCoid() {
         return coid;
     }
 
-    public void setCoid(Integer coid) {
+    public void setCoid(String coid) {
         this.coid = coid;
     }
 
-    public Integer getCid() {
+    public String getCid() {
         return cid;
     }
 
-    public void setCid(Integer cid) {
+    public void setCid(String cid) {
         this.cid = cid;
     }
 

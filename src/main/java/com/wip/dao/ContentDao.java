@@ -30,7 +30,7 @@ public interface ContentDao {
      * @param cid
      * @return
      */
-    ContentDomain getArticleById(Integer cid);
+    ContentDomain getArticleById(String cid);
 
     /**
      * 更新文章
@@ -49,7 +49,7 @@ public interface ContentDao {
      * 删除文章
      * @param cid
      */
-    void deleteArticleById(Integer cid);
+    void deleteArticleById(String cid);
 
     /**
      * 获取文章总数

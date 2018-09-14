@@ -13,18 +13,18 @@ public class RelationShipDomain {
     /**
      * 文章主键
      */
-    private Integer cid;
+    private String cid;
 
     /**
      * 项目编号
      */
     private Integer mid;
 
-    public Integer getCid() {
+    public String getCid() {
         return cid;
     }
 
-    public void setCid(Integer cid) {
+    public void setCid(String cid) {
         this.cid = cid;
     }
 

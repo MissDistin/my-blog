@@ -11,9 +11,11 @@ import com.wip.constant.ErrorConstant;
 import com.wip.dao.CommentDao;
 import com.wip.dto.cond.CommentCond;
 import com.wip.exception.BusinessException;
+import com.wip.model.ChatDomain;
 import com.wip.model.CommentDomain;
 import com.wip.model.ContentDomain;
 import com.wip.service.article.ContentService;
+import com.wip.service.chat.ChatService;
 import com.wip.service.comment.CommentService;
 import com.wip.utils.DateKit;
 import com.wip.utils.TaleUtils;
@@ -37,6 +39,9 @@ public class CommentServiceImpl implements CommentService {
     @Autowired
     private ContentService contentService;
 
+    @Autowired
+    private ChatService chatService;
+
     private static final Map<String,String> STATUS_MAP = new ConcurrentHashMap<>();
 
     /**
@@ -57,55 +62,53 @@ public class CommentServiceImpl implements CommentService {
     @Override
     @Transactional
     @CacheEvict(value = "commentCache", allEntries = true)
-    public void addComment(CommentDomain comments) {
-        String msg = null;
-
-        if (null == comments) {
-            msg = "评论对象为空";
-        }
+    public void addComment(CommentDomain comments, String type) {
 
         if (StringUtils.isBlank(comments.getAuthor())) {
             comments.setAuthor("热心网友");
         }
-        if (StringUtils.isNotBlank(comments.getEmail()) && !TaleUtils.isEmail(comments.getEmail())) {
-            msg =  "请输入正确的邮箱格式";
-        }
-        if (StringUtils.isBlank(comments.getContent())) {
-            msg = "评论内容不能为空";
-        }
-        if (comments.getContent().length() < 5 || comments.getContent().length() > 2000) {
-            msg = "评论字数在5-2000个字符";
-        }
-        if (null == comments.getCid()) {
-            msg = "评论文章不能为空";
-        }
-        if (msg != null)
-            throw BusinessException.withErrorCode(msg);
 
-        ContentDomain article = contentService.getArticleById(comments.getCid());
-        if (null == article) {
-            throw BusinessException.withErrorCode("该文章不存在");
+        if (type.equals("1")){  //代表改评论是对于文章
+            ContentDomain article = contentService.getArticleById(comments.getCid());
+            if (null == article) {
+                throw BusinessException.withErrorCode("该文章不存在");
+            }
+
+            ContentDomain temp = new ContentDomain();
+            temp.setCid(article.getCid());
+            Integer count = article.getCommentsNum();
+            if (null == count) {
+                count = 0;
+            }
+            temp.setCommentsNum(count + 1);
+            contentService.updateContentByCid(temp);
+            comments.setOwnerId(article.getAuthorId());
+        }
+        if (type.equals("0")){  //代表该评论是对于说说
+            ChatDomain chat = chatService.getChatByChid(comments.getCid());
+            if (null == chat) {
+                throw BusinessException.withErrorCode("该说说不存在");
+            }
+
+            ChatDomain temp = new ChatDomain();
+            temp.setChid(chat.getChid());
+            Integer count = chat.getCommentNum();
+            if (null == count) {
+                count = 0;
+            }
+            temp.setCommentNum(count + 1);
+            chatService.updateChatByCid(temp);
+//            comments.setOwnerId(article.getAuthorId());
         }
 
-        comments.setOwnerId(article.getAuthorId());
         comments.setStatus(STATUS_MAP.get(STATUS_BLANK));
         comments.setCreated(DateKit.getCurrentUnixTime());
         commentDao.addComment(comments);
-
-        ContentDomain temp = new ContentDomain();
-        temp.setCid(article.getCid());
-        Integer count = article.getCommentsNum();
-        if (null == count) {
-            count = 0;
-        }
-        temp.setCommentsNum(count + 1);
-        contentService.updateContentByCid(temp);
-
     }
 
     @Override
     @Cacheable(value = "commentCache", key = "'commentsByCId_' + #p0")
-    public List<CommentDomain> getCommentsByCId(Integer cid) {
+    public List<CommentDomain> getCommentsByCId(String cid) {
         if (null == cid)
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
         return commentDao.getCommentByCId(cid);
