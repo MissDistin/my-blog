@@ -70,4 +70,10 @@ public interface ContentService {
      * @return
      */
     List<ContentDomain> getArticleByTags(MetaDomain tags);
+
+    /**
+     * 右侧显示图文详情
+     * @return
+     */
+    List<ContentDomain> findArticlesByLimit();
 }

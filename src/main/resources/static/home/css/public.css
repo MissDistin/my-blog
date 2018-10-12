@@ -78,10 +78,10 @@ div#tooltip p:after{
 .img-circle{border-radius:100px;-webkit-border-radius:100px;-moz-border-radius:100px;}
 #tuijian{background:rgba(255,255,255,0.5) url(../images/tj2.gif)no-repeat 98% 8px;}
 #Hot{background:rgba(255,255,255,0.5) url(../images/hot.gif)no-repeat 98% 8px;}
-#New{background:rgba(255,255,255,0.5) url(../images/new.gif)no-repeat 98% 8px;}
-#News{background:url(../images/new.gif)no-repeat 100% 0px;}
+#New{background:rgba(255,255,255,0.5) url(../images/hot.gif)no-repeat 98% 8px;}
+#News{background:url(../images/hot.gif)no-repeat 100% 0px;}
 #Hots{background:url(../images/hot.gif)no-repeat 100% 0px;}
-#arc-tj{background:rgba(255,255,255,0.5) url(../images/tj.gif)no-repeat 98% 8px;background-size:10%;padding-top: 20px;}
+#arc-tj{background:rgba(255,255,255,0.5) url(../images/hot.gif)no-repeat 98% 8px;background-size:10%;padding-top: 20px;}
 
 /*顶部通用样式*/
 header{width:100%;height:70px; background:rgba(255,255,255,0.85);box-shadow:0 0 5px #13c5f8;position:fixed;z-index:10;}
@@ -270,7 +270,7 @@ header .mynav{width:60%;float:right;height:100%;position:relative;}
 /*说说*/
 .shuo-side{overflow:hidden;padding-bottom:10px;}
 .shuo-side ul{width:95%;margin:auto;}
-.shuo-side ul li{height:45px;overflow:hidden;margin-bottom:20px;border-bottom:solid  #fdceaf 1px;padding-top:10px;position: relative;}
+.shuo-side ul li{height:45px;overflow:hidden;margin-bottom:10px;border-bottom:solid  #fdceaf 1px;padding-top:10px;position: relative;}
 .shuo-side span{width:85px;height:85px;border-radius:200px;-webkit-border-radius:200px;position:relative;float:left;color:#fff;
 display:inline-block;text-align:center;line-height:45px;font-size:14px;margin-top:5px;border:5px solid #fff; }
 .shuo-side span:after{content:'';width:96px;height:96px;border:1px solid #ccc;display:block;border-radius:200px;-webkit-border-radius:200px;left:-6px;top:-6px;position:absolute;}
@@ -285,6 +285,31 @@ display:inline-block;text-align:center;line-height:45px;font-size:14px;margin-to
 .shuobg1{background:#0183ce;opacity:0.8;}
 .shuobg2{background:#96ce01;opacity:0.8;}
 .shuobg3{background:#e26204;opacity:0.8;}
+.shuobg4{background:#497f04;opacity:0.8;}
+.shuobg5{background:#a36401;opacity:0.8;}
+.ab_title {
+	text-align: center;
+	position: relative;
+	margin: 20px;
+}
+.ab_title:before {
+	content: "";
+	width: 25%;
+	height: 2px;
+	background: #000;
+	position: absolute;
+	left: 0;
+	bottom: 8px;
+}
+.ab_title:after {
+	content: "";
+	width: 25%;
+	height: 2px;
+	background: #000;
+	position: absolute;
+	right: 0;
+	bottom: 8px;
+}
 /*tab切换*/
 .mytab{margin-top:30px;}
 .tab-btn{width:100%;}

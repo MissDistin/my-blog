@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--suppress ALL-->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <body>
 <!--右侧开始-->
@@ -63,7 +64,7 @@
                 <div class="search-index">
 
                     <input name="keyword"  type="text" id="keyword" class="form-control search-box fr" value="请输入要查询的关键字" onfocus="if(this.value=='请输入要查询的关键字'){ this.value='' };" onblur="if(this.value==''){ this.value='请输入要查询的关键字' }">
-                    <i class="fa fa-search fa-5x" onclick="SiteSearch()"><input value=" " type="submit"></i>
+                    <i class="fa fa-search fa-5x" onclick="SiteSearch()"></i>
                     <script>
                         //搜索查询
                         function SiteSearch() {
@@ -98,73 +99,38 @@
             </h4>
             <div class="shuo-side">
                 <ul>
+                    <th:block th:each="post : ${chats}">
                     <li >
-                        <span class="shuobg1"><strong>05-29 </strong></span>
-                        <div><a title="Apache 配置 单个项目 http重定向到https" href="/chatdetail/79.html">Apache 配置 单个项目
-                            http重定向到https</a><b title="点击0">(0)</b></div>
+                        <span th:class="${post.bgClass}"><strong th:text="${commons.fmtdate(post.created, 'yyyy-MM')}"></strong></span>
+                        <div><a th:title="${post.content}" th:text="${post.content}"></a><b title="点击0">(0)</b></div>
                     </li>
-                    <li >
-                        <span class="shuobg2"><strong>05-29 </strong></span>
-                        <div>
-                            <a title="Address already in use: AH00072: make_sock: could not bind to address 0.0.0.0:443 no listening socke"
-                               href="/chatdetail/78.html">Address already in use: AH00072: make_sock: could not bind
-                                to address 0.0.0.0:443 no listening socke</a><b title="点击5">(5)</b></div>
-                    </li>
-                    <li >
-                        <span class="shuobg3"><strong>05-02 </strong></span>
-                        <div><a title="支付宝网站支付功能开发完成" href="/chatdetail/77.html">支付宝网站支付功能开发完成</a><b title="点击169">(169)</b>
-                        </div>
-                    </li>
+                    </th:block>
                 </ul>
             </div>
         </div>
         <!--推荐图文-->
         <div class="article-push  bg-color animation-div">
-            <h4 class="index-title"><i class="el-asl fa fa-fire"></i>推荐图文<small>Push Article</small></h4>
+            <h4 class="index-title"><i class="el-asl fa fa-fire"></i>推荐图文
+                <small>Push Article</small>
+            </h4>
             <ul>
+                <th:block th:each="post : ${contents}">
                 <li>
                     <div class="arcimg img_loading">
                         <a href="/article/131.html" target="_blank">
-                            <img src="/Upload/image/artimg/201803155aaa31a1ab9b8.png" alt="我的个人博客是如何申请百度联盟通过的？" title="我的个人博客是如何申请百度联盟通过的？">
+                            <img th:src="@{/home/images/default/default.png}">
                         </a>
                     </div>
                     <div class="arc-right">
-                        <h4 class="blue-text"><a href="/article/131.html">我的个人博客是如何申请百度联盟通过的？</a></h4>
-                        <p> 说实话，我从第一次开始申请百度联盟到申请通过，我也不知道花了多长时间，但我可以肯定的是应该有一年了，当然因为一直申请通过不了，打击了不少的积极性，申请的欲望也没有一开始那么强烈，直到我的博客有权重有预计流量我才开始琢磨着怎么能申请成功</p>
+                        <h4 class="blue-text"><a href="/article/131.html" th:text="${post.title}"></a></h4>
+                        <th:block th:utext="${commons.article(commons.subStr(post.content,50))}"></th:block>
                         <ul>
-                            <li><a title="发表于2018-03-15"><i class="el-time"></i>2018-03-15</a></li>
-                            <li><a title="1034次浏览"><i class="el-fire"></i>1034</a></li>
+                            <li><a title="发表于2018-03-15"><i class="fa fa-clock-o"></i>2018-03-15</a></li>
+                            <li><a title="1034次浏览"><i class="fa fa-fire"></i>1034</a></li>
                         </ul>
                     </div>
-                </li><li>
-                <div class="arcimg img_loading">
-                    <a href="/article/64.html" target="_blank">
-                        <img src="/Upload/image/artimg/20170118587f0307db632.jpg" alt="PHP生成excel表格导入及导出实用案例" title="PHP生成excel表格导入及导出实用案例">
-                    </a>
-                </div>
-                <div class="arc-right">
-                    <h4 class="blue-text"><a href="/article/64.html">PHP生成excel表格导入及导出实用案例</a></h4>
-                    <p>以前记得总是用PHP生成csv格式的表格，可现在excel表格越来越流行了，许多公司都要求做成excel格式表格，但这并不复杂，因为phpexcel为我们提供了方便、快捷的excel操作类</p>
-                    <ul>
-                        <li><a title="发表于2017-05-16"><i class="el-time"></i>2017-05-16</a></li>
-                        <li><a title="2595次浏览"><i class="el-fire"></i>2595</a></li>
-                    </ul>
-                </div>
-            </li><li>
-                <div class="arcimg img_loading">
-                    <a href="/article/57.html" target="_blank">
-                        <img src="/Upload/image/artimg/2017032458d52f2124932.jpg" alt="Linux服务器运维常用操作命令" title="Linux服务器运维常用操作命令">
-                    </a>
-                </div>
-                <div class="arc-right">
-                    <h4 class="blue-text"><a href="/article/57.html">Linux服务器运维常用操作命令</a></h4>
-                    <p>我把自己常用的Linux操作命令总结一下，以后用的时候也方便查找</p>
-                    <ul>
-                        <li><a title="发表于2017-03-23"><i class="el-time"></i>2017-03-23</a></li>
-                        <li><a title="2059次浏览"><i class="el-fire"></i>2059</a></li>
-                    </ul>
-                </div>
-            </li>
+                </li>
+                </th:block>
             </ul>
         </div>
         <!--文章排行tab-->
@@ -186,25 +152,19 @@
         <div class="cloud bg-color animation-div">
             <h4 class="index-title"><i class="fa fa-tag"></i>标签云<small>Tags Clouds</small></h4>
             <ul id="3dcloud">
-                <li><a href="/Home/Cont/showMenu/tname/Jquery" title="2个话题">Jquery(2)</a></li><li><a href="/Home/Cont/showMenu/tname/Think%2520php" title="2个话题">Think php(2)</a></li><li><a href="/Home/Cont/showMenu/tname/PHP%25E5%259F%25BA%25E7%25A1%2580" title="10个话题">PHP基础(10)</a></li><li><a href="/Home/Cont/showMenu/tname/%250D%250A%25E6%25AD%25A3%25E5%2588%2599%25E8%25A1%25A8%25E8%25BE%25BE%25E5%25BC%258F" title="0个话题">
-                正则表达式(0)</a></li><li><a href="/Home/Cont/showMenu/tname/%25E7%25BD%2591%25E9%25A1%25B5%25E5%2589%258D%25E7%25AB%25AF" title="2个话题">网页前端(2)</a></li><li><a href="/Home/Cont/showMenu/tname/%250D%250AMySQL" title="1个话题">
-                MySQL(1)</a></li><li><a href="/Home/Cont/showMenu/tname/%250D%250A%25E4%25B8%25AA%25E4%25BA%25BA%25E5%258D%259A%25E5%25AE%25A2" title="1个话题">
-                个人博客(1)</a></li><li><a href="/Home/Cont/showMenu/tname/%250D%250AAjax" title="0个话题">
-                Ajax(0)</a></li><li><a href="/Home/Cont/showMenu/tname/%250D%250ACSS3" title="0个话题">
-                CSS3(0)</a></li><li><a href="/Home/Cont/showMenu/tname/PHP%25E7%25B1%25BB" title="3个话题">PHP类(3)</a></li><li><a href="/Home/Cont/showMenu/tname/%250D%250A%25E6%258F%2592%25E4%25BB%25B6%25E5%2588%2586%25E4%25BA%25AB" title="0个话题">
-                插件分享(0)</a></li><li><a href="/Home/Cont/showMenu/tname/%250D%250AAPI" title="1个话题">
-                API(1)</a></li><li><a href="/Home/Cont/showMenu/tname/%250D%250A%25E5%259B%25BE%25E7%2589%2587%25E4%25B8%258A%25E4%25BC%25A0" title="0个话题">
-                图片上传(0)</a></li></ul>
+                <th:block th:each="c : ${tags}">
+                <li><a th:href="@{'/tags/'}+${c.name}" th:text="${c.name}+'('+${c.count}+')'"></a></li>
+                </th:block>
+            </ul>
         </div>
         <!--友情链接-->
         <div class="side-link ">
-            <h4 class="index-title"><i class="fa fa-ticket"></i>友情链接
-                <small>Friend Links</small>
-                <a href="/Home/Index/link.html"><i class="fa fa-id-badge"></i>申请</a>
+            <h4 class="index-title"><i class="fa fa-weixin"></i>我的微信
+                <small>My WeChat</small>
             </h4>
             <ul id="link_url">
-
-                <li><a href="http://chenyanwu.cc" target="_blank" title="小陈博客">小陈博客</a></li><li><a href="http://www.yizimei.net/" target="_blank" title="001">001</a></li></ul>
+                <img th:src="@{/home/images/default/wx.jpg}">
+            </ul>
         </div>
     </div>
 </aside>

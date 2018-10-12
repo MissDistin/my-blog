@@ -8,6 +8,8 @@ package com.wip.service.chat;
 import com.github.pagehelper.PageInfo;
 import com.wip.model.ChatDomain;
 
+import java.util.List;
+
 /**
  * 说说相关Service接口
  */
@@ -24,4 +26,10 @@ public interface ChatService {
     ChatDomain getChatByChid(String chid);
 
     void updateChatByCid(ChatDomain temp);
+
+    /**
+     * 查询最近的3条说说
+     * @return
+     */
+    List<ChatDomain> chatLimit();
 }

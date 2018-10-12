@@ -70,4 +70,10 @@ public interface ContentDao {
      * @return
      */
     List<ContentDomain> getArticleByTags(List<RelationShipDomain> cid);
+
+    /**
+     * 右侧显示图文详情
+     * @return
+     */
+    List<ContentDomain> findArticlesByLimit();
 }

@@ -32,6 +32,19 @@ public class ChatDomain {
      */
     private String creator;
 
+    /**
+     * 当前说说背景色
+     */
+    private String bgClass;
+
+    public String getBgClass() {
+        return bgClass;
+    }
+
+    public void setBgClass(String bgClass) {
+        this.bgClass = bgClass;
+    }
+
     public String getChid() {
         return chid;
     }

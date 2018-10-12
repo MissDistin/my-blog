@@ -27,4 +27,10 @@ public interface ChatDao {
     ChatDomain getChatByChid(String chid);
 
     void updateChatByCid(ChatDomain temp);
+
+    /**
+     * 查询最近的3条说说
+     * @return
+     */
+    List<ChatDomain> chatLimit();
 }

@@ -21,6 +21,7 @@ import com.wip.model.MetaDomain;
 import com.wip.model.RelationShipDomain;
 import com.wip.service.article.ContentService;
 import com.wip.service.meta.MetaService;
+import com.wip.utils.HtmlUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
@@ -111,6 +112,9 @@ public class ContentServiceImpl implements ContentService {
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
         PageHelper.startPage(pageNum,pageSize);
         List<ContentDomain> contents = contentDao.getArticleByCond(contentCond);
+        for (ContentDomain content : contents){
+            content.setContent(HtmlUtil.getTextFromHtml(content.getContent()));
+        }
         PageInfo<ContentDomain> pageInfo = new PageInfo<>(contents);
         return pageInfo;
     }
@@ -167,5 +171,15 @@ public class ContentServiceImpl implements ContentService {
             return contentDao.getArticleByTags(relationShip);
         }
         return null;
+    }
+
+    @Override
+    @Cacheable(value = "articleCache", key = "'findArticlesByLimit_'+ #p0")
+    public List<ContentDomain> findArticlesByLimit() {
+        List<ContentDomain> contents = contentDao.findArticlesByLimit();
+        for (ContentDomain content : contents){
+            content.setContent(HtmlUtil.getTextFromHtml(content.getContent()));
+        }
+        return contents;
     }
 }

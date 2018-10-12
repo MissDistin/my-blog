@@ -72,7 +72,7 @@
    <!--左侧开始-->
 	<section>
 		<div class="comment-area">
-			<h4 class="index-title"><i class="fa fa-comments fa-lg"></i>当前共有<span th:text="${feedback.total}"></span>留言<a href="/FeedBack/#Coon" rel="nofollow" title=""><i class="fa fa-pencil-square-o"></i>发表留言</a></h4>
+			<h4 class="index-title"><i class="fa fa-comments fa-lg"></i>当前共有<span th:text="${feedback.total}"></span>留言<a href="/feedback/#Coon" rel="nofollow" title=""><i class="fa fa-pencil-square-o"></i>发表留言</a></h4>
 			<ul>
 				<th:block th:each="post,postStat : ${feedback.list}">
 				<li class="bg-color">
@@ -88,6 +88,7 @@
 								<li><a title="" th:text="${post.author}"><i class="fa fa-user-circle"></i></a></li>
 								<li><a title="发表于2018-09-01"><i class="fa fa-clock-o" th:text="${commons.fmtdate(post.created, 'yyyy-MM-dd')}"></i></a></li>
 								<li><a title="网友代号706 当前位于：四川省成都市"><i class="fa fa-map-marker"></i>四川省成都市</a></li>
+								<li><a style="cursor: pointer"><i class="fa fa-reply"></i>回复</a></li>
 							</ul>
 						</div>
 						<div class="comment-content" th:text="${post.content}"></div>
@@ -110,64 +111,73 @@
 				<li class="active"><a>尾页</a></li>
 			</ul>
 		</div>
+		<div id="SOHUCS" sid=""></div>
+		<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+		<script type="text/javascript">
+            window.changyan.api.config({
+                appid: 'cysNTuBFI',
+                conf: 'prod_b7ffea46e4b8924b6c7ad936b743371a'
+            });
+		</script>
 		<!--评论表单-->
-		<h3 class="form-btn blue-text"><a href="javascript:;" title=""><i class="fa fa-pencil-square-o fa-lg"></i>我要留言 / 展开表单</a></h3>
-		<div id="Coon" class="form-zd form-in">
-			<!--表单开始-->
-			<form id="comment-form">
-				<ul class="hdmenu">
-					<li><i class="fa fa-ban"></i> 审核未开启</li>
-					<li><input name="jizhu" type="checkbox" value="1" checked="" class="comment-fuxuna"> 记住信息</li>
-					<li><input name="huifu" type="checkbox" value="1" checked="" class="comment-fuxuna"> 邮件回复</li>
-				</ul>
-				<!----昵称------->
-				<div class="input-prepend">
-					<i class="fa fa-user-circle"></i>
-					<input name="u_name" type="text" id="u_name" value="代号706" size="16" placeholder="您的称呼（必须）">
-					<input name="post_id" type="hidden" id="post_id" value="71">
-				</div>
-				<!------邮箱----->
-				<div class="input-prepend">
-					<i class="fa fa-envelope"></i>
-					<input name="u_mail" type="text" id="prependedInput" value="" size="16" placeholder="您的邮箱（选填）">
-				</div>
-				<!----网址------->
-				<div class="input-prepend">
-					<i class="fa fa-globe"></i>
-					<input name="u_url" type="text" id="prependedInput" size="16" value="" placeholder="您的网站（选填）">
-				</div>
-				<!--表情按钮-->
-				<div class="face-box">
-					<div id="face-btn"><a href="javascript:void(0);"><img th:src="@{/home/images/icon/0.gif}" width="25"></a></div>
-					<textarea name="u_content" id="txaArticle" placeholder="说点什么吧..."></textarea>
-					<!--表情--------->
-					<div class="face-main" id="face-area" style="display:none;">
-						<ul class="face-tab clearfix">
-							<li><a href="javascript:void(0);" class="selected-a">默认</a></li>
-							<li><a href="javascript:void(0);">阿狸</a></li>
-							<li><a href="javascript:void(0);">贴吧表情</a></li>
-							<!--<li><a href="javascript:void(0);">暴走漫画</a></li>-->
-						</ul>
-						<ul class="face-ul clearfix face_selected"></ul>
-						<ul class="face-ul clearfix" style="display:none;"></ul>
-						<ul class="face-ul clearfix" style="display:none;"></ul>
-						<ul class="face-ul clearfix" style="display:none;"></ul>
-						<a href="javascript:void(0);" class="face-close"><i class="el-remove"></i></a>
-					</div>
-				</div>
-				<!--验证码-->
-				<div class="input-prepend yzm">
-					<i class="fa fa-code"></i>
-					<input name="txt_check" type="text" id="prependedInput" size="16" placeholder="验证码">
-					<span>
-					<img src="/kaptcha/image" title="点击刷新验证码?" onclick="this.src='/kaptcha/image?t='+(new Date().getTime());">
-				</span>
-				</div>
-				<!--提交表单--------->
-				<div class="feed-sub"><input type="button" class="btn btn-inverse" value="提交留言" onclick="feedback();">  </div>
-			</form>
-			<!--表单结束-->
-		</div>
+		<!--<h3 class="form-btn blue-text"><a href="javascript:;" title=""><i class="fa fa-pencil-square-o fa-lg"></i>我要留言 / 展开表单</a></h3>-->
+		<!--<div id="Coon" class="form-zd form-in">-->
+			<!--&lt;!&ndash;表单开始&ndash;&gt;-->
+			<!--<form id="comment-form">-->
+				<!--<ul class="hdmenu">-->
+					<!--<li><i class="fa fa-ban"></i> 审核未开启</li>-->
+					<!--<li><input name="jizhu" type="checkbox" value="1" checked="" class="comment-fuxuna"> 记住信息</li>-->
+					<!--<li><input name="huifu" type="checkbox" value="1" checked="" class="comment-fuxuna"> 邮件回复</li>-->
+				<!--</ul>-->
+				<!--&lt;!&ndash;&#45;&#45;昵称-&#45;&#45;&#45;&#45;&ndash;&gt;-->
+				<!--<div class="input-prepend">-->
+					<!--<i class="fa fa-user-circle"></i>-->
+					<!--<input name="u_name" type="text" id="u_name" value="代号706" size="16" placeholder="您的称呼（必须）">-->
+					<!--<input name="post_id" type="hidden" id="post_id" value="71">-->
+				<!--</div>-->
+				<!--&lt;!&ndash;&#45;&#45;&#45;&#45;邮箱-&#45;&#45;&ndash;&gt;-->
+				<!--<div class="input-prepend">-->
+					<!--<i class="fa fa-envelope"></i>-->
+					<!--<input name="u_mail" type="text" id="prependedInput" value="" size="16" placeholder="您的邮箱（选填）">-->
+				<!--</div>-->
+				<!--&lt;!&ndash;&#45;&#45;网址-&#45;&#45;&#45;&#45;&ndash;&gt;-->
+				<!--<div class="input-prepend">-->
+					<!--<i class="fa fa-globe"></i>-->
+					<!--<input name="u_url" type="text" id="prependedInput" size="16" value="" placeholder="您的网站（选填）">-->
+				<!--</div>-->
+				<!--&lt;!&ndash;表情按钮&ndash;&gt;-->
+				<!--<div class="face-box">-->
+					<!--<div id="face-btn"><a href="javascript:void(0);"><img th:src="@{/home/images/icon/0.gif}" width="25"></a></div>-->
+					<!--<textarea name="u_content" id="txaArticle" placeholder="说点什么吧..."></textarea>-->
+					<!--&lt;!&ndash;表情-&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+					<!--<div class="face-main" id="face-area" style="display:none;">-->
+						<!--<ul class="face-tab clearfix">-->
+							<!--<li><a href="javascript:void(0);" class="selected-a">默认</a></li>-->
+							<!--<li><a href="javascript:void(0);">阿狸</a></li>-->
+							<!--<li><a href="javascript:void(0);">贴吧表情</a></li>-->
+							<!--&lt;!&ndash;<li><a href="javascript:void(0);">暴走漫画</a></li>&ndash;&gt;-->
+						<!--</ul>-->
+						<!--<ul class="face-ul clearfix face_selected"></ul>-->
+						<!--<ul class="face-ul clearfix" style="display:none;"></ul>-->
+						<!--<ul class="face-ul clearfix" style="display:none;"></ul>-->
+						<!--<ul class="face-ul clearfix" style="display:none;"></ul>-->
+						<!--<a href="javascript:void(0);" class="face-close"><i class="el-remove"></i></a>-->
+					<!--</div>-->
+				<!--</div>-->
+				<!--&lt;!&ndash;验证码&ndash;&gt;-->
+				<!--<div class="input-prepend yzm">-->
+					<!--<i class="fa fa-code"></i>-->
+					<!--<input name="txt_check" type="text" id="prependedInput" size="16" placeholder="验证码">-->
+					<!--<span>-->
+					<!--<img src="/kaptcha/image" title="点击刷新验证码?" onclick="this.src='/kaptcha/image?t='+(new Date().getTime());">-->
+				<!--</span>-->
+				<!--</div>-->
+				<!--&lt;!&ndash;提交表单-&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+				<!--<div class="feed-sub"><input type="button" class="btn btn-inverse" value="提交留言" onclick="feedback();">  </div>-->
+			<!--</form>-->
+			<!--&lt;!&ndash;表单结束&ndash;&gt;-->
+		<!--</div>-->
+
 	</section>
     <!--左侧结束-->
     <script type="text/javascript" src="js/common.js"></script>

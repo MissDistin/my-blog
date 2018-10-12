@@ -2,169 +2,148 @@
 <!--suppress ALL-->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8">
-<meta baidu-gxt-verify-token="b1f65b5aa08f5944f75876dd1057ae5b">
-<title>Tinko博客</title>
-<meta name="keywords" content="小陈博客，小陈，cywblog，个人博客，chenyanwu，陈彦吾，博客，个人博客模板，php源码下载，个人网站，模板分享，博客程序，网站模板，php个人博客，seo个人博客" />
-<meta name="description" content="小陈个人博客是一个基于thinkPHP框架开发的php个人网站，博客涵盖PHP技术，前端，数据库，SEO优化，专注于PHP技术开发，PHP源码作品。" />
-<meta name="author" content="小陈" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable="no" />
-<meta name="renderer" content="webkit">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<link rel="shortcut icon" th:href="@{/home/images/icon/favicon.ico}" />
-<!--<link rel="stylesheet" th:href="@{/home/css/index.css}" />-->
-<link rel="stylesheet" th:href="@{/home/css/my.css}">
-<link rel="stylesheet" th:href="@{/home/css/default.css}">
-<link rel="stylesheet" th:href="@{/home/css/public.css}">
-<link rel="stylesheet" th:href="@{/home/css/animation.css}">
-<link rel="stylesheet" type="text/css" th:href="@{/home/css/skin_1.css}" title="qingxin"/>
-<link rel="stylesheet" type="text/css" th:href="@{/home/css/skin_2.css}" title="jianyue"/>
-<link rel="stylesheet" type="text/css" th:href="@{/home/css/skin_3.css}" title="qingshuang"/>
-<link rel="stylesheet" th:href="@{/home/css/font-icon.css}">
-<link rel="stylesheet" th:href="@{/home/css/face.css}">
-<script type="text/javascript" th:src="@{/home/js/jquery.2.1.4.min.js}"></script>
+    <meta charset="utf-8">
+    <title>Tinko博客</title>
+    <meta name="keywords" content="小陈博客，小陈，cywblog，个人博客，chenyanwu，陈彦吾，博客，个人博客模板，php源码下载，个人网站，模板分享，博客程序，网站模板，php个人博客，seo个人博客" />
+    <meta name="description" content="小陈个人博客是一个基于thinkPHP框架开发的php个人网站，博客涵盖PHP技术，前端，数据库，SEO优化，专注于PHP技术开发，PHP源码作品。" />
+    <meta name="author" content="小陈" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable="no" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="shortcut icon" th:href="@{/home/images/icon/favicon.ico}" />
+    <!--公共的css-->
+    <!--<link rel="stylesheet" href="css/index.css" />-->
+    <link rel="stylesheet" th:href="@{/home/css/my.css}">
+    <link rel="stylesheet" th:href="@{/home/css/default.css}">
+    <link rel="stylesheet" th:href="@{/home/css/public.css}">
+    <link rel="stylesheet" th:href="@{/home/css/animation.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/home/css/skin_1.css}" title="qingxin"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/home/css/skin_2.css}" title="jianyue"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/home/css/skin_3.css}" title="qingshuang"/>
+    <link rel="stylesheet" th:href="@{/home/css/font-icon.css}">
+    <link rel="stylesheet" th:href="@{/home/css/face.css}">
+    <script type="text/javascript" th:src="@{/home/js/jquery.2.1.4.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/home/css/layer.css}" id="layui_layer_skinlayercss">
 
-<script type="text/javascript" th:src="@{/home/js/my.js}"></script>
-<script type="text/javascript" th:src="@{/home/js/superbg.min.js}"></script>
-<script type="text/javascript" th:src="@{/home/js/superbg-custom.js}"></script>
-<script type="text/javascript" th:src="@{/home/js/album.js}"></script>
-<script type="text/javascript" th:src="@{/home/js/tooltip.js}"></script>
-<script type="text/javascript" th:src="@{/home/js/face.js}"></script>
-<script type="text/javascript" th:src="@{/home/js/layer/layer.js}" ></script>
-<script type="text/javascript" th:src="@{/home/js/checkform.js}" charset="utf-8"></script>
-<script type="text/javascript" th:src="@{/home/js/skin.js}"></script>
-<script type="text/javascript" th:src="@{/home/js/swiper.min.js}"></script>
-<link rel="stylesheet" th:href="@{/home/css/swiper.css}">
+    <script type="text/javascript" th:src="@{/home/js/my.js}"></script>
+    <script type="text/javascript" th:src="@{/home/js/superbg.min.js}"></script>
+    <script type="text/javascript" th:src="@{/home/js/superbg-custom.js}"></script>
+    <script type="text/javascript" th:src="@{/home/js/album.js}"></script>
+    <script type="text/javascript" th:src="@{/home/js/tooltip.js}"></script>
+    <script type="text/javascript" th:src="@{/home/js/face.js}"></script>
+    <script type="text/javascript" th:src="@{/home/js/layer/layer.js}" ></script>
+    <script type="text/javascript" th:src="@{/home/js/checkform.js}" charset="utf-8"></script>
+    <script type="text/javascript" th:src="@{/home/js/skin.js}"></script>
+    <script type="text/javascript" th:src="@{/home/js/swiper.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/home/css/swiper.css}">
+
+    <link rel="stylesheet" type="text/css" href="https://baijunyao.com/statics/animate/animate.min.css">
+
+    <style type="text/css">
+        .index-title ul li {
+            width: auto;
+            line-height: 20px;
+            float: left;
+            font-size: 14px;
+            color: #9c918a;
+            height: 20px;
+            margin-top: 3px;
+            border-right: 1px solid #eee;
+            padding: 0px 10px;
+        }
+        .cmenu{
+            height: 26px;
+            line-height: 26px;
+        }
+        /*.classify-active{
+            border:#4876ff 1px solid;
+        }*/
+        .classify-active a{
+            color:white;
+            background:deepskyblue;
+            padding:5px;
+        }
+        .pager{padding:0;margin:0;white-space:nowrap}
+        .pager li{list-style:none;font-family:arial;font-size:14px;padding:2px;margin:5px;border:#333 1px solid;text-align:center;border-radius:5px;max-width:80px;width:25px;height:22px;line-height:22px;cursor:pointer;background:#fff;display:inline-block}
+        .pager li:hover{border:#4876ff 1px solid;color:#4876ff}
+        .pager li.pg-hidepage{display:none}
+        .pager li.pg-prev,li.pg-next{width:80px}
+        .pager li.pg-selected{border:#4876ff 1px solid;background:deepskyblue;color:white}
+        .pager li.pg-selected:hover{color:#000;cursor:default}
+        .pager li.pg-dislabel{color:#ccc;border:#ccc 1px solid;cursor:default}
+        .pager li.pg-dislabel:hover{border:#ccc 1px solid}
+    </style>
 
 </head>
 <body class="nobg" oncontextmenu="return false">
+<!--导航开始-->
 <div th:replace="home/fragments/header::header"></div>
+<!--导航结束-->
 <!--主题框架开始-->
 <div class="container">
     <!--左侧开始-->
-    <section class="mysection">
-        <div class="slide-box">
-            <div class="swiper-container swiper-container-horizontal swiper-container-autoheight">
-                <ul class="slides swiper-wrapper" style="height: 390px; transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
+    <section class="mysection" style="animation: fuxiasuo 1s;">
 
-                    <li class="swiper-slide swiper-slide-active" style="width: 780px;">
-                        <a href="Article/?312.html" title="【现代】电视背景墙隐形门设计-时代俊园二期工程116平方米户型全景漫游">
-
-                            <img th:src="@{/home//images/20180914135249844984.jpg}" height="220px" width="780px" alt="【现代】电视背景墙隐形门设计-时代俊园二期工程116平方米户型全景漫游">
-
-                        </a>
-                        <!-- Add Pagination -->
-                        <div class="slide-foot">
-                            <div class="swiper-pagination swiper-pagination-fraction"><span class="swiper-pagination-current">1</span> / <span class="swiper-pagination-total">2</span></div>
-                            <span class="silde-title" style=""><b>【现代】电视背景墙隐形门设计-时代俊园二期工程116平方米户型全景漫游</b></span>
-                        </div>
-                    </li>
-
-                    <li class="swiper-slide swiper-slide-next" style="width: 780px;">
-                        <a href="Article/?297.html" title="政府小区滇池星城新中式全景漫游效果图">
-
-                            <img th:src="@{/home/images/201805221526961028.jpg}" height="220px" width="780px" alt="政府小区滇池星城新中式全景漫游效果图">
-
-                        </a>
-                        <!-- Add Pagination -->
-                        <div class="slide-foot">
-                            <div class="swiper-pagination swiper-pagination-fraction"><span class="swiper-pagination-current">1</span> / <span class="swiper-pagination-total">2</span></div>
-                            <span class="silde-title" style=""><b>政府小区滇池星城新中式全景漫游效果图</b></span>
-                        </div>
-                    </li>
-
-                </ul>
-                <!-- Add Arrows -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev swiper-button-disabled"></div>
-            </div>
-        </div>
+        <h4 class="index-title">
+            <a href="../List/"><i class="el-th-list"></i>总博文 &nbsp;&nbsp;&gt; &nbsp;&nbsp;</a>
+            <span class="orange-text">原创作品</span>
+            <span style="float:right;margin-right:10px;">共有文章:<font class="orange-text"> 41 </font>篇</span>
+        </h4>
         <div class="arclist">
-            <h4 class="index-title homeh4"><a href=""><i class="el-certificate"></i>最新文章<small>New Article</small></a></h4>
             <!--列表开始-->
             <ul>
-                <th:block th:each="post : ${articles.list}">
-                <li style="height: 160px">
+                <li>
                     <div class="arcimg">
-                        <img th:src="@{/home/images/default/default.png}" alt="分享整理的免费API接口" title="分享整理的免费API接口">
+                        <img th:src="@{/home/images/default/default.png}">
                     </div>
                     <div class="arc-right">
-                        <h4 class="blue-text"><a target="view_frame" th:href="@{'/detail/'+${post.cid}}" th:title="${post.title}" th:text="${post.title}"></a></h4>
-                        <th:block th:utext="${commons.article(commons.subStr(post.content,50))}"></th:block>
+                        <h4 class="blue-text"><a href="/Article/?316.html">【现代田园】兴冶国际87平方米第二套改造全景效果图</a>
+                        </h4>
+                        <p>
+                            项目地址：兴冶国际（&nbsp;呈贡兴呈路2569号，兴呈路与彩云路交叉口东南角） 原创作者：Clovers设计师 户 ...
+                        </p>
                         <ul>
-                            <li><i class="fa fa-calendar"></i><a title="小陈 2018-05-13 发表 " th:text="${commons.fmtdate(post.created, 'yyyy-MM-dd')}"></a></li>
-                            <li><a href="#" title="作者： 小丁"><i class="fa fa-user"></i>小丁</a></li>
-                            <li><a href="#" title="评论数"><i class="fa fa-commenting-o"></i><em th:text="${post.commentsNum}"></em></a></li>
-                            <li><a title="浏览数"><i class="fa fa-eye"></i><em th:text="${post.hits}"></em></a></li>
-                            <li><a href="/category" title="查看分类"><i class="fa fa-th-list" th:text="${post.categories}"></i></a></li>
+                            <li><a title="Clovers設計師5天前 发表 "><i class="el-time"></i> 5天前</a></li>
+                            <li><a href="/Search/?s=Clovers設計師" title="作者： Clovers設計師"><i class="el-user"></i>Clovers設計師</a>
+                            </li>
+                            <li><a href="/Article/?316.html#Comment" title="已有 0 条评论"><i class="el-comment"></i>0</a>
+                            </li>
+                            <li><a title="已有 755 次浏览"><i class="el-eye-open"></i>755</a></li>
+                            <li class="mob-hidden">
+                                <i class="el-tag"></i>
+                                <a href="../Search/?s=现代 ">现代</a>&nbsp;<a href="../Search/?s=兴冶国际 ">兴冶国际</a>&nbsp;
+                            </li>
+                            <li><a href="/List/?2+1.html" title="查看分类"><i class="el-th-list"></i>原创作品</a></li>
                         </ul>
                     </div>
                 </li>
-                </th:block>
             </ul>
             <!--列表结束-->
         </div>
-
-        <!-- 最新素材 -->
-        <div class="sucailist mob-hidden">
-            <h4 class="index-title"><a href=""><i class="el-certificate"></i>最新素材
-                <small>New sucai</small>
-            </a></h4>
-
-            <!--列表开始-->
-
-            <ul class="su">
-                <div class="wall-column">
-                    <div class="su-li" id="">
-                        <!-- <li class="su-li"id="Hot"> -->
-                        <a href="/downdetail/26.html" title="纯CSS3 3D立方体焦点图动画">
-                            <div class="sucaiimg">
-                                <img th:src="@{/home/images/201805305b0e0eadcdaf3.png}" alt="纯CSS3 3D立方体焦点图动画">
-                            </div>
-                        </a>
-                        <div class="sucai-right">
-                            <h4 class="blue-text"><a href="/downdetail/26.html" title="纯CSS3 3D立方体焦点图动画">纯CSS3
-                                3D立方体焦点图动画</a></h4>
-                            <ul>
-                                <li><a title="纯CSS3 3D立方体焦点图动画2018-05-30发表 "><i class="fa fa-clock-o"></i>2018-05-30</a></li>
-                                <li class="mob-hidden">
-                                    <i class="el-download-alt"></i>
-                                    <a href=""><i class="fa fa-download">16</i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+        <!--分页-->
+        <div class="pagination">
+            <div class="list-page">
+                <ul class="post-data">
+                    <li><a>第 1 - 3 页</a> <a>共 41 条</a></li>
+                </ul>
+            </div>
+            <ul>
+                <li class="active"><a title="">首页</a></li>
+                <li class="active"><a title="">上一页</a></li>
+                <li><a href="?2+2.html">下一页</a></li>
+                <li><a href="?2+3.html">尾页</a></li>
             </ul>
-            <!--列表结束-->
         </div>
     </section>
     <!--左侧结束-->
-
-    <!-- <script type="text/javascript" src="js/common.js"></script> -->
+    <script type="text/javascript" src="js/common.js"></script>
+    <!--右侧开始-->
     <div th:replace="home/fragments/aside::aside"></div>
-    <!--/右侧-->
+    <!--=========右侧结束==========-->
 </div>
 <!--Header-->
 <!---底部开始-->
 <footer>
-    <!--baidu自动推送代码-->
-    <script>
-        (function(){
-            var bp = document.createElement('script');
-            var curProtocol = window.location.protocol.split(':')[0];
-            if (curProtocol === 'https'){
-                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-            }
-            else{
-                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-            }
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(bp, s);
-        })();
-    </script>
-    <!--站长需要在每个页面的HTML代码中包含以下自动推送JS代码：-->
-
     <!--底部导航-->
     <div class="foot-nav">
         <div class="copy-right"><span >CopyRight © 2015-2017 小陈博客     Design by http://05mi.cn</span></div>
@@ -259,7 +238,7 @@
 
             <!-- 站内账号登录 -->
             <div id="login_b" style="display:none">
-                <div id="fan1" class="fan" onclick="fan_login()">返回</div>
+                <div id="fan" class="fan" onclick="fan_login()">返回</div>
                 <div class="login_logo">
                 </div>
                 <div class="login_hr">
@@ -285,7 +264,7 @@
 
             <!-- 账号注册 -->
             <div id="login_c" style="display:none">
-                <div id="fan2" class="fan" onclick="fan_login()">返回</div>
+                <div id="fan" class="fan" onclick="fan_login()">返回</div>
                 <div class="login_logo">
                 </div>
                 <div class="login_hr">
@@ -347,6 +326,8 @@
             login_b.style.display="none";
             login_c.style.display="none";
         }
+
+
         /*
             登录验证
          */
@@ -356,6 +337,7 @@
         var pow=login_chick.children[2];
         user.value="请输入账号";
         // pow.value="请输入密码";
+
         user.onfocus=function(){
             if(user.value=="请输入账号"){
                 user.value="";
@@ -387,6 +369,8 @@
             alert("请输入账号密码");
             return false;
         }
+
+
 
         // 注册验证
         var reg_chick=document.getElementById("reg_chick");
@@ -491,3 +475,4 @@
 </body>
 </html>
 
+<script src="js/pubu.js"></script>

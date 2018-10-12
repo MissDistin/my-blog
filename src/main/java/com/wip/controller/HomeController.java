@@ -14,9 +14,11 @@ import com.wip.service.comment.CommentService;
 import com.wip.service.feedback.FeedbackService;
 import com.wip.service.meta.MetaService;
 import com.wip.utils.APIResponse;
+import com.wip.utils.HtmlUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -57,9 +59,29 @@ public class HomeController extends BaseController {
             int limit
     ) {
         PageInfo<ContentDomain> articles = contentService.getArticlesByCond(new ContentCond(), page, limit);
-
+        //右侧最新文章
         request.setAttribute("articles",articles);
+
+        aside(request);
         return "home/index";
+    }
+
+    /**
+     * 获取右侧数据
+     * @param request
+     * @return
+     */
+    public HttpServletRequest aside(HttpServletRequest request){
+        List<ContentDomain> contents = contentService.findArticlesByLimit();
+        List<ChatDomain> chats = chatService.chatLimit();
+        List<MetaDto> tags = metaService.getMetaList(Types.TAG.getType(), null, WebConst.MAX_POSTS);
+        //右侧最新说说
+        request.setAttribute("chats",chats);
+        //右侧推荐文章
+        request.setAttribute("contents", contents);
+        //右侧标签云
+        request.setAttribute("tags",tags);
+        return request;
     }
 
     @ApiOperation("归档内容页")
@@ -130,8 +152,9 @@ public class HomeController extends BaseController {
         MetaDomain tags = metaService.getMetaByName(Types.TAG.getType(),name);
         List<ContentDomain> articles = contentService.getArticleByTags(tags);
         request.setAttribute("articles",articles);
-        request.setAttribute("tags",tags.getName());
-        return "blog/tags_detail";
+        request.setAttribute("tag",tags.getName());
+        aside(request);
+        return "home/tag";
     }
 
     @ApiOperation("文章内容页")
@@ -147,10 +170,15 @@ public class HomeController extends BaseController {
 
         // 更新文章的点击量
 //        this.updateArticleHits(article.getCid(),article.getHits());
+        Integer hits = article.getHits() + 1;
+        ContentDomain temp = new ContentDomain();
+        temp.setCid(cid);
+        temp.setHits(hits);
+        contentService.updateContentByCid(temp);
         // 获取评论
         List<CommentDomain> comments = commentService.getCommentsByCId(cid);
         request.setAttribute("comments", comments);
-
+        aside(request);
         return "home/detail";
     }
 
@@ -170,9 +198,9 @@ public class HomeController extends BaseController {
             temp.setCid(cid);
             temp.setHits(chits + hits);
             contentService.updateContentByCid(temp);
-            cache.hset("article", "hits", 1);
+            cache.hset(cid, "hits", 1);
         } else {
-            cache.hset("article", "hits", hits);
+            cache.hset(cid, "hits", hits);
         }
 
     }
@@ -219,6 +247,7 @@ public class HomeController extends BaseController {
     public String about(HttpServletRequest request) {
 //        PageInfo<ContentDomain> articles = contentService.getArticlesByCond(new ContentCond(), page, limit);
 //        request.setAttribute("articles", articles);
+        aside(request);
         return "home/about";
     }
 
@@ -231,6 +260,7 @@ public class HomeController extends BaseController {
                        @RequestParam(name = "limit", required = false, defaultValue = "10") int limit) {
         PageInfo<ChatDomain> chat = chatService.getChat(new ChatDomain(), page, limit);
         request.setAttribute("chat", chat);
+        aside(request);
         return "home/chat";
     }
 
@@ -243,6 +273,7 @@ public class HomeController extends BaseController {
         List<CommentDomain> comments = commentService.getCommentsByCId(chid);
         request.setAttribute("chat", chat);
         request.setAttribute("comments", comments);
+        aside(request);
         return "home/chat_detail";
     }
 
@@ -255,6 +286,7 @@ public class HomeController extends BaseController {
                            @RequestParam(name = "limit", required = false, defaultValue = "10") int limit){
         PageInfo<FeedbackDomain> feedback = feedBackService.getFeedback(new FeedbackDomain(), page, limit);
         request.setAttribute("feedback", feedback);
+        aside(request);
         return "home/feedback";
     }
 
@@ -285,6 +317,38 @@ public class HomeController extends BaseController {
         feedback.setParent(parent);
         feedBackService.addFeedback(feedback);
         return APIResponse.success();
+    }
+
+    /**
+     * 链接页
+     * @return
+     */
+    @GetMapping("/link")
+    public String link(HttpServletRequest request){
+        aside(request);
+        return "home/link";
+    }
+
+    /**
+     * 素材页
+     * @param request
+     * @return
+     */
+    @GetMapping("/download")
+    public String download(HttpServletRequest request){
+        aside(request);
+        return "home/download";
+    }
+
+    /**
+     * 分类页（该分类下所有文章）
+     * @param request
+     * @return
+     */
+    @GetMapping("/category")
+    public String category(HttpServletRequest request){
+        aside(request);
+        return "home/category";
     }
 
     private void cookie(String name, String value, int maxAge, HttpServletResponse response) {
