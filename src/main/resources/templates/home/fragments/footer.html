@@ -1,131 +1,15 @@
 <!DOCTYPE html>
 <!--suppress ALL-->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8">
-    <title>Tinko博客</title>
-    <meta name="keywords" content="小陈博客，小陈，cywblog，个人博客，chenyanwu，陈彦吾，博客，个人博客模板，php源码下载，个人网站，模板分享，博客程序，网站模板，php个人博客，seo个人博客" />
-    <meta name="description" content="小陈个人博客是一个基于thinkPHP框架开发的php个人网站，博客涵盖PHP技术，前端，数据库，SEO优化，专注于PHP技术开发，PHP源码作品。" />
-    <meta name="author" content="小陈" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable="no" />
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link rel="shortcut icon" th:href="@{/home/images/icon/favicon.ico}" />
-    <!--公共的css-->
-    <!--<link rel="stylesheet" href="css/index.css" />-->
-    <link rel="stylesheet" th:href="@{/home/css/my.css}">
-    <link rel="stylesheet" th:href="@{/home/css/default.css}">
-    <link rel="stylesheet" th:href="@{/home/css/public.css}">
-    <link rel="stylesheet" th:href="@{/home/css/animation.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/home/css/skin_1.css}" title="qingxin"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/home/css/skin_2.css}" title="jianyue"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/home/css/skin_3.css}" title="qingshuang"/>
-    <link rel="stylesheet" th:href="@{/home/css/font-icon.css}">
-    <link rel="stylesheet" th:href="@{/home/css/face.css}">
-    <script type="text/javascript" th:src="@{/home/js/jquery.2.1.4.min.js}"></script>
-    <link rel="stylesheet" th:href="@{/home/css/layer.css}" id="layui_layer_skinlayercss">
-
-    <script type="text/javascript" th:src="@{/home/js/my.js}"></script>
-    <script type="text/javascript" th:src="@{/home/js/superbg.min.js}"></script>
-    <script type="text/javascript" th:src="@{/home/js/superbg-custom.js}"></script>
-    <script type="text/javascript" th:src="@{/home/js/album.js}"></script>
-    <script type="text/javascript" th:src="@{/home/js/tooltip.js}"></script>
-    <script type="text/javascript" th:src="@{/home/js/face.js}"></script>
-    <script type="text/javascript" th:src="@{/home/js/layer/layer.js}" ></script>
-    <script type="text/javascript" th:src="@{/home/js/checkform.js}" charset="utf-8"></script>
-    <script type="text/javascript" th:src="@{/home/js/skin.js}"></script>
-    <script type="text/javascript" th:src="@{/home/js/swiper.min.js}"></script>
-    <link rel="stylesheet" th:href="@{/home/css/swiper.css}">
-
-    <link rel="stylesheet" type="text/css" href="https://baijunyao.com/statics/animate/animate.min.css">
-
-    <style type="text/css">
-        .index-title ul li {
-            width: auto;
-            line-height: 20px;
-            float: left;
-            font-size: 14px;
-            color: #9c918a;
-            height: 20px;
-            margin-top: 3px;
-            border-right: 1px solid #eee;
-            padding: 0px 10px;
-        }
-        .cmenu{
-            height: 26px;
-            line-height: 26px;
-        }
-        /*.classify-active{
-            border:#4876ff 1px solid;
-        }*/
-        .classify-active a{
-            color:white;
-            background:deepskyblue;
-            padding:5px;
-        }
-        .pager{padding:0;margin:0;white-space:nowrap}
-        .pager li{list-style:none;font-family:arial;font-size:14px;padding:2px;margin:5px;border:#333 1px solid;text-align:center;border-radius:5px;max-width:80px;width:25px;height:22px;line-height:22px;cursor:pointer;background:#fff;display:inline-block}
-        .pager li:hover{border:#4876ff 1px solid;color:#4876ff}
-        .pager li.pg-hidepage{display:none}
-        .pager li.pg-prev,li.pg-next{width:80px}
-        .pager li.pg-selected{border:#4876ff 1px solid;background:deepskyblue;color:white}
-        .pager li.pg-selected:hover{color:#000;cursor:default}
-        .pager li.pg-dislabel{color:#ccc;border:#ccc 1px solid;cursor:default}
-        .pager li.pg-dislabel:hover{border:#ccc 1px solid}
-    </style>
-
-</head>
-<body class="nobg" oncontextmenu="return false">
-<!--导航开始-->
-<div th:replace="home/fragments/header::header"></div>
-<!--导航结束-->
-<!--主题框架开始-->
-<div class="container">
-    <!--左侧开始-->
-    <section class="mysection" style="animation: fuxiasuo 0.8s;">
-        <h4 class="search-title bg-color"><i class="el-search-alt"></i>您查询的标签：<font color="#DC4900" th:text="${tag}"></font></h4>
-        <div class="arclist">
-            <!--列表开始-->
-            <ul>
-                <th:block th:each="post : ${articles.list}">
-                    <li style="height: 160px">
-                        <div class="arcimg">
-                            <img th:src="@{/home/images/default/default.png}" alt="分享整理的免费API接口" title="分享整理的免费API接口">
-                        </div>
-                        <div class="arc-right">
-                            <h4 class="blue-text"><a target="view_frame" th:href="@{'/detail/'+${post.cid}}" th:title="${post.title}" th:text="${post.title}"></a></h4>
-                            <th:block th:utext="${commons.article(commons.subStr(post.content,50))}"></th:block>
-                            <ul>
-                                <li><i class="fa fa-calendar"></i><a title="小陈 2018-05-13 发表 " th:text="${commons.fmtdate(post.created, 'yyyy-MM-dd')}"></a></li>
-                                <li><a href="javascript:;" title="作者： 小丁"><i class="fa fa-user"></i>小丁</a></li>
-                                <li><a href="/Home/Cont/xiang/c_id/3.html#pingluns" title="评论数"><i class="fa fa-commenting-o"></i><em th:text="${post.commentsNum}"></em></a></li>
-                                <li><a title="浏览数"><i class="fa fa-eye"></i><em th:text="${post.hits}"></em></a></li>
-                                <li><a href="/Home/Cont/showFenlei/f_id/2/keyword/前端网页" title="查看分类"><i class="fa fa-th-list" th:text="${post.categories}"></i></a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </th:block>
-            </ul>
-            <!--列表结束-->
-        </div>
-        <div th:replace="comm/macros :: pageAdminNav(${articles})"></div>
-    </section>
-    <!--左侧结束-->
-    <script type="text/javascript" src="js/common.js"></script>
-    <!--右侧开始-->
-    <div th:replace="home/fragments/aside::aside"></div>
-    <!--=========右侧结束==========-->
-</div>
-<!--Header-->
+<body>
 <!---底部开始-->
-<footer>
+<footer class="myfooter" th:fragment="footer">
     <!--底部导航-->
     <div class="foot-nav">
-        <div class="copy-right"><span >CopyRight © 2015-2017 小陈博客     Design by http://05mi.cn</span></div>
+        <div class="copy-right"><span >CopyRight © 2018-2021 Tinko博客     Design by http:tinko.xyz</span></div>
         <div class="bottom-nav">
 			<span>
-                <a href="https://tongji.baidu.com/web/welcome/ico?s=e0dafd10f8cd921df1724ef0cae09a59" target="_blank">百度统计</a>
-                <a href="http://www.miitbeian.gov.cn/"> 浙ICP备16039435号</a>
+                <a href="http://www.miitbeian.gov.cn/"> 蜀ICP备18032520号</a>
             </span>
         </div>
     </div>
@@ -213,7 +97,7 @@
 
             <!-- 站内账号登录 -->
             <div id="login_b" style="display:none">
-                <div id="fan" class="fan" onclick="fan_login()">返回</div>
+                <div id="fan1" class="fan" onclick="fan_login()">返回</div>
                 <div class="login_logo">
                 </div>
                 <div class="login_hr">
@@ -239,7 +123,7 @@
 
             <!-- 账号注册 -->
             <div id="login_c" style="display:none">
-                <div id="fan" class="fan" onclick="fan_login()">返回</div>
+                <div id="fan2" class="fan" onclick="fan_login()">返回</div>
                 <div class="login_logo">
                 </div>
                 <div class="login_hr">
@@ -301,8 +185,6 @@
             login_b.style.display="none";
             login_c.style.display="none";
         }
-
-
         /*
             登录验证
          */
@@ -312,7 +194,6 @@
         var pow=login_chick.children[2];
         user.value="请输入账号";
         // pow.value="请输入密码";
-
         user.onfocus=function(){
             if(user.value=="请输入账号"){
                 user.value="";
@@ -344,8 +225,6 @@
             alert("请输入账号密码");
             return false;
         }
-
-
 
         // 注册验证
         var reg_chick=document.getElementById("reg_chick");
@@ -437,7 +316,6 @@
             }
         }
 
-
         document.getElementById("reg_form").onclick=function(){
             if(reg_user.value==""||reg_nickname.value==""||reg_pow1.value==""||reg_pow2.value==""||reg_pow2.value!==reg_pow1.value){
                 return false;
@@ -447,7 +325,3 @@
     </script>
 </footer>
 <!--END 底部结束-->
-</body>
-</html>
-
-<script src="js/pubu.js"></script>

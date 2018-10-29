@@ -180,7 +180,7 @@
         </foreach>
     </select>
 
-    <!--通过标签获取 文章-->
+    <!--文章点击排行榜-->
     <select id="findArticlesByLimit" resultType="com.wip.model.ContentDomain">
         SELECT
         <include refid="BASE_COLUMN"/>

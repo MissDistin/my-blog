@@ -77,7 +77,7 @@ public class HomeController extends BaseController {
         List<MetaDto> tags = metaService.getMetaList(Types.TAG.getType(), null, WebConst.MAX_POSTS);
         //右侧最新说说
         request.setAttribute("chats",chats);
-        //右侧推荐文章
+        //右侧文章排行榜
         request.setAttribute("contents", contents);
         //右侧标签云
         request.setAttribute("tags",tags);
@@ -145,12 +145,18 @@ public class HomeController extends BaseController {
     @GetMapping(value = "/tags/{name}")
     public String tagsDetail(
             HttpServletRequest request,
+            @ApiParam(name = "page", value = "页数", required = false)
+            @RequestParam(name = "page", required = false, defaultValue = "1")
+                    int pageNum,
+            @ApiParam(name = "limit", value = "每页数量", required = false)
+            @RequestParam(name = "limit", required = false, defaultValue = "5")
+                    int pageSize,
             @ApiParam(name = "name", value = "标签名", required = true)
             @PathVariable("name")
             String name
     ) {
         MetaDomain tags = metaService.getMetaByName(Types.TAG.getType(),name);
-        List<ContentDomain> articles = contentService.getArticleByTags(tags);
+        PageInfo<ContentDomain> articles = contentService.getArticleByTags(tags, pageNum, pageSize);
         request.setAttribute("articles",articles);
         request.setAttribute("tag",tags.getName());
         aside(request);

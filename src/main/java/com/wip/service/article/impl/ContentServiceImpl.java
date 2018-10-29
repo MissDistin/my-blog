@@ -163,14 +163,20 @@ public class ContentServiceImpl implements ContentService {
 
     @Override
     @Cacheable(value = "articleCache", key = "'articleByTags_'+ #p0")
-    public List<ContentDomain> getArticleByTags(MetaDomain tags) {
+    public PageInfo<ContentDomain> getArticleByTags(MetaDomain tags, int pageNum, int pageSize) {
         if (null == tags)
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
+        PageHelper.startPage(pageNum,pageSize);
         List<RelationShipDomain> relationShip = relationShipDao.getRelationShipByMid(tags.getMid());
+        List<ContentDomain> contentDomainList = null;
         if (null != relationShip && relationShip.size() > 0) {
-            return contentDao.getArticleByTags(relationShip);
+            contentDomainList = contentDao.getArticleByTags(relationShip);
         }
-        return null;
+        for (ContentDomain content : contentDomainList){
+            content.setContent(HtmlUtil.getTextFromHtml(content.getContent()));
+        }
+        PageInfo<ContentDomain> pageInfo = new PageInfo<>(contentDomainList);
+        return pageInfo;
     }
 
     @Override

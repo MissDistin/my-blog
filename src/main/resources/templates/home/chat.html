@@ -189,19 +189,7 @@
                 </ul>
             </article>
         </div>
-        <div class="pagination">
-            <div class="list-page">
-                <ul class="post-data">
-                    <li><a>第 1 - 1 页</a><a>共<th th:text="${chat.total}"></th>条</a></li>
-                </ul>
-            </div>
-            <ul>
-                <li class="active"><a>首页</a></li>
-                <li class="active"><a title="">上一页</a></li>
-                <li class="active"><a title="">下一页</a></li>
-                <li class="active"><a title="">尾页</a></li>
-            </ul>
-        </div>
+        <div id="test1"></div>
     </section>
     <!--左侧结束-->
     <script type="text/javascript" src="js/common.js"></script>
@@ -359,6 +347,18 @@
 
         </div>
     </div>
+
+    <script>
+        layui.use('laypage', function(){
+            var laypage = layui.laypage;
+
+            //执行一个laypage实例
+            laypage.render({
+                elem: 'test1' //注意，这里的 test1 是 ID，不用加 # 号
+                ,count: 50 //数据总数，从服务端得到
+            });
+        });
+    </script>
 
     <script>
         // 登录框切换

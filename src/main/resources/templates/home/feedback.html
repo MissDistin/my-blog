@@ -72,45 +72,45 @@
    <!--左侧开始-->
 	<section>
 		<div class="comment-area">
-			<h4 class="index-title"><i class="fa fa-comments fa-lg"></i>当前共有<span th:text="${feedback.total}"></span>留言<a href="/feedback/#Coon" rel="nofollow" title=""><i class="fa fa-pencil-square-o"></i>发表留言</a></h4>
-			<ul>
-				<th:block th:each="post,postStat : ${feedback.list}">
-				<li class="bg-color">
-					<span class="louceng" th:text="${postStat.index+1}"></span>
-					<div class="comment-ava">
-						<a id="Comment-20" title="网友代号706，没有登记网站.">
-							<img class="img-circle"th:src="@{/home/images/icon/ava.jpg}" alt="网友代号706"></a>
-						<!--<span><i class="el-user"></i>网友代号706</span>-->
-					</div>
-					<div class="comment-info ">
-						<div class="comment-line ">
-							<ul>
-								<li><a title="" th:text="${post.author}"><i class="fa fa-user-circle"></i></a></li>
-								<li><a title="发表于2018-09-01"><i class="fa fa-clock-o" th:text="${commons.fmtdate(post.created, 'yyyy-MM-dd')}"></i></a></li>
-								<li><a title="网友代号706 当前位于：四川省成都市"><i class="fa fa-map-marker"></i>四川省成都市</a></li>
-								<li><a style="cursor: pointer"><i class="fa fa-reply"></i>回复</a></li>
-							</ul>
-						</div>
-						<div class="comment-content" th:text="${post.content}"></div>
+			<h4 class="index-title"><i class="fa fa-comments fa-lg"></i>当前留言页，欢迎留言</h4>
+			<!--<ul>-->
+				<!--<th:block th:each="post,postStat : ${feedback.list}">-->
+				<!--<li class="bg-color">-->
+					<!--<span class="louceng" th:text="${postStat.index+1}"></span>-->
+					<!--<div class="comment-ava">-->
+						<!--<a id="Comment-20" title="网友代号706，没有登记网站.">-->
+							<!--<img class="img-circle"th:src="@{/home/images/icon/ava.jpg}" alt="网友代号706"></a>-->
+						<!--&lt;!&ndash;<span><i class="el-user"></i>网友代号706</span>&ndash;&gt;-->
+					<!--</div>-->
+					<!--<div class="comment-info ">-->
+						<!--<div class="comment-line ">-->
+							<!--<ul>-->
+								<!--<li><a title="" th:text="${post.author}"><i class="fa fa-user-circle"></i></a></li>-->
+								<!--<li><a title="发表于2018-09-01"><i class="fa fa-clock-o" th:text="${commons.fmtdate(post.created, 'yyyy-MM-dd')}"></i></a></li>-->
+								<!--<li><a title="网友代号706 当前位于：四川省成都市"><i class="fa fa-map-marker"></i>四川省成都市</a></li>-->
+								<!--<li><a style="cursor: pointer"><i class="fa fa-reply"></i>回复</a></li>-->
+							<!--</ul>-->
+						<!--</div>-->
+						<!--<div class="comment-content" th:text="${post.content}"></div>-->
 
-					</div>
-				</li>
-				</th:block>
-			</ul>
+					<!--</div>-->
+				<!--</li>-->
+				<!--</th:block>-->
+			<!--</ul>-->
 		</div>
-		<div class="pagination">
-			<div class="list-page">
-				<ul class="post-data">
-					<li><a title="">第 1 - 1 页</a> <a>共 8 条</a></li>
-				</ul>
-			</div>
-			<ul>
-				<li class="active"><a>首页</a></li>
-				<li class="active"><a>上一页</a></li>
-				<li class="active"><a>下一页</a></li>
-				<li class="active"><a>尾页</a></li>
-			</ul>
-		</div>
+		<!--<div class="pagination">-->
+			<!--<div class="list-page">-->
+				<!--<ul class="post-data">-->
+					<!--<li><a title="">第 1 - 1 页</a> <a>共 8 条</a></li>-->
+				<!--</ul>-->
+			<!--</div>-->
+			<!--<ul>-->
+				<!--<li class="active"><a>首页</a></li>-->
+				<!--<li class="active"><a>上一页</a></li>-->
+				<!--<li class="active"><a>下一页</a></li>-->
+				<!--<li class="active"><a>尾页</a></li>-->
+			<!--</ul>-->
+		<!--</div>-->
 		<div id="SOHUCS" sid=""></div>
 		<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
 		<script type="text/javascript">

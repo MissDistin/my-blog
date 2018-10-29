@@ -69,7 +69,7 @@ public interface ContentService {
      * @param tags
      * @return
      */
-    List<ContentDomain> getArticleByTags(MetaDomain tags);
+    PageInfo<ContentDomain> getArticleByTags(MetaDomain tags, int pageNum, int pageSize);
 
     /**
      * 右侧显示图文详情

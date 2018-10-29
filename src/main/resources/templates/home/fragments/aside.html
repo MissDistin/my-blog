@@ -23,27 +23,18 @@
             </ul>
         </div>
     </div>
-
     <style>
         #cnzz_stat_icon_1260419029 a{display:none;}
-        /*.cnzz_a1{    display: block;font-weight: bold;line-height: 18px;font-size:16px;}*/
-        /*.cnzz_load{display:inline-block;width:15px;height:15px;background:url({$smarty.const.HOME_IMG}loading-small.gif)no-repeat center;background-size:100%;}*/
     </style>
-
     <div class="web-author bg-color animation-div">
         <div class="author-tx">
-            <a class="img-circle" href="/index.php/Home/Index/guanyu.html" title="点击查看详细信息">
-
+            <a class="img-circle" href="/about" title="点击查看详细信息">
                 <img class="img-circle" th:src="@{/home/images/user_logo.jpg}">
-
             </a>
         </div>
-
-
         <div class="author-name" style="text-align: center;">
-            <p>人生贵知心，定交无暮早</p>
+            <p>心平气和，冷静处事</p>
         </div>
-
         <div class="data-info">
             <ul>
                 <li><strong id="myday">0</strong><span id="htmer_time">运行天数</span></li>
@@ -57,12 +48,10 @@
                 <li><strong id="newcount">待定</strong><span>文章数量</span></li>
             </ul>
         </div>
-
         <!--搜索-->
         <div class="search animation-div">
             <div class="form_div">
                 <div class="search-index">
-
                     <input name="keyword"  type="text" id="keyword" class="form-control search-box fr" value="请输入要查询的关键字" onfocus="if(this.value=='请输入要查询的关键字'){ this.value='' };" onblur="if(this.value==''){ this.value='请输入要查询的关键字' }">
                     <i class="fa fa-search fa-5x" onclick="SiteSearch()"></i>
                     <script>
@@ -76,7 +65,6 @@
                             }
                         }
                     </script>
-
                 </div>
             </div>
         </div>
@@ -85,10 +73,8 @@
             <h4 class="index-title"><i class="el-bulb fa fa-lightbulb-o"></i>最新更新<small>Close New</small></h4>
             <ul>
                 <li><i class="el-cloud fa fa-sun-o"></i><iframe id="tianqi" scrolling="no" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&amp;id=34&amp;icon=1&amp;num=3"></iframe></li>
-
-                <li><span><i class="el-arrow-up fa fa-paper-plane-o"></i>最近：</span><font class="blue-text">小陈</font><span class="newdata">10-11 14:54</span>
+                <li><span><i class="el-arrow-up fa fa-paper-plane-o"></i>最近：</span><font class="blue-text">小丁</font><span class="newdata">10-11 14:54</span>
                     <a class="newUPtil" title="小陈">更新了<b class="lable"> 文章 </b></a></li>
-
                 <li class="lishi"><i class="fa fa-calendar"></i>历史上的今天:<a class="orange-text" title="&nbsp;">&nbsp;&nbsp;</a></li>
             </ul>
         </div>
@@ -109,30 +95,30 @@
             </div>
         </div>
         <!--推荐图文-->
-        <div class="article-push  bg-color animation-div">
-            <h4 class="index-title"><i class="el-asl fa fa-fire"></i>推荐图文
-                <small>Push Article</small>
-            </h4>
-            <ul>
-                <th:block th:each="post : ${contents}">
-                <li>
-                    <div class="arcimg img_loading">
-                        <a href="/article/131.html" target="_blank">
-                            <img th:src="@{/home/images/default/default.png}">
-                        </a>
-                    </div>
-                    <div class="arc-right">
-                        <h4 class="blue-text"><a href="/article/131.html" th:text="${post.title}"></a></h4>
-                        <th:block th:utext="${commons.article(commons.subStr(post.content,50))}"></th:block>
-                        <ul>
-                            <li><a title="发表于2018-03-15"><i class="fa fa-clock-o"></i>2018-03-15</a></li>
-                            <li><a title="1034次浏览"><i class="fa fa-fire"></i>1034</a></li>
-                        </ul>
-                    </div>
-                </li>
-                </th:block>
-            </ul>
-        </div>
+        <!--<div class="article-push  bg-color animation-div">-->
+            <!--<h4 class="index-title"><i class="el-asl fa fa-fire"></i>推荐图文-->
+                <!--<small>Push Article</small>-->
+            <!--</h4>-->
+            <!--<ul>-->
+                <!--<th:block th:each="post : ${contents}">-->
+                <!--<li>-->
+                    <!--<div class="arcimg img_loading">-->
+                        <!--<a href="/article/131.html" target="_blank">-->
+                            <!--<img th:src="@{/home/images/default/default.png}">-->
+                        <!--</a>-->
+                    <!--</div>-->
+                    <!--<div class="arc-right">-->
+                        <!--<h4 class="blue-text"><a href="/article/131.html" th:text="${post.title}"></a></h4>-->
+                        <!--<th:block th:utext="${commons.article(commons.subStr(post.content,50))}"></th:block>-->
+                        <!--<ul>-->
+                            <!--<li><a title="发表于2018-03-15"><i class="fa fa-clock-o"></i>2018-03-15</a></li>-->
+                            <!--<li><a title="1034次浏览"><i class="fa fa-fire"></i>1034</a></li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--</th:block>-->
+            <!--</ul>-->
+        <!--</div>-->
         <!--文章排行tab-->
         <div class="mytab bg-color animation-div">
             <div class="tab-btn">
@@ -141,10 +127,31 @@
             </div>
             <!-- 互动信息 -->
             <ul class="hudong-ul" style="display: block;">
-                <li><div class="sd-tx"><a href="null" target="_blank" rel="nofollow" title="去 she is my sin 的网站看看 ?"><img src="http://q.qlogo.cn/qqapp/101413096/B64F9D702417AD93A1726A50CC1CA72F/40" alt="she is my sin" class="img-circle"></a></div><div class="sd-name"><span><i class="fa fa-user-o"></i>she is my sin<time>2018-02-04 15:27:50</time></span><a class="blue-text comment_txt" href="/Home/Cont/xiang/c_id/19.html#pingluns" title="rtyry">rtyry</a></div></li><li><div class="sd-tx"><a href="null" target="_blank" rel="nofollow" title="去 she is my sin 的网站看看 ?"><img src="http://q.qlogo.cn/qqapp/101413096/B64F9D702417AD93A1726A50CC1CA72F/40" alt="she is my sin" class="img-circle"></a></div><div class="sd-name"><span><i class="fa fa-user-o"></i>she is my sin<time>2018-02-04 15:27:46</time></span><a class="blue-text comment_txt" href="/Home/Cont/xiang/c_id/19.html#pingluns" title="tyhththt">tyhththt</a></div></li></ul>
+                <li>
+                    <div class="sd-tx"><a href="null" target="_blank" rel="nofollow"
+                                          title="去 she is my sin 的网站看看 ?"><img
+                            src="http://q.qlogo.cn/qqapp/101413096/B64F9D702417AD93A1726A50CC1CA72F/40"
+                            alt="she is my sin" class="img-circle"></a></div>
+                    <div class="sd-name"><span><i class="fa fa-user-o"></i>she is my sin<time>2018-02-04 15:27:50</time></span><a
+                            class="blue-text comment_txt" href="/Home/Cont/xiang/c_id/19.html#pingluns" title="rtyry">rtyry</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="sd-tx"><a href="null" target="_blank" rel="nofollow"
+                                          title="去 she is my sin 的网站看看 ?"><img
+                            src="http://q.qlogo.cn/qqapp/101413096/B64F9D702417AD93A1726A50CC1CA72F/40"
+                            alt="she is my sin" class="img-circle"></a></div>
+                    <div class="sd-name"><span><i class="fa fa-user-o"></i>she is my sin<time>2018-02-04 15:27:46</time></span><a
+                            class="blue-text comment_txt" href="/Home/Cont/xiang/c_id/19.html#pingluns"
+                            title="tyhththt">tyhththt</a></div>
+                </li>
+            </ul>
             <!--文章排行-->
             <ul class="paihang-ul" style="display: none;">
-                <li><span></span><a href="/Home/Cont/xiang/c_id/3.html" title="分享整理的免费API接口">分享整理的免费API接口<b>(761)</b></a></li><li><span></span><a href="/Home/Cont/xiang/c_id/21.html" title="服务器安全配置常用软件 站长服务器常用软件 服务器常用组件 站长常用软件">服务器安全配置常用软件 站长服务器常用软件 服务器常用组件 站长常用软件<b>(689)</b></a></li><li><span></span><a href="/Home/Cont/xiang/c_id/19.html" title="ThinkPHP 上传图片添加水印实现">ThinkPHP 上传图片添加水印实现<b>(679)</b></a></li><li><span></span><a href="/Home/Cont/xiang/c_id/2.html" title="php字【符串操作函数】【数组函数】大全">php字【符串操作函数】【数组函数】大全<b>(556)</b></a></li><li><span></span><a href="/Home/Cont/xiang/c_id/6.html" title="一行jQuery代码搞定checkbox 全选和全不选">一行jQuery代码搞定checkbox 全选和全不选<b>(550)</b></a></li></ul>
+                <th:block th:each="c : ${contents}">
+                <li><span></span><a th:href="@{'/detail/'+${c.cid}}" th:title="${c.title}" th:text="${c.title}"><p th:text="${c.hits}"></p></a></li>
+                </th:block>
+            </ul>
         </div>
         <br/>
         <!--<object type="application/x-shockwave-flash" style="outline:none;" data="http://cdn.abowman.com/widgets/dog/dog.swf?3?" width="100%" height="262" id="360videoname"><param name="movie" value="http://cdn.abowman.com/widgets/dog/dog.swf?3?"><param name="AllowScriptAccess" value="always"><param name="wmode" value="opaque"><param name="bgcolor" value="FFFFFF"></object>-->
@@ -153,7 +160,7 @@
             <h4 class="index-title"><i class="fa fa-tag"></i>标签云<small>Tags Clouds</small></h4>
             <ul id="3dcloud">
                 <th:block th:each="c : ${tags}">
-                <li><a th:href="@{'/tags/'}+${c.name}" th:text="${c.name}+'('+${c.count}+')'"></a></li>
+                <li><a th:href="@{'/tags/'+${c.name}}" th:text="${c.name}+'('+${c.count}+')'"></a></li>
                 </th:block>
             </ul>
         </div>
