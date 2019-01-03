@@ -13,6 +13,7 @@ import com.wip.service.chat.ChatService;
 import com.wip.service.comment.CommentService;
 import com.wip.service.feedback.FeedbackService;
 import com.wip.service.meta.MetaService;
+import com.wip.service.option.OptionService;
 import com.wip.utils.APIResponse;
 import com.wip.utils.HtmlUtil;
 import io.swagger.annotations.Api;
@@ -47,6 +48,9 @@ public class HomeController extends BaseController {
     @Autowired
     private FeedbackService feedBackService;
 
+    @Autowired
+    private OptionService optionService;
+
 
     @GetMapping(value = "/")
     public String index(
@@ -75,12 +79,19 @@ public class HomeController extends BaseController {
         List<ContentDomain> contents = contentService.findArticlesByLimit();
         List<ChatDomain> chats = chatService.chatLimit();
         List<MetaDto> tags = metaService.getMetaList(Types.TAG.getType(), null, WebConst.MAX_POSTS);
+        OptionsDomain options = optionService.getOptions();
+        int articleNum = contentService.findArticleNum();
+        int chaNum = chatService.findChaNum();
+        options.setArticleNum(articleNum);
+        options.setChatNum(chaNum);
         //右侧最新说说
         request.setAttribute("chats",chats);
         //右侧文章排行榜
         request.setAttribute("contents", contents);
         //右侧标签云
         request.setAttribute("tags",tags);
+        //右侧系统相关
+        request.setAttribute("options",options);
         return request;
     }
 
@@ -241,7 +252,7 @@ public class HomeController extends BaseController {
         comments.setIp(request.getRemoteAddr());
         comments.setUrl(url);
         comments.setContent(content);
-        comments.setEmail(email);
+//        comments.setEmail(email);
         comments.setParent(coid);
 
         commentService.addComment(comments, type);

@@ -1,10 +1,12 @@
 package com.wip.model;
 
 import com.wip.utils.UUID;
+import lombok.Data;
 
 /**
  * 说说管理
  */
+@Data
 public class ChatDomain {
 
     /**
@@ -36,60 +38,4 @@ public class ChatDomain {
      * 当前说说背景色
      */
     private String bgClass;
-
-    public String getBgClass() {
-        return bgClass;
-    }
-
-    public void setBgClass(String bgClass) {
-        this.bgClass = bgClass;
-    }
-
-    public String getChid() {
-        return chid;
-    }
-
-    public void setChid(String chid) {
-        this.chid = chid;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public Integer getCreated() {
-        return created;
-    }
-
-    public void setCreated(Integer created) {
-        this.created = created;
-    }
-
-    public Integer getCommentNum() {
-        return commentNum;
-    }
-
-    public void setCommentNum(Integer commentNum) {
-        this.commentNum = commentNum;
-    }
-
-    public Integer getClickNum() {
-        return clickNum;
-    }
-
-    public void setClickNum(Integer clickNum) {
-        this.clickNum = clickNum;
-    }
-
-    public String getCreator() {
-        return creator;
-    }
-
-    public void setCreator(String creator) {
-        this.creator = creator;
-    }
 }

@@ -76,4 +76,10 @@ public interface ContentService {
      * @return
      */
     List<ContentDomain> findArticlesByLimit();
+
+    /**
+     * 查询所有的文章数量
+     * @return
+     */
+    int findArticleNum();
 }

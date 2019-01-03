@@ -8,8 +8,21 @@
     </sql>
     <!--网站配置基本列-->
     <sql id="BASE_COLUMN">
-        o.name, o.value, o.description
+        o.runDay, o.visitNum
     </sql>
+
+    <!--添加系统信息-->
+    <insert id="saveOptions" parameterType="com.wip.model.OptionsDomain">
+        INSERT INTO
+        <include refid="BASE_TABLE"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            runDay, visitNum
+        </trim>
+        <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            #{runDay, jdbcType=VARCHAR},
+            #{visitNum, jdbcType=VARCHAR}
+        </trim>
+    </insert>
 
     <!--查找全部配置信息-->
     <select id="getOptions" resultType="com.wip.model.OptionsDomain">

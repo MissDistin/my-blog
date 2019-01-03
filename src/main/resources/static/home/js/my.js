@@ -18,78 +18,78 @@ $(document).ready(function () {
     
     
     // 首页右边公共代码处理
-    $.ajax({
-        type: "POST",
-        url: "/index.php/Home/RightPublic/index",
-        data: {},
-        dataType: "json",
-        success: function(data){
-            // console.log(data);
-            // 处理历史上的今天
-            $(".lishi a").attr("title",data["liShi"].year+"年&nbsp;"+data["liShi"].today+"&nbsp;"+data["liShi"].title);
-            $(".lishi a").html(data["liShi"].year+"年&nbsp;"+data["liShi"].title);
-            // 今日访问IP
-            $(".cnzz_load").html(data["ip"]);
-            // 文章数量
-            $("#newcount").html(data["wzNum"]);
-            // 最新更新
-            $(".newdata").html(data["newUp"]["conttime"]);
-            $(".newUPtil").attr("title",data["newUp"]["title"]);
-            
-            // 导航
-            var con0="";
-            $.each(data["nav"], function(index, item){
-                 con0+= "<li><a href='/Home/Cont/showMenu/tname/"+encodeURI(encodeURI(item.f_name))+"'>"+item.f_name+"</a></li>";
-            });
-            $("#nav00").append(con0);
-            $("#nav11").append(con0);
-            
-            // 图文推荐
-            var con="";
-            $.each(data["tuWen"], function(index, item){ 
-                con+="<li><div class='arcimg'><a href='/Home/Cont/xiang/c_id/"+item.c_id+".html' title=''><img src='"+item.cont_ioc+"' alt='"+item.title+"' title='"+item.title+"'></a></div><div class='arc-right'><h4 class='blue-text'><a href='/Home/Cont/xiang/c_id/"+item.c_id+".html'>"+item.title+"</a></h4><p>"+item.content+"…</p><ul><li><a title='发表于"+item.conttime.substring(0,11)+"日'><i class='fa fa-calendar'></i>"+item.conttime.substring(0,11)+"</a></li><li><a title='"+item.hits+"次浏览'><i class='fa fa-eye'></i>"+item.hits+"</a></li></ul></div></li>";
-            });
-            $(".tuWen").append(con);
-
-            // 文章排行5
-            var con1="";
-            $.each(data["paihang"], function(index, item){ 
-                con1+="<li><span></span><a href='/Home/Cont/xiang/c_id/"+item.c_id+".html' title='"+item.title+"'>"+item.title+"<b>("+item.hits+")</b></a></li>";
-            });
-            $(".paihang-ul").append(con1);
-            // 互动
-            var con2="";
-            $.each(data["hudong"], function(index, item){
-                 con2+= "<li><div class='sd-tx'><a href='"+item.wangzhan+"' target='_blank' rel='nofollow' title='去 "+item.name+" 的网站看看 ?'><img src='"+item.ioc+"' alt='"+item.name+"' class='img-circle'></a></div><div class='sd-name'><span><i class='fa fa-user-o'></i>"+item.name+"<time>"+item.createtime+"</time></span><a class='blue-text comment_txt' href='/Home/Cont/xiang/c_id/"+item.c_id+".html#pingluns' title='"+item.cont+"'>"+item.cont+"</a></div></li>";
-            });
-            $(".hudong-ul").append(con2);
-
-
-            // 标签云
-            var con3="";
-            $.each(data["tags"], function(index, item){
-                 con3+= "<li><a href= '/Home/Cont/showMenu/tname/"+encodeURI(encodeURI(item.tname))+"' title='"+item.count+"个话题'>"+item.tname+"("+item.count+")</a></li>";
-            });
-            $("#3dcloud").append(con3);
-            
-            
-            // 友情连接
-            var con4="";
-            $.each(data["link"], function(index, item){
-                 con4+= "<li><a href='"+item.url+"' target='_blank' title='"+item.lname+"'>"+item.lname+"</a></li>";
-            });
-            $("#link_url").append(con4);
-            
-            //说说3条
-            var con5="";
-            $.each(data["shuoshuo"], function(index, item){
-                 con5+= "<li id='Hots'><span class='shuobg1'><strong>"+item.createdate.substring(5,10)+"</strong></span><div><a href='/Home/Index/shuoshuo.html' title='"+item.content+"'>"+item.content+"</a></div></li>";
-            });
-            $("#shuoshuo").append(con5);
-
-
-        }    
-    })
+    // $.ajax({
+    //     type: "POST",
+    //     url: "/index.php/Home/RightPublic/index",
+    //     data: {},
+    //     dataType: "json",
+    //     success: function(data){
+    //         // console.log(data);
+    //         // 处理历史上的今天
+    //         $(".lishi a").attr("title",data["liShi"].year+"年&nbsp;"+data["liShi"].today+"&nbsp;"+data["liShi"].title);
+    //         $(".lishi a").html(data["liShi"].year+"年&nbsp;"+data["liShi"].title);
+    //         // 今日访问IP
+    //         $(".cnzz_load").html(data["ip"]);
+    //         // 文章数量
+    //         $("#newcount").html(data["wzNum"]);
+    //         // 最新更新
+    //         $(".newdata").html(data["newUp"]["conttime"]);
+    //         $(".newUPtil").attr("title",data["newUp"]["title"]);
+    //
+    //         // 导航
+    //         var con0="";
+    //         $.each(data["nav"], function(index, item){
+    //              con0+= "<li><a href='/Home/Cont/showMenu/tname/"+encodeURI(encodeURI(item.f_name))+"'>"+item.f_name+"</a></li>";
+    //         });
+    //         $("#nav00").append(con0);
+    //         $("#nav11").append(con0);
+    //
+    //         // 图文推荐
+    //         var con="";
+    //         $.each(data["tuWen"], function(index, item){
+    //             con+="<li><div class='arcimg'><a href='/Home/Cont/xiang/c_id/"+item.c_id+".html' title=''><img src='"+item.cont_ioc+"' alt='"+item.title+"' title='"+item.title+"'></a></div><div class='arc-right'><h4 class='blue-text'><a href='/Home/Cont/xiang/c_id/"+item.c_id+".html'>"+item.title+"</a></h4><p>"+item.content+"…</p><ul><li><a title='发表于"+item.conttime.substring(0,11)+"日'><i class='fa fa-calendar'></i>"+item.conttime.substring(0,11)+"</a></li><li><a title='"+item.hits+"次浏览'><i class='fa fa-eye'></i>"+item.hits+"</a></li></ul></div></li>";
+    //         });
+    //         $(".tuWen").append(con);
+    //
+    //         // 文章排行5
+    //         var con1="";
+    //         $.each(data["paihang"], function(index, item){
+    //             con1+="<li><span></span><a href='/Home/Cont/xiang/c_id/"+item.c_id+".html' title='"+item.title+"'>"+item.title+"<b>("+item.hits+")</b></a></li>";
+    //         });
+    //         $(".paihang-ul").append(con1);
+    //         // 互动
+    //         var con2="";
+    //         $.each(data["hudong"], function(index, item){
+    //              con2+= "<li><div class='sd-tx'><a href='"+item.wangzhan+"' target='_blank' rel='nofollow' title='去 "+item.name+" 的网站看看 ?'><img src='"+item.ioc+"' alt='"+item.name+"' class='img-circle'></a></div><div class='sd-name'><span><i class='fa fa-user-o'></i>"+item.name+"<time>"+item.createtime+"</time></span><a class='blue-text comment_txt' href='/Home/Cont/xiang/c_id/"+item.c_id+".html#pingluns' title='"+item.cont+"'>"+item.cont+"</a></div></li>";
+    //         });
+    //         $(".hudong-ul").append(con2);
+    //
+    //
+    //         // 标签云
+    //         var con3="";
+    //         $.each(data["tags"], function(index, item){
+    //              con3+= "<li><a href= '/Home/Cont/showMenu/tname/"+encodeURI(encodeURI(item.tname))+"' title='"+item.count+"个话题'>"+item.tname+"("+item.count+")</a></li>";
+    //         });
+    //         $("#3dcloud").append(con3);
+    //
+    //
+    //         // 友情连接
+    //         var con4="";
+    //         $.each(data["link"], function(index, item){
+    //              con4+= "<li><a href='"+item.url+"' target='_blank' title='"+item.lname+"'>"+item.lname+"</a></li>";
+    //         });
+    //         $("#link_url").append(con4);
+    //
+    //         //说说3条
+    //         var con5="";
+    //         $.each(data["shuoshuo"], function(index, item){
+    //              con5+= "<li id='Hots'><span class='shuobg1'><strong>"+item.createdate.substring(5,10)+"</strong></span><div><a href='/Home/Index/shuoshuo.html' title='"+item.content+"'>"+item.content+"</a></div></li>";
+    //         });
+    //         $("#shuoshuo").append(con5);
+    //
+    //
+    //     }
+    // })
 
 
 

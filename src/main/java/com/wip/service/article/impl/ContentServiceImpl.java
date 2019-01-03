@@ -188,4 +188,9 @@ public class ContentServiceImpl implements ContentService {
         }
         return contents;
     }
+
+    @Override
+    public int findArticleNum() {
+        return contentDao.findArticleNum();
+    }
 }

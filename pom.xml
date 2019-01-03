@@ -166,6 +166,11 @@
             <artifactId>kaptcha</artifactId>
             <version>2.3.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
         <!--热加载-->
         <!--<dependency>-->
             <!--<groupId>org.springframework.boot</groupId>-->

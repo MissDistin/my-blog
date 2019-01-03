@@ -23,7 +23,11 @@
     <link rel="stylesheet" th:href="@{/home/css/font-icon.css}">
     <link rel="stylesheet" th:href="@{/home/css/face.css}">
     <script type="text/javascript" th:src="@{/home/js/jquery.2.1.4.min.js}"></script>
+    <script type="text/javascript" th:src="@{/home/js/jquery-ias.min.js}"></script>
+    <!--<script type="text/javascript" th:src="@{/home/layui-v2.0.2/layui.js}" ></script>-->
     <link rel="stylesheet" th:href="@{/home/css/layer.css}" id="layui_layer_skinlayercss">
+    <!--<link rel="stylesheet" th:href="@{/home/css/layui.css}">-->
+    <!--<link rel="stylesheet" th:href="@{/home/css/laypage.css}">-->
 
     <script type="text/javascript" th:src="@{/home/js/my.js}"></script>
     <script type="text/javascript" th:src="@{/home/js/superbg.min.js}"></script>
@@ -31,10 +35,10 @@
     <script type="text/javascript" th:src="@{/home/js/album.js}"></script>
     <script type="text/javascript" th:src="@{/home/js/tooltip.js}"></script>
     <script type="text/javascript" th:src="@{/home/js/face.js}"></script>
-    <script type="text/javascript" th:src="@{/home/js/layer/layer.js}" ></script>
     <script type="text/javascript" th:src="@{/home/js/checkform.js}" charset="utf-8"></script>
     <script type="text/javascript"  th:src="@{/home/js/skin.js}"></script>
     <script type="text/javascript" th:src="@{/home/js/swiper.min.js}"></script>
+    <!--<script type="text/javascript" th:src="@{/home/js/layer/laypage.js}" ></script>-->
     <link rel="stylesheet" th:href="@{/home/css/swiper.css}">
 
     <link rel="stylesheet" type="text/css" href="https://baijunyao.com/statics/animate/animate.min.css">
@@ -150,8 +154,9 @@
             left:-19px
         }
     </style>
-
+    <script type="text/javascript" th:src="@{/home/layui-v2.0.2/layui.js}" ></script>
 </head>
+
 <body class="nobg" oncontextmenu="return false">
 <!--导航开始-->
 <div th:replace="home/fragments/header::header"></div>
@@ -188,11 +193,22 @@
                     </th:block>
                 </ul>
             </article>
+            <nav class="pagination" style="display:none;">
+                <ul>
+                    <li class="prev-page"></li>
+                    <li class="next-page" th:if="${chat.nextPage} gt 0"><a th:href="@{'/chat/(page=${chat.nextPage)})'}">下一页</a></li>
+                    <li><span th:text="${chat.pageNum}">共  页</span></li>
+              </ul>
+          </nav>
         </div>
-        <div id="test1"></div>
     </section>
+    <div>
+        <table class="layui-hide" id="chatList"></table>
+    </div>
     <!--左侧结束-->
     <script type="text/javascript" src="js/common.js"></script>
+    <!--<script type="text/javascript" th:src="@{/home/layui-v2.0.2/layui.js}" ></script>-->
+
     <!--右侧开始-->
     <div th:replace="home/fragments/aside::aside"></div>
     <!--=========右侧结束==========-->
@@ -201,6 +217,28 @@
 <!---底部开始-->
 <div th:replace="home/fragments/footer::footer"></div>
 <!--END 底部结束-->
+<script>
+
+    //无限滚动反翻页
+    // jQuery.ias({
+    //     history: false,
+    //     container: '.content',
+    //     item: '.excerpt',
+    //     pagination: '.pagination',
+    //     next: '.next-page a',
+    //     trigger: '查看更多',
+    //     loader: '<div class="pagination-loading"><img src="/images/loading.gif" /></div>',
+    //     triggerPageThreshold: 5,
+    //     onRenderComplete: function () {
+    //         $('.excerpt .thumb').lazyload({
+    //             placeholder: '/images/occupying.png',
+    //             threshold: 400
+    //         });
+    //         $('.excerpt img').attr('draggable', 'false');
+    //         $('.excerpt a').attr('draggable', 'false');
+    //     }
+    // });
+</script>
 </body>
 </html>
 

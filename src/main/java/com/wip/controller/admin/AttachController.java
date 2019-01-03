@@ -15,6 +15,7 @@ import com.wip.service.attach.AttAchService;
 import com.wip.service.log.LogService;
 import com.wip.utils.APIResponse;
 import com.wip.utils.Commons;
+import com.wip.utils.QiNiuUtils;
 import com.wip.utils.TaleUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -30,6 +31,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.Map;
 
 @Api("文件管理")
 @Controller
@@ -93,21 +96,27 @@ public class AttachController extends BaseController {
             request.setCharacterEncoding("UTF-8");
             response.setHeader("Content-Type","text/html");
 
+            APIResponse apiResponse = new APIResponse();
+
+            String url = null;
             for (MultipartFile file :files) {
 
-                String fileName = TaleUtils.getFileKey(file.getOriginalFilename().replaceFirst("/", ""));
+//                String fileName = TaleUtils.getFileKey(file.getOriginalFilename().replaceFirst("/", ""));
 
-                QiNiuCloudService.upload(file, fileName);
+                Map map = QiNiuUtils.updataFile(file.getInputStream(), file.getOriginalFilename());
+//                QiNiuCloudService.upload(file, fileName);
                 AttAchDomain attAchDomain = new AttAchDomain();
-                HttpSession session = request.getSession();
-                UserDomain sessionUser = (UserDomain) session.getAttribute(WebConst.LOGIN_SESSION_KEY);
-                attAchDomain.setAuthorId(sessionUser.getUid());
-                attAchDomain.setFtype(TaleUtils.isImage(file.getInputStream()) ? Types.IMAGE.getType() : Types.FILE.getType());
-                attAchDomain.setFname(fileName);
-                attAchDomain.setFkey(QiNiuCloudService.QINIU_UPLOAD_SITE + fileName);
-                attAchService.addAttAch(attAchDomain);
+//                HttpSession session = request.getSession();
+//                UserDomain sessionUser = (UserDomain) session.getAttribute(WebConst.LOGIN_SESSION_KEY);
+//                attAchDomain.setAuthorId(sessionUser.getUid());
+//                attAchDomain.setFtype(TaleUtils.isImage(file.getInputStream()) ? Types.IMAGE.getType() : Types.FILE.getType());
+//                attAchDomain.setFname(file.getOriginalFilename());
+//                attAchDomain.setFkey(QiNiuCloudService.QINIU_UPLOAD_SITE + map.get("url"));
+//                attAchService.addAttAch(attAchDomain);
+                url = QiNiuCloudService.QINIU_UPLOAD_SITE + map.get("url");
             }
-            return APIResponse.success();
+            apiResponse.setData(url);
+            return apiResponse;
 
         } catch (IOException e) {
             e.printStackTrace();

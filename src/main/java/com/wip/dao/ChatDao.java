@@ -33,4 +33,10 @@ public interface ChatDao {
      * @return
      */
     List<ChatDomain> chatLimit();
+
+    /**
+     * 右侧查询说说数量
+     * @return
+     */
+    int findChaNum();
 }

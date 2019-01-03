@@ -76,4 +76,10 @@ public interface ContentDao {
      * @return
      */
     List<ContentDomain> findArticlesByLimit();
+
+    /**
+     * 右侧查询文章数量
+     * @return
+     */
+    int findArticleNum();
 }

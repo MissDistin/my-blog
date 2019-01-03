@@ -5,73 +5,41 @@
  **/
 package com.wip.model;
 
+import lombok.Data;
+
 /**
  * 网站图片文件相关表
  */
+@Data
 public class AttAchDomain extends BaseDomain{
 
     /**
-     * 文件名称
+     * 资源类型
      */
-    private String fname;
+    private String type;
 
     /**
-     * 文件类型
+     * 资源标题
      */
-    private String ftype;
+    private String title;
 
     /**
-     * 文件的地址
+     * 资源描述
      */
-    private String fkey;
+    private String content;
 
     /**
-     * 上传人的ID
+     * 缩略图
      */
-    private Integer authorId;
+    private String picUrl;
+
+    /**
+     * 下载资源地址
+     */
+    private String downloadUrl;
 
     /**
      * 创建的时间戳
      */
     private Integer created;
-
-    public String getFname() {
-        return fname;
-    }
-
-    public void setFname(String fname) {
-        this.fname = fname;
-    }
-
-    public String getFtype() {
-        return ftype;
-    }
-
-    public void setFtype(String ftype) {
-        this.ftype = ftype;
-    }
-
-    public String getFkey() {
-        return fkey;
-    }
-
-    public void setFkey(String fkey) {
-        this.fkey = fkey;
-    }
-
-    public Integer getAuthorId() {
-        return authorId;
-    }
-
-    public void setAuthorId(Integer authorId) {
-        this.authorId = authorId;
-    }
-
-    public Integer getCreated() {
-        return created;
-    }
-
-    public void setCreated(Integer created) {
-        this.created = created;
-    }
 }

@@ -5,9 +5,12 @@
  **/
 package com.wip.model;
 
+import lombok.Data;
+
 /**
  * 文章关联信息表
  */
+@Data
 public class RelationShipDomain {
 
     /**
@@ -19,20 +22,4 @@ public class RelationShipDomain {
      * 项目编号
      */
     private Integer mid;
-
-    public String getCid() {
-        return cid;
-    }
-
-    public void setCid(String cid) {
-        this.cid = cid;
-    }
-
-    public Integer getMid() {
-        return mid;
-    }
-
-    public void setMid(Integer mid) {
-        this.mid = mid;
-    }
 }

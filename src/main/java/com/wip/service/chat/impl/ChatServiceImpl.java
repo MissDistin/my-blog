@@ -56,4 +56,9 @@ public class ChatServiceImpl implements ChatService {
         }
         return chatList;
     }
+
+    @Override
+    public int findChaNum() {
+        return chatDao.findChaNum();
+    }
 }

@@ -188,4 +188,12 @@
         <include refid="BASE_TABLE"/> AS c
         order by c.hits desc
     </select>
+
+    <!--查询文章数量-->
+    <select id="findArticleNum" resultType="java.lang.Integer">
+        SELECT
+        count(cid)
+        FROM
+        <include refid="BASE_TABLE"/>
+    </select>
 </mapper>

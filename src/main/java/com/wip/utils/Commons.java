@@ -6,6 +6,8 @@ import com.wip.constant.WebConst;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -17,6 +19,8 @@ import java.util.Random;
 @Component
 public class Commons {
 
+    private static String CurrentTime;
+    private static final String FORMAT_DATE_HOUR = "yyyy-MM-dd HH:mm:ss";//格式化的日期+时分秒
 
     /**
      * 获取随机数数
@@ -71,6 +75,18 @@ public class Commons {
             return DateKit.formatDateByUnixTime(unixTime,patten);
         }
         return "";
+    }
+
+    /**
+     * 得到当前的时间，精确到毫秒,共19位 返回格式:yyyy-MM-dd HH:mm:ss
+     *
+     * @return String
+     */
+    public static String getCurrentTime() {
+        Date NowDate = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat(FORMAT_DATE_HOUR);
+        CurrentTime = formatter.format(NowDate);
+        return CurrentTime;
     }
 
     /**

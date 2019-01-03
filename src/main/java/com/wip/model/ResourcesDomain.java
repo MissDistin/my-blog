@@ -6,4 +6,5 @@ package com.wip.model;
  * @Description: 资源分享
  */
 public class ResourcesDomain {
+
 }

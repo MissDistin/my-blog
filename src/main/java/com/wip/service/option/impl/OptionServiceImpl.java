@@ -28,16 +28,16 @@ public class OptionServiceImpl implements OptionService {
 
     @Override
     @Cacheable(value = "optionsCache", key = "'options_'")
-    public List<OptionsDomain> getOptions() {
+    public OptionsDomain getOptions() {
         return optionDao.getOptions();
     }
 
     @Override
     @Transactional
     @CacheEvict(value = {"optionsCache", "optionCache"}, allEntries = true, beforeInvocation = true)
-    public void saveOptions(Map<String, String> options) {
-        if (null != options && !options.isEmpty()) {
-            options.forEach(this::updateOptionByName);
+    public void saveOptions(OptionsDomain options) {
+        if (null != options ) {
+            optionDao.saveOptions(options);
         }
     }
 
@@ -48,8 +48,8 @@ public class OptionServiceImpl implements OptionService {
         if (StringUtils.isBlank(name))
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
         OptionsDomain option = new OptionsDomain();
-        option.setName(name);
-        option.setValue(value);
+//        option.setName(name);
+//        option.setValue(value);
         optionDao.updateOptionByName(option);
     }
 
@@ -58,6 +58,7 @@ public class OptionServiceImpl implements OptionService {
     public OptionsDomain getOptionByName(String name) {
         if (StringUtils.isBlank(name))
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
-        return optionDao.getOptionByName(name);
+//        return optionDao.getOptionByName(name);
+        return null;
     }
 }

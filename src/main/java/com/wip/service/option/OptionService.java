@@ -16,21 +16,21 @@ import java.util.Map;
 public interface OptionService {
 
     /**
-     * 获取全部网站配置
+     * 获取系统相关信息
      * @return
      */
-    List<OptionsDomain> getOptions();
+    OptionsDomain getOptions();
 
     /**
      * 保存系统设置
-     * @param querys
+     * @param
      */
-    void saveOptions(Map<String,String> querys);
+    void saveOptions(OptionsDomain options);
 
     /**
      * 更新网站配置
-     * @param s
-     * @param s1
+     * @param
+     * @param
      */
     void updateOptionByName(String name, String value);
 

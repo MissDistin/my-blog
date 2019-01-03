@@ -123,11 +123,11 @@ public class BaseInterceptor implements HandlerInterceptor {
 
     private void initSiteConfig(HttpServletRequest request) {
         if (WebConst.initConfig.isEmpty()) {
-            List<OptionsDomain> options = optionService.getOptions();
+//            List<OptionsDomain> options = optionService.getOptions();
             Map<String, String> querys = new HashMap<>();
-            options.forEach(option -> {
-                querys.put(option.getName(),option.getValue());
-            });
+//            options.forEach(option -> {
+//                querys.put(option.getName(),option.getValue());
+//            });
             WebConst.initConfig = querys;
         }
     }

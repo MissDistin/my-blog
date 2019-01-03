@@ -5,46 +5,20 @@
  **/
 package com.wip.model;
 
+import lombok.Data;
+
 /**
- * 网站配置项
+ * 系统相关信息
  */
+@Data
 public class OptionsDomain {
 
-    /**
-     * 名称
-     */
-    private String name;
-    /**
-     * 内容
-     */
-    private String value;
-
-    /**
-     * 描述
-     */
-    private String description;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    //运行天数
+    private String runDay;
+    //访问总数
+    private String visitNum;
+    //文章数量（不入库，查询所得）
+    private int articleNum;
+    //说说条数（不入库，查询所得）
+    private int chatNum;
 }

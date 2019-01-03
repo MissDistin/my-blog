@@ -1,19 +1,13 @@
 package com.wip.model;
 
 import com.wip.utils.UUID;
+import lombok.Data;
 
 /**
  * 基本的实体类
  */
+@Data
 public class BaseDomain {
 
-    private String id;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = UUID.UU32();
-    }
+    private String id = UUID.UU32();
 }

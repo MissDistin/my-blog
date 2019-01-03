@@ -9,9 +9,12 @@ public class APIResponse <T> {
 
     private static final String CODE_SUCCESS = "success";
 
+    private static final String FILE_TYPE = "success";
+
     private static final String CODE_FAIL = "fail";
 
     private String code;
+    private String fileType;
     private T data;
     private String msg;
 
@@ -40,6 +43,10 @@ public class APIResponse <T> {
     public static APIResponse success(Object data) {
         return new APIResponse(CODE_SUCCESS, data);
     }
+
+    public String getFileType() { return fileType; }
+
+    public void setFileType(String fileType) { this.fileType = fileType; }
 
     public static APIResponse fail(String msg) {
         return new APIResponse(CODE_FAIL,msg);

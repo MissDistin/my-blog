@@ -56,6 +56,14 @@
         c.chid = #{chid, jdbcType=VARCHAR}
     </select>
 
+    <!--右侧查询说说数量-->
+    <select id="findChaNum" resultType="java.lang.Integer">
+        SELECT
+        count(chid)
+        FROM
+        <include refid="BASE_TABLE"/>
+    </select>
+
     <!--更新评论状态-->
     <update id="updateChatByCid" parameterType="com.wip.model.ChatDomain">
         UPDATE

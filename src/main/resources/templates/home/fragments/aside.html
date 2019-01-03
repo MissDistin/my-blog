@@ -38,14 +38,9 @@
         <div class="data-info">
             <ul>
                 <li><strong id="myday">0</strong><span id="htmer_time">运行天数</span></li>
-                <li>
-                    <strong id="strong_ip">
-                        <b class="cnzz_load">5</b>
-                    </strong>
-                    <span>今日访问ip</span>
-                </li>
-                <li style="display:none"><strong id="myip">待定</strong><span>今日访问ip</span></li>
-                <li><strong id="newcount">待定</strong><span>文章数量</span></li>
+                <li><strong id="strong_ip"><b class="cnzz_load" th:text="${options.visitNum}"></b></strong><span>访问总数</span></li>
+                <li style="display:none"><strong id="myip" th:text="${options.articleNum}"></strong><span>文章数量</span></li>
+                <li><strong id="newcount" th:text="${options.chatNum}"></strong><span>说说数量</span></li>
             </ul>
         </div>
         <!--搜索-->
@@ -94,31 +89,6 @@
                 </ul>
             </div>
         </div>
-        <!--推荐图文-->
-        <!--<div class="article-push  bg-color animation-div">-->
-            <!--<h4 class="index-title"><i class="el-asl fa fa-fire"></i>推荐图文-->
-                <!--<small>Push Article</small>-->
-            <!--</h4>-->
-            <!--<ul>-->
-                <!--<th:block th:each="post : ${contents}">-->
-                <!--<li>-->
-                    <!--<div class="arcimg img_loading">-->
-                        <!--<a href="/article/131.html" target="_blank">-->
-                            <!--<img th:src="@{/home/images/default/default.png}">-->
-                        <!--</a>-->
-                    <!--</div>-->
-                    <!--<div class="arc-right">-->
-                        <!--<h4 class="blue-text"><a href="/article/131.html" th:text="${post.title}"></a></h4>-->
-                        <!--<th:block th:utext="${commons.article(commons.subStr(post.content,50))}"></th:block>-->
-                        <!--<ul>-->
-                            <!--<li><a title="发表于2018-03-15"><i class="fa fa-clock-o"></i>2018-03-15</a></li>-->
-                            <!--<li><a title="1034次浏览"><i class="fa fa-fire"></i>1034</a></li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
-                <!--</li>-->
-                <!--</th:block>-->
-            <!--</ul>-->
-        <!--</div>-->
         <!--文章排行tab-->
         <div class="mytab bg-color animation-div">
             <div class="tab-btn">

@@ -20,7 +20,7 @@ public interface OptionDao {
      * 获取网站全部信息
      * @return
      */
-    List<OptionsDomain> getOptions();
+    OptionsDomain getOptions();
 
     /**
      * 更新网站配置
@@ -34,4 +34,10 @@ public interface OptionDao {
      * @return
      */
     OptionsDomain getOptionByName(String name);
+
+    /**
+     * 保存系统信息
+     * @param options
+     */
+    void saveOptions(OptionsDomain options);
 }
