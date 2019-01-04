@@ -269,8 +269,21 @@ public class HomeController extends BaseController {
     }
 
     @ApiOperation("说说内容页")
+    @GetMapping(value = "/chatView")
+    public String chatView(HttpServletRequest request,
+                       @ApiParam(name = "page", value = "页数", required = false)
+                       @RequestParam(name = "page", required = false, defaultValue = "1") int page,
+                       @ApiParam(name = "limit", value = "每页数量", required = false)
+                       @RequestParam(name = "limit", required = false, defaultValue = "10") int limit) {
+//        PageInfo<ChatDomain> chat = chatService.getChat(new ChatDomain(), page, limit);
+//        request.setAttribute("chat", chat);
+//        aside(request);
+        return "home/chat";
+    }
+
+    @ApiOperation("说说内容页")
     @GetMapping(value = "/chat")
-    public String chat(HttpServletRequest request,
+    public void chat(HttpServletRequest request,
                        @ApiParam(name = "page", value = "页数", required = false)
                        @RequestParam(name = "page", required = false, defaultValue = "1") int page,
                        @ApiParam(name = "limit", value = "每页数量", required = false)
@@ -278,7 +291,7 @@ public class HomeController extends BaseController {
         PageInfo<ChatDomain> chat = chatService.getChat(new ChatDomain(), page, limit);
         request.setAttribute("chat", chat);
         aside(request);
-        return "home/chat";
+//        return "home/chat";
     }
 
     @ApiOperation("进入说说详情页")
